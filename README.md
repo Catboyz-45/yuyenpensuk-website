@@ -1,164 +1,70 @@
-# เว็บไซต์ + ระบบจัดการ (CMS) — บริษัท อยู่เย็นเป็นสุข วิศวกรรม จำกัด
+# อยู่เย็นเป็นสุข วิศวกรรม — Production Final
 
-ระบบเว็บไซต์เต็มรูปแบบ: เว็บหลัก 13 หน้า + ระบบแอดมินแยกเว็บ (Login, 2FA, CRUD ทุกโมดูล, อัปโหลดรูป/PDF)
-ดีไซน์โทน Pine Green + Brass · ไอคอน Iconify · Responsive รองรับทุกขนาดหน้าจอ
+เว็บบริษัท + CMS สำหรับใช้งานจริงด้วย Docker
 
-> **สำคัญ: เว็บหลักกับระบบแอดมินแยกกันคนละเว็บโดยสิ้นเชิง**
-> คนละโปรเซส คนละพอร์ต — เว็บหลักไม่มีลิงก์หรือเส้นทางใดเชื่อมไปยังระบบแอดมินเลย
-
-## วิธีติดตั้งและรัน (ครั้งแรก)
-
-ต้องมี **Node.js 18 ขึ้นไป** (ดาวน์โหลดที่ https://nodejs.org)
+## Production entry point
 
 ```bash
-# 1. เปิดโฟลเดอร์นี้ใน VS Code แล้วเปิด Terminal (Ctrl+`)
-# 2. ติดตั้ง dependencies (ครั้งเดียว)
-npm install
-
-# 3. รันเว็บหลัก
 npm start
-
-# 4. เปิด Terminal อีกหน้าต่าง แล้วรันระบบแอดมิน (คนละโปรเซส)
-npm run start:admin
 ```
 
-จากนั้นเปิดเบราว์เซอร์:
+Docker Compose ใช้ `deploy-server.js` เป็น entry point เดียว โดยแยกเว็บลูกค้าและ `/admin` ตาม hostname เช่น `admin.yourdomain`.
 
-| ระบบ | URL | คำสั่งรัน |
-|---|---|---|
-| เว็บไซต์หลัก | http://localhost:3000 | `npm start` |
-| ระบบแอดมิน (แยกเว็บ) | http://localhost:4000/admin | `npm run start:admin` |
+## Persistent data
 
-**บัญชีแอดมินเริ่มต้น:** `admin` / `admin123`
-เข้าระบบครั้งแรกแล้วให้ไปที่ **Profile → เปลี่ยนรหัสผ่าน** ทันที
+ข้อมูล CMS และไฟล์ที่อัปโหลดต้องเก็บนอก container:
 
-ทั้งสองเว็บใช้ไฟล์ฐานข้อมูลเดียวกัน (`data/db.json`) — แก้เนื้อหาในแอดมินแล้วเว็บหลักอัปเดตตาม
-
-ระหว่างพัฒนา ใช้ `npm run dev` (เว็บหลัก) และ `npm run dev:admin` (แอดมิน) — แก้โค้ดแล้วรีสตาร์ตเอง
-
-### ตอน deploy จริง
-ชี้โดเมนแยกกัน เช่น `www.yuyenpensuk.co.th` → เว็บหลัก และ `admin.yuyenpensuk.co.th` → ระบบแอดมิน
-(รันคนละ service/container ได้ ให้ทั้งคู่ชี้ `DATA_DIR` และ `UPLOAD_DIR` ไปที่โฟลเดอร์เดียวกัน)
-
-## ฟีเจอร์
-
-### เว็บไซต์ (Frontend) — 13 หน้า
-- **หน้าแรก** — Hero, จุดเด่น, บริการ 4 อย่าง, **แอร์ขายดีพร้อมราคา**, ผลงาน, แบรนด์, ค่าบริการ/ชำระเงิน, CTA
-- **บริการ** `/services` + รายละเอียด — 4 บริการ (ติดตั้งแอร์ / ล้าง-ซ่อม-เติมน้ำยา / จำหน่ายแอร์+อะไหล่ / งานไฟฟ้า) พร้อมขั้นตอนการทำงาน
-- **สินค้า** `/products` — กริดแอร์ 8 รุ่น **แสดงราคาทุกใบ** + ค้นหา + กรองยี่ห้อ
-- **ยี่ห้อสินค้าแยกหน้า** `/brands/:ชื่อยี่ห้อ` — ดูสินค้าเฉพาะแบรนด์นั้น พร้อมชิปสลับยี่ห้อ
-- **รายละเอียดสินค้า** `/products/:id` — **แกลเลอรีรูป 4 ภาพ hover ซูม + คลิกดูพรีวิวเต็มจอ (lightbox)** + ราคา + สเปก + ปุ่มสั่งซื้อ
-- **ค่าบริการติดตั้งแอร์** `/pricing-install` และ **ค่าบริการล้างแอร์** `/pricing-clean` — ตารางราคาตามขนาด/ประเภท พร้อมแท็บสลับ
-- **การชำระเงิน** `/payment` — ช่องทางชำระ 4 แบบ + เงื่อนไขการชำระ
-- **ผลงาน** `/projects` + รายละเอียด (รูปคลิกดูพรีวิวได้) / **ติดต่อเรา** `/contact` (Google Maps)
-
-**ลูกเล่นที่ใส่ไว้:** เมาส์ชี้รูปแล้วซูมนุ่มนวลพร้อมไอคอนแว่นขยาย · คลิกรูปเปิดพรีวิวเต็มจอเลื่อนซ้าย-ขวาได้ (กด Esc ปิด) · เนื้อหาค่อย ๆ ปรากฏเมื่อเลื่อนถึง · ไอคอนทั้งเว็บใช้ **Iconify** (ไม่มี emoji เหลือแล้ว) · เคารพ `prefers-reduced-motion`
-
-> **หมายเหตุ:** หน้า "เกี่ยวกับเรา" และ "ข่าวสาร" ถูกตัดออกจากเว็บไซต์หน้าบ้าน · เนื้อหางานสุขาภิบาล ดับเพลิง และ M&E ถูกตัดออกทั้งเว็บแล้ว เหลือเฉพาะงานแอร์
-> (ระบบแอดมินยังจัดการข้อมูลข่าวสาร/ประวัติบริษัทได้ตามปกติ เผื่อเปิดใช้ภายหลัง)
-
-> **หมายเหตุ:** หน้า "เกี่ยวกับเรา" และ "ข่าวสาร" ถูกตัดออกจากเว็บไซต์หน้าบ้านตามที่ต้องการ
-> (ระบบแอดมินยังจัดการข้อมูลข่าวสาร/ประวัติบริษัทได้ตามปกติ เผื่อเปิดใช้ภายหลัง)
-
-### ระบบแอดมิน (CMS)
-- **Login + 2FA** — รองรับ Google/Microsoft Authenticator (เปิดใช้ได้ที่หน้า Profile สแกน QR)
-- **Dashboard** — สถิติ, ข่าวล่าสุด, เมนูด่วน
-- **Company** — ข้อมูลบริษัท โลโก้ ช่องทางติดต่อ ลิงก์ Google Maps
-- **Banner** — เพิ่ม/แก้ไข/ลบ, จัดลำดับ, สวิตช์เปิด-ปิดการแสดงผล
-- **Services / Products / Projects / News** — CRUD ครบ อัปโหลดรูป (สินค้าแนบ PDF Catalog ได้, ข่าวมีสถานะร่าง/เผยแพร่)
-- **Admins** — จัดการผู้ดูแล (เฉพาะ Super Admin), 2 ระดับสิทธิ์: Super Admin / Editor, รีเซ็ตรหัสผ่าน
-- **Profile** — แก้ข้อมูลส่วนตัว เปลี่ยนรหัสผ่าน เปิด/ปิด 2FA
-
-## โครงสร้างโปรเจกต์
-
-```
-├── server.js            # จุดเริ่มต้นแอป Express
-├── database.js          # ฐานข้อมูล JSON (data/db.json) + ข้อมูลตัวอย่าง
-├── routes/
-│   ├── site.js          # เส้นทางหน้าเว็บไซต์
-│   └── admin.js         # เส้นทางระบบแอดมิน (Login, 2FA, CRUD)
-├── middleware/auth.js   # ตรวจสอบสิทธิ์
-├── views/               # เทมเพลต EJS (site/, admin/, partials/)
-├── public/              # CSS, JS, รูปภาพ
-├── uploads/             # ไฟล์ที่อัปโหลดจากระบบแอดมิน
-└── data/db.json         # ข้อมูลทั้งหมด (สร้างอัตโนมัติครั้งแรกที่รัน)
+```text
+/opt/yuyenpensuk/data    -> /app/data
+/opt/yuyenpensuk/uploads -> /app/uploads
 ```
 
-## การนำขึ้นออนไลน์ (Deploy)
+ห้ามลบหรือแทนที่สองโฟลเดอร์นี้ตอน deploy code ใหม่
 
-> **สำคัญ:** ตอนพัฒนาที่เครื่องตัวเอง ใช้ `npm start` + `npm run start:admin` แยกกันตามปกติ (ไฟล์
-> `server.js` / `admin-server.js`) แต่ตอน **deploy ขึ้น hosting จริง ให้ใช้ `npm run start:deploy`**
-> (ไฟล์ `deploy-server.js`) แทน — เพราะโฮสติ้งส่วนใหญ่ (Render, Railway) ให้ดิสก์เก็บข้อมูลถาวร
-> ได้แค่ 1 ก้อนต่อ 1 เซอร์วิส ถ้าแยก deploy เว็บหลักกับแอดมินเป็นคนละเซอร์วิส ข้อมูลจะไม่ sync กัน
-> (แก้ในแอดมินแล้วเว็บจริงไม่อัปเดต) — `deploy-server.js` รวมทั้งสองแอปไว้ในโปรเซสเดียว ใช้ดิสก์
-> เดียวกันจริง ๆ แต่ยัง **แยกกันสนิทเหมือนเดิมทุกประการ** โดยใช้ชื่อโดเมนเป็นตัวแบ่งแทน:
-> - `www.yourdomain.com` (หรือโดเมนหลัก) → เว็บหลัก
-> - `admin.yourdomain.com` → ระบบแอดมิน (คนละ session cookie, คนละ URL, ไม่มีลิงก์เชื่อมกันในหน้าเว็บ)
+## Security
 
-### แบบง่ายสุด: Render.com
-1. อัปโหลดโปรเจกต์ขึ้น GitHub (private repo ได้) — ทำไปแล้ว ✅
-2. Render → New → Web Service → เชื่อม repo
-3. Build Command: `npm install` · **Start Command: `npm run start:deploy`**
-4. เพิ่ม **Disk**: mount path `/data` (ขนาด 1GB พอ) — ต้องใช้แพลน Starter ขึ้นไป (~$7/เดือน) เพราะ
-   แพลนฟรีของ Render ไม่มีดิสก์ถาวร (ข้อมูลจะหายทุกครั้งที่เซิร์ฟเวอร์รีสตาร์ต)
-5. ตั้ง Environment Variables:
-   - `DATA_DIR` = `/data`
-   - `UPLOAD_DIR` = `/data/uploads`
-   - `SESSION_SECRET` = ค่าสุ่มยาว ๆ (ดูวิธีสร้างด้านล่าง)
-   - `NODE_ENV` = `production`
-   - `SITE_URL` = โดเมนจริง เช่น `https://www.yuyenpensuk.co.th`
-6. ผูกโดเมน 2 ชื่อเข้ากับ**เซอร์วิสเดียวกันนี้**ทั้งคู่ (Settings → Custom Domain):
-   - `www.yuyenpensuk.co.th` (และ/หรือ `yuyenpensuk.co.th`)
-   - `admin.yuyenpensuk.co.th`
-   Render จะออก SSL/HTTPS ให้อัตโนมัติทั้งสองโดเมน
-7. ที่ผู้ให้บริการโดเมน (เช่น GoDaddy, Cloudflare) ตั้งค่า DNS ตามที่ Render บอกไว้สำหรับทั้ง 2 โดเมนย่อย
+- Multer 2.4.0
+- จำกัดขนาดและจำนวน multipart fields/files พร้อม fieldArrayIndexLimit
+- ตรวจ magic bytes ของไฟล์ก่อนยอมรับ
+- CSRF token สำหรับ POST ของ Admin
+- Session cookie: HttpOnly, SameSite=Lax, Secure ใน production
+- Session regeneration หลัง login/2FA
+- Login/OTP rate limit
+- bcrypt password hashing
+- Content-Security-Policy และ security headers
+- Docker รันด้วย user `node`, drop capabilities และ `no-new-privileges`
+- container filesystem เป็น read-only ยกเว้น persistent mounts และ `/tmp`
 
-ทดสอบก่อน deploy จริงได้ที่เครื่องตัวเองด้วยคำสั่ง `FORCE_APP=admin npm run start:deploy` (จะเปิด
-แอดมินที่ localhost:3000 ตรง ๆ โดยไม่ต้องตั้งค่าโดเมนย่อยก่อน) หรือรันเฉย ๆ `npm run start:deploy`
-เพื่อดูเว็บหลัก
+## Product images
 
-## ความปลอดภัย — เช็คลิสต์ก่อน deploy จริง
+มีรูปสินค้า Local ที่ตรวจแล้ว 111 JPG สำหรับ 30 รุ่น และ runtime ไม่ดาวน์โหลดรูปจากเว็บไซต์ภายนอก
 
-ระบบมีการป้องกันพื้นฐานอยู่แล้ว: เข้ารหัสรหัสผ่านด้วย bcrypt, 2FA (TOTP), ป้องกัน CSRF ทุกฟอร์ม,
-จำกัดจำนวนครั้งเดารหัสผ่าน/OTP (ผิด 5 ครั้งล็อก 15 นาที), security headers พื้นฐาน,
-ไม่รับอัปโหลดไฟล์ SVG (กัน XSS), และตรวจสอบ URL ก่อนฝัง iframe แผนที่
+## First production setup
 
-**แต่ต้องทำเองก่อน deploy จริงเสมอ:**
-1. **ตั้งค่า `SESSION_SECRET`** เป็นค่าสุ่มยาว ๆ เสมอ (ห้ามปล่อยใช้ค่า default ในซอร์สโค้ด) —
-   สร้างได้ด้วย `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`
-2. **ตั้ง `NODE_ENV=production`** เพื่อให้ cookie ส่งผ่าน HTTPS เท่านั้น (ป้องกัน session ถูกดักฟัง)
-3. **เปลี่ยนรหัสผ่านเริ่มต้น** (`admin` / `admin123`) ทันทีหลัง deploy ครั้งแรก แล้วเปิดใช้ 2FA
-4. Deploy หลัง HTTPS เสมอ (Render/Railway ให้ฟรีอัตโนมัติ) — ห้ามใช้ HTTP ล้วนกับระบบแอดมิน
+1. คัดลอก `.env.example` เป็น `.env`
+2. ตั้ง `SESSION_SECRET` เป็นค่าสุ่มยาวอย่างน้อย 32 ตัวอักษร
+3. ตั้ง `INITIAL_ADMIN_PASSWORD` อย่างน้อย 12 ตัวอักษร
+4. เตรียม `/opt/yuyenpensuk/data` และ `/opt/yuyenpensuk/uploads`
+5. รัน:
 
-### แบบ VPS (DigitalOcean / โฮสต์ไทย)
-บน VPS ไม่มีข้อจำกัดเรื่องดิสก์ต่อเซอร์วิสเหมือน Render/Railway (เป็นเซิร์ฟเวอร์ทั้งเครื่องของเราเอง)
-เลยใช้ `server.js` + `admin-server.js` แยกกันแบบเดิมได้เลย ไม่ต้องใช้ `deploy-server.js`:
-1. ติดตั้ง Node 18+, `npm install`
-2. รันด้วย PM2 ทั้งสองโปรเซส: `pm2 start server.js --name site` และ `pm2 start admin-server.js --name admin`
-3. ตั้ง Nginx reverse proxy: โดเมนหลัก → พอร์ต 3000 (site), `admin.` โดเมน → พอร์ต 4000 (admin)
-4. ออก SSL ด้วย Let's Encrypt (`certbot`) ให้ทั้งสองโดเมนย่อย
+```bash
+docker compose up -d --build
+```
 
+ตรวจ:
 
-## SEO ที่ติดตั้งไว้แล้วในระบบ
-- Title + Meta Description แยกรายหน้า ครบทั้ง 11 หน้า
-- Open Graph — แชร์ลิงก์ผ่าน Line/Facebook ขึ้นการ์ดรูป+คำอธิบายสวยงาม
-- Canonical URL ทุกหน้า (ต้องตั้ง `SITE_URL` ให้ตรงโดเมนจริง)
-- `/sitemap.xml` สร้างอัตโนมัติจากข้อมูลจริง (บริการ/สินค้า/ผลงาน/ข่าวที่เผยแพร่)
-- `/robots.txt` เปิดให้บอทเก็บทุกหน้า ยกเว้น /admin
-- Structured Data (Schema.org HVACBusiness) — ชื่อ ที่อยู่ เบอร์โทร เวลาทำการ
+```bash
+docker compose ps
+docker compose logs --tail=100 web
+curl http://127.0.0.1:3000/healthz
+```
 
-### หลังเว็บออนไลน์แล้ว ให้ทำต่อ (ฟรีทั้งหมด)
-1. **Google Search Console** — ยืนยันโดเมน แล้ว submit `sitemap.xml`
-2. **Google Business Profile** — สำคัญที่สุดสำหรับธุรกิจช่างแอร์! ปักหมุดร้านบน Google Maps ใส่รูปผลงาน ขอรีวิวจากลูกค้า
-3. แก้เบอร์โทร/อีเมล/Line จริงในหน้าแอดมิน → Company
+## Deploy code ใหม่
 
-## หมายเหตุสำคัญ
+อัปเดตเฉพาะ code ใน `/opt/yuyenpensuk/app` แล้วรัน:
 
-- **ฐานข้อมูล** เป็นไฟล์ `data/db.json` — สำรองข้อมูลโดยก๊อปปี้ไฟล์นี้ + โฟลเดอร์ `uploads/`
-  ถ้าต้องการเริ่มข้อมูลใหม่ทั้งหมด ให้ลบ `data/db.json` แล้วรันใหม่
-- **ก่อนขึ้นเซิร์ฟเวอร์จริง (Production):**
-  1. ตั้งค่า `SESSION_SECRET` เป็นค่าสุ่มยาว ๆ: `SESSION_SECRET=xxxx npm start`
-  2. เปลี่ยนรหัสผ่านแอดมินเริ่มต้น และเปิดใช้ 2FA
-  3. ใช้งานผ่าน HTTPS (เช่นวางหลัง Nginx + Let's Encrypt)
-  4. ถ้าข้อมูลเยอะขึ้น แนะนำย้ายจาก JSON ไป MySQL/PostgreSQL (โครงสร้าง routes เดิมใช้ต่อได้)
-- เบอร์โทร/อีเมล/Line ในข้อมูลตัวอย่างเป็น placeholder — แก้ได้ที่ **แอดมิน → Company**
+```bash
+docker compose up -d --build
+```
+
+อย่าลบ `/opt/yuyenpensuk/data` หรือ `/opt/yuyenpensuk/uploads`

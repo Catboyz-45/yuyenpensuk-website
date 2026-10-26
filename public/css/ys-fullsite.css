@@ -1,0 +1,44 @@
+/* YS Full Site Design — additive and scoped. Existing templates/routes preserved. */
+:root{--ys-dark:#003d29;--ys-deep:#005235;--ys-green:#138747;--ys-lime:#c5f775;--ys-soft:#f1f8f3}
+body{background:#f8fbf9;color:#123c2b}
+.sh{background:#fff!important;box-shadow:0 6px 28px rgba(0,59,35,.075);border-bottom:1px solid #e3efe6}
+.sh nav a{font-weight:650}.sh nav a:hover,.sh nav a.act{color:#087c42}
+.sh .tel{background:linear-gradient(115deg,#158e4b,#00552f)!important;color:white!important;border-radius:100px}
+/* Hero: real visual asset rather than decorative orb. */
+body.yp-home .hero-v4{background:linear-gradient(112deg,#003e2b 0%,#006440 58%,#158f4a 100%)!important;position:relative;overflow:hidden}
+body.yp-home .hero-v4:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 62% 5%,rgba(188,255,123,.18),transparent 40%);pointer-events:none}
+body.yp-home .hv4-grid{align-items:center;gap:clamp(20px,3vw,52px)}
+body.yp-home .hv4-grid>div:first-child{position:relative;z-index:2}
+body.yp-home .hv4-grid h1{font-weight:800;letter-spacing:-.035em;line-height:1.17;text-wrap:balance}
+body.yp-home .hv4-grid h1 em{font-style:normal;color:#c9ff84}
+body.yp-home .hv4-visual{position:relative;min-height:430px;border-radius:30px;overflow:hidden;background:linear-gradient(110deg,rgba(0,77,46,.12),rgba(0,59,32,.1)),url('/images/ys-design/hero-main.webp') center / cover no-repeat;box-shadow:0 25px 65px rgba(0,26,16,.25);border:1px solid rgba(255,255,255,.3)}
+body.yp-home .hv4-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,75,45,.32),transparent 40%);pointer-events:none}
+body.yp-home .hv4-orb,body.yp-home .hv4-ico,body.yp-home .hv4-card{display:none!important}
+body.yp-home .hv4-visual:before{content:"งานระบบปรับอากาศและวิศวกรรม";position:absolute;bottom:24px;left:24px;z-index:2;color:#fff;font-weight:700;background:rgba(0,63,40,.83);border:1px solid rgba(255,255,255,.28);padding:12px 18px;border-radius:100px;backdrop-filter:blur(12px)}
+body.yp-home .hv4-stats .s{background:rgba(0,54,36,.48)!important;border:1px solid rgba(218,255,214,.25)!important;border-radius:18px!important}
+body.yp-home .hv4-cta .btn{border-radius:100px;font-weight:700}
+/* Inner page editorial mastheads with contextual photos */
+body.ys-designed .page-hero{position:relative;isolation:isolate;overflow:hidden;min-height:290px;display:flex;align-items:center;background:linear-gradient(100deg,#003c2a 0%,#00653c 65%,#0c8a4c 100%)!important;color:#fff!important}
+body.ys-designed .page-hero:before{content:"";position:absolute;z-index:-1;right:0;top:0;bottom:0;width:52%;background:linear-gradient(90deg,#00613c 0%,rgba(0,82,49,.12) 32%,rgba(0,45,31,.06) 100%),var(--ys-hero-photo) center / cover no-repeat;opacity:.88}
+body.ys-designed .page-hero:after{content:"";position:absolute;z-index:-1;right:38%;top:-45%;height:170%;width:110px;transform:rotate(27deg);background:linear-gradient(90deg,rgba(169,255,105,.03),rgba(183,255,102,.27),transparent)}
+body.ys-designed .page-hero .sec{width:100%;position:relative;z-index:1}
+body.ys-designed .page-hero h1{color:#fff!important;font-size:clamp(30px,3.5vw,51px)!important;font-weight:800;line-height:1.2;max-width:720px;text-shadow:0 2px 12px rgba(0,0,0,.12)}
+body.ys-designed .page-hero p{color:#e4f6e9!important;max-width:610px;font-size:clamp(15px,1.25vw,18px)}
+body.ys-designed .page-hero .crumb2,body.ys-designed .page-hero .crumb2 a,body.ys-designed .page-hero .eyebrow-dot{color:#d2ffc1!important}
+body.ys-services{--ys-hero-photo:url('/images/ys-design/hero-services.webp')}
+body.ys-products,body.ys-brand{--ys-hero-photo:url('/images/ys-design/hero-products.webp')}
+body.ys-projects{--ys-hero-photo:url('/images/ys-design/hero-projects.webp')}
+body.ys-contact,body.ys-payment{--ys-hero-photo:url('/images/ys-design/hero-contact.webp')}
+body.ys-pricing-install,body.ys-pricing-clean{--ys-hero-photo:url('/images/ys-design/hero-services.webp')}
+/* Shared cards and section rhythm */
+body.ys-designed .sec{scroll-margin-top:88px}
+body.ys-designed .card,body.ys-designed .ctc,body.ys-designed .brand-block,body.ys-designed .why-row,body.ys-designed .svc-block,body.ys-designed .map{border-radius:20px;box-shadow:0 12px 35px rgba(12,64,39,.065);border-color:#e0eee3;transition:box-shadow .2s ease,transform .2s ease}
+body.ys-designed a.card:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(12,64,39,.13)}
+body.ys-designed .btn{border-radius:999px}
+body.ys-designed .shead h2{letter-spacing:-.025em}
+body.ys-designed .map{overflow:hidden}
+body.ys-designed .product-photo{background:#fff}
+body.ys-designed .sh{position:sticky;top:0;z-index:90}
+@media(max-width:900px){body.yp-home .hv4-grid{grid-template-columns:1fr!important}body.yp-home .hv4-visual{min-height:320px}body.ys-designed .page-hero:before{width:75%;opacity:.35}body.ys-designed .page-hero{min-height:250px}}
+@media(max-width:600px){body.yp-home .hv4-visual{min-height:250px;border-radius:22px}body.yp-home .hv4-visual:before{font-size:12px;bottom:14px;left:14px}body.ys-designed .page-hero{min-height:220px}body.ys-designed .page-hero:before{width:100%;opacity:.23}body.ys-designed .page-hero:after{display:none}body.ys-designed .page-hero h1{font-size:30px!important}body.ys-designed .page-hero .sec{padding-top:36px;padding-bottom:36px}}
+@media(prefers-reduced-motion:reduce){body.ys-designed .card,body.ys-designed .ctc{transition:none}}

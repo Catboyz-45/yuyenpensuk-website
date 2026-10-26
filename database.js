@@ -6,6 +6,7 @@
 const fs = require("fs");
 const path = require("path");
 const bcrypt = require("bcryptjs");
+const airconCatalog = require("./catalog");
 
 const DB_PATH = process.env.DATA_DIR
   ? path.join(process.env.DATA_DIR, "db.json")
@@ -14,22 +15,51 @@ const DB_PATH = process.env.DATA_DIR
 let db = null;
 let lastMtimeMs = 0;
 
-/** โหลดฐานข้อมูล (สร้างใหม่พร้อมข้อมูลตัวอย่างถ้ายังไม่มี) */
+/** โหลดฐานข้อมูลจากไฟล์ถาวร
+ * ถ้ามี db.json อยู่แล้ว จะถือว่าเป็นข้อมูลจริงของ CMS และจะไม่ถูกเขียนทับ
+ * ด้วย catalog.js ตอน startup/restart/deploy. catalog.js ใช้เฉพาะตอนสร้างฐานข้อมูลครั้งแรก
+ * เท่านั้น เพื่อให้ข้อมูลที่แอดมินเพิ่ม/แก้ไข/ลบ/อัปโหลดรูปอยู่ถาวร
+ */
 function load() {
   if (fs.existsSync(DB_PATH)) {
-    db = JSON.parse(fs.readFileSync(DB_PATH, "utf8"));
-    lastMtimeMs = fs.statSync(DB_PATH).mtimeMs;
+    try {
+      db = JSON.parse(fs.readFileSync(DB_PATH, "utf8"));
+    } catch (e) {
+      throw new Error(`Cannot read persistent database ${DB_PATH}: ${e.message}`);
+    }
+    if (process.env.NODE_ENV === "production" && Array.isArray(db.admins)) {
+      // A known default password must never be accepted in production.
+      const hasDefaultPassword = db.admins.some((admin) => {
+        try { return bcrypt.compareSync("admin123", admin.password_hash); } catch { return false; }
+      });
+      if (hasDefaultPassword) {
+        throw new Error("A default admin password is present in data/db.json. Set a strong password before starting production.");
+      }
+    }
+
+    // Existing CMS data is authoritative. Never rebuild or synchronize products
+    // from catalog.js during startup. This is what makes admin edits survive
+    // container restarts, VPS reboots, and application redeploys.
+    if (!db || typeof db !== 'object') {
+      throw new Error(`Persistent database ${DB_PATH} is not a valid JSON object`);
+    }
   } else {
     db = seed();
     save();
   }
+
+  lastMtimeMs = fs.statSync(DB_PATH).mtimeMs;
   return db;
 }
 
 /** บันทึกฐานข้อมูลลงไฟล์ */
 function save() {
-  fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
-  fs.writeFileSync(DB_PATH, JSON.stringify(db, null, 2), "utf8");
+  fs.mkdirSync(path.dirname(DB_PATH), { recursive: true, mode: 0o700 });
+  const tmp = `${DB_PATH}.tmp-${process.pid}-${Date.now()}`;
+  const payload = JSON.stringify(db, null, 2);
+  fs.writeFileSync(tmp, payload, { encoding: "utf8", mode: 0o600 });
+  fs.renameSync(tmp, DB_PATH);
+  try { fs.chmodSync(DB_PATH, 0o600); } catch {}
   lastMtimeMs = fs.statSync(DB_PATH).mtimeMs;
 }
 
@@ -101,40 +131,7 @@ function seed() {
         steps: ["ตรวจระบบไฟฟ้าหน้างาน", "ประเมินขนาดสายและเบรกเกอร์", "เสนอแนวทางและราคา", "ดำเนินการติดตั้ง / แก้ไข", "ทดสอบความปลอดภัย"],
         updated_at: now }
     ],
-    products: [
-      { id: 1, name: "Inverter FTKQ12XV2S", brand: "DAIKIN", model: "FTKQ12XV2S", type: "ติดผนัง", price: 18900, priceOld: 21500, spec: "12,300 BTU · SEER 18.52 · น้ำยา R32 · เบอร์ 5 ★★★", badge: "ขายดี", bestseller: true,
-        description: "เครื่องปรับอากาศระบบอินเวอร์เตอร์ประหยัดไฟเบอร์ 5 ทำความเย็นเร็ว เสียงเงียบ ใช้น้ำยา R32 ที่เป็นมิตรต่อสิ่งแวดล้อม เหมาะกับห้องขนาด 14–18 ตารางเมตร มาพร้อมระบบฟอกอากาศและฟังก์ชันประหยัดพลังงานอัตโนมัติ ราคารวมค่าติดตั้งมาตรฐานพร้อมท่อยาว 4 เมตร",
-        image: "https://images.pexels.com/photos/3964341/pexels-photo-3964341.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        gallery: ["https://images.pexels.com/photos/3964341/pexels-photo-3964341.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/8496404/pexels-photo-8496404.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/16848596/pexels-photo-16848596.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/13061307/pexels-photo-13061307.jpeg?auto=compress&cs=tinysrgb&w=1200"], catalog: "" },
-      { id: 2, name: "Mr.Slim MSY-KY13VF", brand: "MITSUBISHI", model: "MSY-KY13VF", type: "ติดผนัง", price: 16500, priceOld: 0, spec: "12,283 BTU · น้ำยา R32 · เบอร์ 5", badge: "", bestseller: true,
-        description: "แอร์ติดผนัง Mitsubishi Mr.Slim ระบบอินเวอร์เตอร์ ทนทาน อะไหล่หาง่าย เสียงเงียบ เหมาะกับห้องนอนและห้องทำงาน",
-        image: "https://images.pexels.com/photos/8496404/pexels-photo-8496404.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        gallery: ["https://images.pexels.com/photos/8496404/pexels-photo-8496404.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/3964341/pexels-photo-3964341.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/24828656/pexels-photo-24828656.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/3964537/pexels-photo-3964537.jpeg?auto=compress&cs=tinysrgb&w=1200"], catalog: "" },
-      { id: 3, name: "Cassette 42TSF024", brand: "CARRIER", model: "42TSF024", type: "ฝังฝ้า 4 ทิศทาง", price: 32900, priceOld: 0, spec: "24,200 BTU · กระจายลม 4 ทิศทาง", badge: "สำหรับร้านค้า", bestseller: false,
-        description: "แอร์ฝังฝ้า 4 ทิศทาง เหมาะสำหรับร้านค้า สำนักงาน พื้นที่เปิดโล่ง กระจายความเย็นทั่วถึงทุกมุมห้อง",
-        image: "https://images.pexels.com/photos/32032996/pexels-photo-32032996.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        gallery: ["https://images.pexels.com/photos/32032996/pexels-photo-32032996.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/16848596/pexels-photo-16848596.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/30572791/pexels-photo-30572791.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/6471911/pexels-photo-6471911.jpeg?auto=compress&cs=tinysrgb&w=1200"], catalog: "" },
-      { id: 4, name: "Turbo SSV-13", brand: "SAIJO DENKI", model: "SSV-13", type: "ติดผนัง", price: 15900, priceOld: 0, spec: "12,624 BTU · Turbo A.P.S · ฟอกอากาศ", badge: "", bestseller: false,
-        description: "แบรนด์ไทยคุณภาพ พร้อมระบบฟอกอากาศในตัว ทนต่อสภาพอากาศร้อนชื้นของไทยเป็นพิเศษ",
-        image: "https://images.pexels.com/photos/16848596/pexels-photo-16848596.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        gallery: ["https://images.pexels.com/photos/16848596/pexels-photo-16848596.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/3964341/pexels-photo-3964341.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/8496404/pexels-photo-8496404.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/13061307/pexels-photo-13061307.jpeg?auto=compress&cs=tinysrgb&w=1200"], catalog: "" },
-      { id: 5, name: "nanoe X CS-XKU13", brand: "PANASONIC", model: "CS-XKU13XKT", type: "ติดผนัง", price: 19500, priceOld: 0, spec: "12,000 BTU · nanoe™ X · Inverter", badge: "", bestseller: true,
-        description: "พร้อมเทคโนโลยี nanoe™ X ยับยั้งเชื้อโรคและกลิ่นไม่พึงประสงค์ ทำความเย็นเร็วและประหยัดไฟ",
-        image: "https://images.pexels.com/photos/13061307/pexels-photo-13061307.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        gallery: ["https://images.pexels.com/photos/13061307/pexels-photo-13061307.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/24828656/pexels-photo-24828656.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/8496404/pexels-photo-8496404.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/3964537/pexels-photo-3964537.jpeg?auto=compress&cs=tinysrgb&w=1200"], catalog: "" },
-      { id: 6, name: "VRV/VRF RXYQ Series", brand: "DAIKIN", model: "RXYQ-A Series", type: "ระบบรวมศูนย์", price: 0, priceOld: 0, spec: "8–60 แรงม้า · ต่อคอยล์เย็นได้สูงสุด 64 ชุด", badge: "สำหรับอาคาร", bestseller: false,
-        description: "ระบบปรับอากาศรวมศูนย์สำหรับอาคารขนาดกลาง–ใหญ่ ควบคุมแยกโซนได้ตามชั้นและช่วงเวลาทำงาน เหมาะกับอาคารสำนักงานและโรงงาน",
-        image: "https://images.pexels.com/photos/3964741/pexels-photo-3964741.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        gallery: ["https://images.pexels.com/photos/3964741/pexels-photo-3964741.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/8065903/pexels-photo-8065903.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/28726413/pexels-photo-28726413.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/14319099/pexels-photo-14319099.jpeg?auto=compress&cs=tinysrgb&w=1200"], catalog: "" },
-      { id: 7, name: "Standard MS-GY13VF", brand: "MITSUBISHI", model: "MS-GY13VF", type: "ติดผนัง", price: 14900, priceOld: 0, spec: "12,000 BTU", badge: "", bestseller: false,
-        description: "แอร์ติดผนังรุ่นมาตรฐาน คุ้มค่า ทนทาน เหมาะกับผู้เริ่มต้นหรืองบประมาณจำกัด",
-        image: "https://images.pexels.com/photos/3964537/pexels-photo-3964537.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        gallery: ["https://images.pexels.com/photos/3964537/pexels-photo-3964537.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/8496404/pexels-photo-8496404.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/16848596/pexels-photo-16848596.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/24828656/pexels-photo-24828656.jpeg?auto=compress&cs=tinysrgb&w=1200"], catalog: "" },
-      { id: 8, name: "Dual Inverter IEQ13", brand: "LG", model: "IEQ13EN1", type: "ติดผนัง", price: 17400, priceOld: 0, spec: "12,000 BTU · Dual Inverter · ThinQ WiFi", badge: "ควบคุมผ่านมือถือ", bestseller: true,
-        description: "สั่งงานผ่านมือถือด้วย LG ThinQ ประหยัดไฟด้วยคอมเพรสเซอร์ Dual Inverter เชื่อมต่อ Wi-Fi ควบคุมได้จากทุกที่",
-        image: "https://images.pexels.com/photos/24828656/pexels-photo-24828656.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        gallery: ["https://images.pexels.com/photos/24828656/pexels-photo-24828656.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/3964341/pexels-photo-3964341.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/13061307/pexels-photo-13061307.jpeg?auto=compress&cs=tinysrgb&w=1200","https://images.pexels.com/photos/8496404/pexels-photo-8496404.jpeg?auto=compress&cs=tinysrgb&w=1200"], catalog: "" }
-    ],
+    products: airconCatalog,
     projects: [
       { id: 1, title: "ติดตั้งแอร์ VRF อาคารสำนักงาน 8 ชั้น", year: "2568", category: "งานติดตั้งแอร์", place: "พระราม 9 กรุงเทพมหานคร", description: "ติดตั้งเครื่องปรับอากาศแบบ VRF ขนาดรวม 96 ตันความเย็น ครอบคลุมพื้นที่สำนักงานทั้ง 8 ชั้น พร้อมงานเดินท่อน้ำยาและงานไฟฟ้าความยาวรวมกว่า 600 เมตร ควบคุมการทำงานผ่านระบบส่วนกลาง แยกโซนตามชั้นและช่วงเวลาทำงาน ส่งมอบภายใน 60 วัน พร้อมสัญญาดูแลรักษารายปี", image: "https://images.pexels.com/photos/8065903/pexels-photo-8065903.jpeg?auto=compress&cs=tinysrgb&w=1200" },
       { id: 2, title: "ติดตั้งแอร์ร้านค้าปลีก 12 สาขา", year: "2568", category: "งานติดตั้งแอร์", place: "กรุงเทพฯ และปริมณฑล", description: "ติดตั้งเครื่องปรับอากาศให้ร้านค้าปลีก 12 สาขาทั่วกรุงเทพฯ–ปริมณฑล เลือกรุ่นและขนาดให้เหมาะกับพื้นที่ขายแต่ละสาขา ดูแลบำรุงรักษาต่อเนื่องหลังส่งมอบ", image: "https://images.pexels.com/photos/1567355/pexels-photo-1567355.jpeg?auto=compress&cs=tinysrgb&w=1200" },
@@ -188,8 +185,11 @@ function seed() {
     admins: [
       {
         id: 1,
-        username: "admin",
-        password_hash: bcrypt.hashSync("admin123", 10),
+        username: process.env.INITIAL_ADMIN_USERNAME || "admin",
+        password_hash: bcrypt.hashSync(
+          process.env.INITIAL_ADMIN_PASSWORD || (process.env.NODE_ENV === "production" ? (() => { throw new Error("INITIAL_ADMIN_PASSWORD is required before creating the production database."); })() : "admin123"),
+          10
+        ),
         name: "สมชาย ใจดี",
         email: "somchai@yuyenpensuk.co.th",
         phone: "081-000-0000",

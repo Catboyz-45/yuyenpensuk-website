@@ -1,17 +1,29 @@
-/**
- * middleware/securityHeaders.js — ใส่ HTTP header ด้านความปลอดภัยพื้นฐาน
- * (ทำหน้าที่คล้าย helmet.js แบบเบา ๆ โดยไม่ต้องเพิ่ม dependency ใหม่)
- */
+/** Security headers for both public site and admin. */
 function securityHeaders(req, res, next) {
-  // กัน Clickjacking — ห้ามเว็บอื่นเอาไปฝังใน <iframe>
+  res.removeHeader("X-Powered-By");
   res.setHeader("X-Frame-Options", "SAMEORIGIN");
-  // กันเบราว์เซอร์เดาชนิดไฟล์เอง (MIME-sniffing) ซึ่งอาจถูกใช้หลอกรันสคริปต์
   res.setHeader("X-Content-Type-Options", "nosniff");
-  // ไม่ส่ง URL หน้าปัจจุบันทั้งหมดไปเว็บปลายทางตอนกดลิงก์ออกนอกเว็บ
   res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
-  // ปิดการใช้งาน API ที่ไม่จำเป็นสำหรับเว็บนี้ (กล้อง/ไมค์/ตำแหน่ง)
   res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+  res.setHeader("Cross-Origin-Resource-Policy", "same-origin");
+  res.setHeader("Content-Security-Policy", [
+    "default-src 'self'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'self'",
+    "object-src 'none'",
+    "script-src 'self' https://code.iconify.design",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "font-src 'self' https://fonts.gstatic.com data:",
+    "img-src 'self' data: blob: https:",
+    "connect-src 'self' https://api.iconify.design",
+    "frame-src 'self' https://www.google.com https://maps.google.com",
+    "upgrade-insecure-requests"
+  ].join('; '));
+  if (process.env.NODE_ENV === "production") {
+    res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  }
   next();
 }
-
 module.exports = securityHeaders;

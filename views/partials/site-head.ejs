@@ -1,10 +1,36 @@
 <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><%= title %> — อยู่เย็นเป็นสุข วิศวกรรม | ติดตั้ง ล้าง ซ่อม จำหน่ายแอร์</title>
+<% const seoTitle = (typeof fullTitle !== 'undefined' && fullTitle) ? fullTitle : title + ' | อยู่เย็นเป็นสุข วิศวกรรม'; %>
+<title><%= seoTitle %></title>
 <%
   const defaultDesc = 'บริษัท อยู่เย็นเป็นสุข วิศวกรรม จำกัด ติดตั้ง ล้าง ซ่อม และจำหน่ายเครื่องปรับอากาศทุกยี่ห้อ พร้อมงานไฟฟ้าที่เกี่ยวข้อง บริการเขตคลองสามวาและทั่วกรุงเทพฯ โทร ' + company.phone;
   const metaDesc = (typeof desc !== 'undefined' && desc) ? desc : defaultDesc;
   const pageUrl = baseUrl + path;
+  const mapBusinessUrl = 'https://maps.app.goo.gl/ihq6FjUJYQUGhpNQ8';
+  const seoBusiness = {
+    '@context': 'https://schema.org', '@type': 'HVACBusiness',
+    '@id': baseUrl + '/#business',
+    name: (company.name || 'อยู่เย็นเป็นสุข วิศวกรรม').replace(' (สำนักงานใหญ่)', ''),
+    url: baseUrl, telephone: company.phone || undefined,
+    email: company.email || undefined,
+    alternateName: 'YUYENPENSUK ENGINEERING CO., LTD.',
+    hasMap: mapBusinessUrl,
+    sameAs: [
+      mapBusinessUrl,
+      'https://www.facebook.com/profile.php?id=61586982059119&locale=th_TH'
+    ],
+    logo: baseUrl + '/images/company-logo.png',
+    image: baseUrl + '/images/company-logo.png',
+    description: 'จำหน่าย ติดตั้ง ล้าง และดูแลรักษาเครื่องปรับอากาศ ในกรุงเทพมหานครและพื้นที่ใกล้เคียง',
+    address: {'@type':'PostalAddress', streetAddress:'594/151 ถนนหทัยราษฎร์ แขวงบางชัน', addressLocality:'เขตคลองสามวา', addressRegion:'กรุงเทพมหานคร', postalCode:'10510', addressCountry:'TH'},
+    areaServed: ['กรุงเทพมหานคร','นนทบุรี','สมุทรสาคร','นครปฐม'].map(name=>({'@type':'AdministrativeArea',name}))
+  };
+  const seoWebPage = {'@context':'https://schema.org','@type':'WebPage', '@id':pageUrl+'#webpage', url:pageUrl, name:seoTitle, description:metaDesc, inLanguage:'th-TH', about:{'@id':baseUrl+'/#business'}};
+  const seoImage = typeof ogImage !== 'undefined' && ogImage ? (ogImage.startsWith('/') ? baseUrl + ogImage : ogImage) : '';
 %>
 <meta name="description" content="<%= metaDesc %>">
 <link rel="canonical" href="<%= pageUrl %>">
@@ -12,35 +38,14 @@
 <!-- Open Graph: แชร์ผ่าน Line / Facebook แล้วขึ้นการ์ดสวย -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="อยู่เย็นเป็นสุข วิศวกรรม">
-<meta property="og:title" content="<%= title %> — อยู่เย็นเป็นสุข วิศวกรรม">
+<meta property="og:title" content="<%= seoTitle %>">
 <meta property="og:description" content="<%= metaDesc %>">
 <meta property="og:url" content="<%= pageUrl %>">
-<meta property="og:image" content="<%= typeof ogImage !== 'undefined' && ogImage ? ogImage : 'https://images.pexels.com/photos/8496404/pexels-photo-8496404.jpeg?auto=compress&cs=tinysrgb&w=1200' %>">
+<% if (seoImage) { %><meta property="og:image" content="<%= seoImage %>"><% } %>
 <meta property="og:locale" content="th_TH">
 <meta name="twitter:card" content="summary_large_image">
-<!-- Structured Data: ให้ Google รู้จักธุรกิจ (แสดงผลใน Search/Maps ได้ดีขึ้น) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HVACBusiness",
-  "name": "<%= company.name.replace(' (สำนักงานใหญ่)','') %>",
-  "description": "ติดตั้ง ล้าง ซ่อม และจำหน่ายเครื่องปรับอากาศทุกยี่ห้อ พร้อมงานไฟฟ้าที่เกี่ยวข้อง",
-  "url": "<%= baseUrl %>",
-  "telephone": "<%= company.phone %>",
-  "email": "<%= company.email %>",
-  "taxID": "<%= company.tax_id %>",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "594/151 ถนนหทัยราษฎร์ แขวงบางชัน",
-    "addressLocality": "เขตคลองสามวา",
-    "addressRegion": "กรุงเทพมหานคร",
-    "postalCode": "10510",
-    "addressCountry": "TH"
-  },
-  "openingHours": "Mo-Sa 08:00-17:30",
-  "priceRange": "฿฿"
-}
-</script>
+<!-- JSON-LD: serialize safely, including company names with quotes -->
+<script type="application/ld+json"><%- JSON.stringify([seoBusiness,seoWebPage]).replace(/</g, '\\u003c') %></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/site.css">

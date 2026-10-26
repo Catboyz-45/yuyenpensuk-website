@@ -1,60 +1,74 @@
 <!DOCTYPE html>
 <html lang="th">
-<head><%- include('../partials/site-head',{title:'สินค้า', desc:'จำหน่ายเครื่องปรับอากาศของแท้ทุกยี่ห้อ DAIKIN MITSUBISHI CARRIER PANASONIC LG SAIJO DENKI พร้อมราคาและบริการติดตั้งโดยช่างประจำบริษัท'}) %></head>
-<body>
+<head><%- include('../partials/site-head',{fullTitle:'ซื้อแอร์ แอร์บ้าน และแอร์พร้อมติดตั้ง กรุงเทพฯ | อยู่เย็นเป็นสุข', title:'เครื่องปรับอากาศ', desc:'จำหน่ายเครื่องปรับอากาศ DAIKIN, MITSUBISHI ELECTRIC, CARRIER, SAIJO DENKI, PANASONIC และ LG พร้อมข้อมูลรุ่นและบริการติดตั้ง'}) %></head>
+<body class="ys-ref ys-products ys-designed ys-products">
 <%- include('../partials/site-header') %>
-<section class="page-hero">
-  <div class="sec" style="padding:0">
+<section class="page-hero balanced-hero">
+  <div class="sec balanced-hero-inner">
     <div class="crumb2"><a href="/">หน้าแรก</a> / <b>สินค้า</b></div>
-    <span class="eyebrow-dot">Air Conditioners</span>
-    <h1>เครื่องปรับอากาศ</h1>
-    <p>จำหน่ายแอร์ของแท้ทุกยี่ห้อ พร้อมบริการติดตั้งโดยช่างประจำบริษัท ราคารวมค่าติดตั้งมาตรฐาน</p>
+    <span class="eyebrow-dot">AIR CONDITIONERS</span>
+    <h1>เลือกแอร์ให้เหมาะกับห้อง</h1>
+    <p>รวมรุ่นติดผนังจาก 6 แบรนด์ พร้อมรูปตัวเครื่องจริงของแต่ละรุ่นและข้อมูลสำคัญสำหรับตัดสินใจซื้อ</p>
   </div>
 </section>
 
 <section class="sec">
-
   <form class="srch" method="get" action="/products">
-    <div class="inpw">
-      <iconify-icon icon="mdi:magnify"></iconify-icon>
-      <input name="q" value="<%= q %>" placeholder="ค้นหาด้วยชื่อรุ่นหรือขนาดทำความเย็น">
-    </div>
+    <div class="inpw"><iconify-icon icon="mdi:magnify"></iconify-icon><input name="q" value="<%= q %>" placeholder="ค้นหาชื่อรุ่น เช่น FTKM-WV2S หรือ 12,000 BTU"></div>
     <% if(brand){ %><input type="hidden" name="brand" value="<%= brand %>"><% } %>
     <button class="btn nv">ค้นหา</button>
   </form>
 
-  <div class="chips">
+  <div class="brand-filter">
     <a class="chip <%= !brand?'on':'' %>" href="/products">ทุกยี่ห้อ</a>
     <% brands.forEach(b=>{ %><a class="chip <%= brand===b?'on':'' %>" href="/brands/<%= encodeURIComponent(b) %>"><%= b %></a><% }) %>
   </div>
 
-  <div class="g4">
-    <% products.forEach(p=>{ %>
-    <a class="card" href="/products/<%= p.id %>">
-      <div class="ph prod">
-        <% if(p.image){ %><img src="<%= p.image %>" alt="<%= p.name %>" onerror="this.style.display='none'"><% } else { %><iconify-icon class="phicon" icon="mdi:air-conditioner"></iconify-icon><% } %>
-        <% if(p.badge){ %><span class="tag" style="position:absolute;top:10px;left:10px;background:var(--pine);color:#fff"><%= p.badge %></span><% } %>
-      </div>
-      <div class="bd">
-        <span class="tag bl"><%= p.brand %></span>
-        <h3 style="margin-top:7px"><%= p.name %></h3>
-        <p><%= p.spec %></p>
-        <div class="price-row">
-          <span class="price <%= p.price ? '' : 'ask' %>"><%= p.price ? '฿'+p.price.toLocaleString() : 'สอบถามราคา' %></span>
-          <span style="display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;color:var(--pine)">ดูรายละเอียด <iconify-icon icon="mdi:arrow-right"></iconify-icon></span>
+  <div class="catalog-intro">
+    <div><strong>รูปสินค้าเน้นตัวเครื่อง</strong><span>พื้นขาว · เห็นตัวเครื่องเต็มชิ้น · ไม่เอารูปห้องหรือรีโมตมาปน</span></div>
+    <div><strong>ข้อมูลสำคัญ</strong><span>แบรนด์ · รุ่น · BTU · ระบบ · น้ำยา</span></div>
+    <div><strong>เลือกซื้อได้ง่าย</strong><span>กดรุ่นเพื่อดูแกลเลอรีและรายละเอียดเต็ม</span></div>
+  </div>
+
+  <div class="brand-sections">
+    <% brands.forEach(b=>{ const brandProducts=products.filter(p=>p.brand===b); if(!brandProducts.length) return; %>
+      <section class="brand-block">
+        <div class="brand-heading">
+          <div class="brand-heading-main"><span class="brand-logo-text"><%= b %></span><span><%= brandProducts.length %> รุ่น</span></div>
+          <a href="/brands/<%= encodeURIComponent(b) %>">ดูทั้งหมด <iconify-icon icon="mdi:arrow-right"></iconify-icon></a>
         </div>
-      </div>
-    </a>
+        <div class="g4">
+          <% brandProducts.forEach(p=>{ %>
+          <a class="card product-card-new" href="/products/<%= p.id %>">
+            <div class="ph prod product-photo" data-product-id="<%= p.id %>">
+              <div class="photo-loading"><iconify-icon icon="mdi:air-conditioner"></iconify-icon><span>กำลังโหลดรูป</span></div>
+              <img class="product-photo-img" alt="<%= p.brand %> <%= p.model %>" loading="lazy" style="display:none">
+              <% if(p.badge){ %><span class="tag product-badge"><%= p.badge %></span><% } %>
+            </div>
+            <div class="bd">
+              <div class="product-brand-line"><span class="brand-mini"><%= p.brand %></span><span class="product-type"><%= p.type %></span></div>
+              <h3><%= p.name %></h3>
+              <div class="product-model"><%= p.model %></div>
+              <div class="product-spec-line"><strong><%= p.spec.split(' · ')[0] %></strong><span><%= p.spec.split(' · ').slice(1).join(' · ') %></span></div>
+              <div class="price-row"><span class="price ask">สอบถามราคา</span><span class="detail-link">ดูรายละเอียด <iconify-icon icon="mdi:arrow-right"></iconify-icon></span></div>
+            </div>
+          </a>
+          <% }) %>
+        </div>
+      </section>
     <% }) %>
-    <% if(!products.length){ %><p style="color:var(--mut)">ไม่พบสินค้าที่ค้นหา</p><% } %>
   </div>
 
-  <div class="pnote" style="background:var(--frost);color:var(--pine)">
-    <iconify-icon icon="mdi:information-outline" style="color:var(--pine)"></iconify-icon>
-    <span>ราคารวมค่าติดตั้งมาตรฐานแล้ว · กดที่สินค้าเพื่อดูภาพเพิ่มเติมและสเปกทั้งหมด</span>
-  </div>
+  <section class="buy-guide">
+    <div><span class="eyebrow-dot">BUYING GUIDE</span><h2>ข้อมูลที่ควรดู ก่อนเลือกแอร์</h2><p>BTU ต้องสัมพันธ์กับพื้นที่และลักษณะห้อง หากมีแดดจัด ฝ้าเพดานสูง หรือมีคนใช้งานจำนวนมาก ควรให้ช่างสำรวจหน้างานก่อนสรุปรุ่น</p></div>
+    <div class="guide-grid">
+      <div><b>ประมาณ 9,000 BTU</b><span>ห้องขนาดเล็ก</span></div>
+      <div><b>ประมาณ 12,000 BTU</b><span>ห้องนอน / ห้องทำงาน</span></div>
+      <div><b>ประมาณ 18,000 BTU</b><span>ห้องขนาดกลาง</span></div>
+      <div><b>20,000+ BTU</b><span>ห้องใหญ่หรือพื้นที่ใช้งานมาก</span></div>
+    </div>
+  </section>
 </section>
-
 <%- include('../partials/site-footer') %>
 </body>
 </html>

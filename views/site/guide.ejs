@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="th">
+<head><%- include('../partials/site-head', {title:guide.title, fullTitle:guide.fullTitle, desc:guide.description}) %></head>
+<body class="ys-ref ys-guide">
+<%- include('../partials/site-header') %>
+<section class="page-hero"><div class="sec"><div class="crumb2"><a href="/">หน้าแรก</a> / <b>คู่มือแอร์</b></div><span class="eyebrow-dot">Air Conditioner Guide</span><h1><%= guide.title %></h1><p><%= guide.description %></p></div></section>
+<main class="sec" style="max-width:900px">
+<% guide.sections.forEach(section => { %>
+<section style="margin-bottom:30px"><h2 style="font-size:1.3rem;margin-bottom:10px"><%= section.heading %></h2><p style="line-height:1.9"><%= section.body %></p></section>
+<% }) %>
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:30px"><a class="btn am" href="/products">ดูรุ่นแอร์</a><a class="btn ln" href="/pricing-clean">ดูค่าล้างแอร์</a><a class="btn ln" href="/contact">สอบถามทีมงาน</a></div>
+</main>
+<%- include('../partials/site-footer') %>
+</body></html>

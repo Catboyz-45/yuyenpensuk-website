@@ -55,7 +55,7 @@
             <option value="superadmin" <%= editing && editing.role==='superadmin'?'selected':'' %>>ผู้ดูแลสูงสุด — จัดการได้ทุกอย่าง</option>
           </select>
         </div>
-        <div class="fld"><label>รหัสผ่าน <%= editing?'(เว้นว่างถ้าไม่เปลี่ยน)':'' %></label><input type="password" name="password" <%= editing?'':'required' %> minlength="8" placeholder="อย่างน้อย 8 ตัวอักษร"></div>
+        <div class="fld"><label>รหัสผ่าน <%= editing?'(เว้นว่างถ้าไม่เปลี่ยน)':'' %></label><input type="password" name="password" <%= editing?'':'required' %> minlength="12" placeholder="อย่างน้อย 12 ตัวอักษร"></div>
       </div>
       <button class="btn nv" style="margin-top:16px"><%= editing ? 'บันทึกการแก้ไข' : 'เพิ่มผู้ดูแล' %></button>
     </form>

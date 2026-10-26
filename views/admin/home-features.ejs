@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="th"><head><%- include('../partials/admin-head',{title:'จัดการจุดเด่นของบริษัท'}) %></head><body><div class="cms">
+<%- include('../partials/admin-shell-top',{heading:'จัดการจุดเด่นของบริษัท'}) %>
+<div class="panel"><div class="ph2"><h3>รายการจุดเด่น (<%= rows.length %>)</h3></div>
+<div class="tblwrap"><table class="tbl"><tr><th>ภาพ</th><th>หัวข้อ</th><th>ลำดับ</th><th>สถานะ</th><th>จัดการ</th></tr>
+<% rows.forEach(f=>{ %><tr><td><span class="thumb"><% if(f.image){ %><img src="<%= f.image %>" alt=""><% } %></span></td><td><%= f.title %></td><td><%= f.sort %></td><td><%= f.active ? 'แสดง' : 'ซ่อน' %></td><td><div class="act2"><a class="mini ed" href="/admin/home-features?edit=<%= f.id %>">แก้ไข</a><form method="post" action="/admin/home-features/delete/<%= f.id %>" onsubmit="return confirm('ยืนยันลบรายการนี้? ข้อมูลรายการจะถูกลบ แต่รูปภาพยังเก็บไว้')"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button type="submit" class="mini dl">ลบ</button></form></div></td></tr><% }) %>
+</table></div></div>
+<div class="panel"><div class="ph2"><h3><%= editing ? 'แก้ไขจุดเด่น' : 'เพิ่มจุดเด่น' %></h3><% if(editing){ %><a class="btn ln" href="/admin/home-features">ยกเลิกการแก้ไข</a><% } %></div>
+<form class="pb" method="post" action="/admin/home-features/save" enctype="multipart/form-data"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><input type="hidden" name="id" value="<%= editing ? editing.id : '' %>">
+<div class="fgrid"><div class="fld"><label>หัวข้อภาษาไทย *</label><input name="title" maxlength="120" required value="<%= editing ? editing.title : '' %>"></div>
+<div class="fld"><label>หัวข้อย่อยภาษาอังกฤษ</label><input name="subtitle" maxlength="80" value="<%= editing ? editing.subtitle : '' %>"></div>
+<div class="fld full"><label>คำอธิบาย</label><textarea name="description" maxlength="800"><%= editing ? editing.description : '' %></textarea></div>
+<div class="fld full"><label>จุดเด่นย่อย (หนึ่งบรรทัดต่อข้อ)</label><textarea name="points" rows="4"><%= editing && Array.isArray(editing.points) ? editing.points.join('\n') : '' %></textarea></div>
+<div class="fld"><label>รูปภาพ (JPG, PNG, WebP ไม่เกิน 10MB)</label><input type="file" name="image" accept="image/jpeg,image/png,image/webp"><% if(editing && editing.image){ %><p>รูปปัจจุบัน: <a href="<%= editing.image %>" target="_blank" rel="noopener noreferrer">เปิดดู</a></p><% } %></div>
+<div class="fld"><label>ลำดับการแสดงผล</label><input name="sort" type="number" min="1" max="9999" value="<%= editing ? editing.sort : rows.length+1 %>"></div>
+<div class="fld"><label><input type="checkbox" name="active" <%= !editing || editing.active ? 'checked' : '' %>> แสดงบนหน้าแรก</label></div></div>
+<button class="btn nv" type="submit" style="margin-top:16px"><%= editing ? 'บันทึกการแก้ไข' : 'เพิ่มจุดเด่น' %></button></form></div>
+<%- include('../partials/admin-shell-bottom') %></div></body></html>

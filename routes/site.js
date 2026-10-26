@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
       main: true,
       title: "ติดตั้ง ล้าง ซ่อม และจำหน่ายเครื่องปรับอากาศ",
       desc: "ดูแลเครื่องปรับอากาศครบวงจร ตั้งแต่เลือกซื้อ ติดตั้ง ดูแลรักษา จนถึงงานไฟฟ้าที่เกี่ยวข้อง โดยทีมช่างผู้ชำนาญ",
-      image: (d.services[0] && d.services[0].image) || "https://images.pexels.com/photos/8496404/pexels-photo-8496404.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      image: (d.services[0] && d.services[0].image) || ""
     },
     ...banners.map((b) => ({ main: false, title: b.title, image: b.image }))
   ];
@@ -23,6 +23,8 @@ router.get("/", (req, res) => {
     active: "home",
     banners,
     heroSlides,
+    homeContent: d.company || {},
+    homeFeatures: Array.isArray(d.homeFeatures) ? d.homeFeatures.filter(x => x.active !== false).sort((a,b)=>(a.sort||0)-(b.sort||0)) : null,
     services: d.services,
     products: (d.products.filter((p) => p.bestseller).length ? d.products.filter((p) => p.bestseller) : d.products.slice(0, 4)).slice(0, 4),
     projects: d.projects.slice(0, 3),
@@ -42,6 +44,28 @@ router.get("/services/:id", (req, res) => {
   if (!s) return res.status(404).render("site/404");
   const others = db().services.filter((x) => x.id !== s.id).slice(0, 3);
   res.render("site/service-detail", { active: "services", s, others });
+});
+
+
+/* รูปสินค้า: ใช้เฉพาะไฟล์ Local ที่อยู่ในพื้นที่ uploads ถาวร */
+const { getProductImages, getProductImageBinary } = require('../utils/product-images');
+
+router.get('/api/product-gallery/:id', async (req,res) => {
+  const product = db().products.find(x => x.id === +req.params.id);
+  if (!product) return res.status(404).json({images: []});
+  res.json({images: await getProductImages(product)});
+});
+
+router.get('/api/product-image/:id/:index', async (req,res) => {
+  const product = db().products.find(x => x.id === +req.params.id);
+  const index = Number(req.params.index);
+  if (!product || !Number.isInteger(index) || index < 0 || index > 4) return res.sendStatus(404);
+  const image = await getProductImageBinary(product, index);
+  if (!image) return res.sendStatus(404);
+  res.set('Content-Type', image.type);
+  res.set('Cache-Control', 'public, max-age=2592000, immutable');
+  res.set('ETag', image.etag);
+  res.send(image.body);
 });
 
 /* สินค้า */
@@ -100,11 +124,42 @@ router.get("/brands/:brand", (req, res) => {
   res.render("site/brand", { active: "products", brandName, products: list, brands });
 });
 
+/* คู่มือเลือกและดูแลแอร์: เนื้อหาสำหรับผู้ที่กำลังตัดสินใจซื้อหรือใช้บริการ */
+const airGuides = {
+  'choose-aircon': {
+    title: 'เลือกซื้อแอร์อย่างไรให้เหมาะกับห้อง',
+    fullTitle: 'แนะนำแอร์ เลือกซื้อแอร์กี่ BTU ดี | อยู่เย็นเป็นสุข',
+    description: 'แนะนำวิธีเลือกซื้อแอร์บ้าน ดูขนาด BTU ความประหยัดไฟ อินเวอร์เตอร์ และสิ่งที่ควรถามก่อนซื้อแอร์พร้อมติดตั้งในกรุงเทพฯ',
+    sections: [
+      {heading:'เริ่มจากขนาดห้องและการใช้งาน', body:'จดพื้นที่ห้องโดยประมาณ ความสูงฝ้า จำนวนคน และช่วงเวลาที่เปิดแอร์ ห้องโดนแดดจัดหรือมีเครื่องใช้ไฟฟ้าหลายชิ้นอาจต้องพิจารณาภาระความร้อนเพิ่ม'},
+      {heading:'BTU ต้องพอดีกับห้อง', body:'BTU เป็นค่าความสามารถในการทำความเย็น ไม่ควรเลือกรุ่นจากราคาเพียงอย่างเดียว เพราะขนาดที่ไม่เหมาะสมอาจทำให้เย็นช้า สิ้นเปลือง หรือควบคุมความชื้นได้ไม่ดี ควรให้ช่างประเมินสภาพห้องจริง'},
+      {heading:'เปรียบเทียบค่าไฟและการรับประกัน', body:'ตรวจฉลากประหยัดไฟ ค่าประสิทธิภาพพลังงาน เงื่อนไขรับประกันอะไหล่และคอมเพรสเซอร์ รวมถึงค่าใช้จ่ายในการติดตั้งและดูแลระยะยาว'},
+      {heading:'ซื้อแอร์พร้อมติดตั้งต้องถามอะไร', body:'สอบถามว่าราคาครอบคลุมท่อทองแดง สายไฟ ขายึด ท่อน้ำทิ้ง การเดินระบบ และงานเพิ่มเติมหรือไม่ ขอใบเสนอราคาที่ระบุรายการชัดเจนก่อนตัดสินใจ'}
+    ]
+  },
+  'clean-aircon': {
+    title: 'ล้างแอร์บ่อยแค่ไหน และควรล้างเมื่อไร',
+    fullTitle: 'ล้างแอร์บ่อยแค่ไหน สัญญาณที่ควรล้างแอร์ | อยู่เย็นเป็นสุข',
+    description: 'วิธีสังเกตว่าแอร์ควรล้างเมื่อไร ปัจจัยที่ทำให้แอร์สกปรกเร็ว และสิ่งที่ควรถามก่อนนัดช่างล้างแอร์ในกรุงเทพฯ',
+    sections: [
+      {heading:'ความถี่ขึ้นกับการใช้งาน', body:'ห้องที่เปิดแอร์ทุกวัน มีฝุ่นมาก หรือมีสัตว์เลี้ยง อาจต้องตรวจและทำความสะอาดบ่อยกว่าห้องที่ใช้งานน้อย ควรอ้างอิงคู่มือของผู้ผลิตและสภาพเครื่องจริง'},
+      {heading:'สัญญาณที่ควรตรวจแอร์', body:'ลมออกน้อย มีกลิ่นอับ น้ำหยด หรือเย็นช้ากว่าปกติอาจเกี่ยวข้องกับความสกปรกหรือปัญหาอื่น ควรให้ช่างตรวจหาสาเหตุ ไม่ควรสรุปว่าล้างอย่างเดียวจะแก้ได้ทุกกรณี'},
+      {heading:'ก่อนนัดล้างแอร์', body:'แจ้งชนิดเครื่อง ขนาด BTU จำนวนเครื่อง ชั้นที่ติดตั้ง และอาการผิดปกติ เพื่อให้ประเมินงานและแจ้งค่าใช้จ่ายได้เหมาะสม'},
+      {heading:'หลังล้างแอร์', body:'ตรวจการระบายน้ำ การทำงานและเสียงผิดปกติ หากมีน้ำรั่วหรือกลิ่นกลับมา ควรติดต่อช่างเพื่อตรวจเพิ่มเติม'}
+    ]
+  }
+};
+router.get('/guides/:slug', (req, res) => {
+  const guide = airGuides[req.params.slug];
+  if (!guide) return res.status(404).render('site/404');
+  res.render('site/guide', {active:'', guide});
+});
+
 /* ---------- SEO: sitemap.xml + robots.txt ---------- */
 router.get("/sitemap.xml", (req, res) => {
   const base = res.locals.baseUrl;
   const d = db();
-  const urls = ["/", "/services", "/pricing-install", "/pricing-clean", "/products", "/projects", "/payment", "/contact"];
+  const urls = ["/", "/services", "/pricing-install", "/pricing-clean", "/products", "/projects", "/payment", "/contact", "/guides/choose-aircon", "/guides/clean-aircon"];
   d.services.forEach((s) => urls.push("/services/" + s.id));
   d.products.forEach((p) => urls.push("/products/" + p.id));
   [...new Set(d.products.map((p) => p.brand))].forEach((b) => urls.push("/brands/" + encodeURIComponent(b)));

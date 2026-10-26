@@ -3,40 +3,28 @@
 <head><%- include('../partials/admin-head',{title:'แดชบอร์ด'}) %></head>
 <body>
 <div class="cms">
-<%- include('../partials/admin-shell-top',{heading:'แดชบอร์ด'}) %>
-
-  <div class="stats">
-    <div class="stat"><div class="ic" style="background:#E8F1FB"><iconify-icon icon="mdi:cog-outline"></iconify-icon></div><div class="n"><%= stats.services %></div><div class="l">บริการทั้งหมด</div></div>
-    <div class="stat"><div class="ic" style="background:#FDF3D9"><iconify-icon icon="mdi:package-variant-closed"></iconify-icon></div><div class="n"><%= stats.products %></div><div class="l">สินค้าทั้งหมด</div></div>
-    <div class="stat"><div class="ic" style="background:#E7F5EC"><iconify-icon icon="mdi:crane"></iconify-icon></div><div class="n"><%= stats.projects %></div><div class="l">ผลงานทั้งหมด</div></div>
-    <div class="stat"><div class="ic" style="background:#F3ECFB"><iconify-icon icon="mdi:newspaper-variant-outline"></iconify-icon></div><div class="n"><%= stats.news %></div><div class="l">ข่าวสารทั้งหมด</div></div>
-  </div>
-
-  <div class="panel">
-    <div class="ph2"><h3><iconify-icon icon="mdi:newspaper-variant-outline"></iconify-icon> ข่าวล่าสุด</h3><a class="btn ln" href="/admin/news">จัดการข่าว</a></div>
-    <div class="tblwrap"><table class="tbl">
-      <% latestNews.forEach(n=>{ %>
-      <tr>
-        <td style="width:70px"><span class="thumb"><% if(n.image){ %><img src="<%= n.image %>"><% } else { %><iconify-icon icon="mdi:newspaper-variant-outline"></iconify-icon><% } %></span></td>
-        <td style="font-weight:600"><%= n.title %></td>
-        <td style="width:120px;color:var(--mut)"><%= n.published_at %></td>
-        <td style="width:120px"><span class="tag <%= n.published?'gr':'gy' %>"><%= n.published?'เผยแพร่แล้ว':'ฉบับร่าง' %></span></td>
-      </tr>
-      <% }) %>
-    </table></div>
-  </div>
-
-  <div class="panel">
-    <div class="ph2"><h3><iconify-icon icon="mdi:flash-outline"></iconify-icon> เมนูด่วน</h3></div>
-    <div class="pb" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px">
-      <a class="btn ln" style="flex-direction:column;padding:16px" href="/admin/services"><iconify-icon icon="mdi:cog-outline"></iconify-icon> เพิ่มบริการ</a>
-      <a class="btn ln" style="flex-direction:column;padding:16px" href="/admin/products"><iconify-icon icon="mdi:package-variant-closed"></iconify-icon> เพิ่มสินค้า</a>
-      <a class="btn ln" style="flex-direction:column;padding:16px" href="/admin/projects"><iconify-icon icon="mdi:crane"></iconify-icon> เพิ่มผลงาน</a>
-      <a class="btn ln" style="flex-direction:column;padding:16px" href="/admin/news"><iconify-icon icon="mdi:newspaper-variant-outline"></iconify-icon> เพิ่มข่าว</a>
-    </div>
-  </div>
-
+<%- include('../partials/admin-shell-top',{heading:'ภาพรวมระบบ'}) %>
+<section class="dash-welcome">
+ <div class="dash-welcome-copy"><span class="dash-eyebrow"><i class="dash-live-dot"></i> MANAGEMENT OVERVIEW</span><h1>ยินดีต้อนรับกลับ, <strong><%= me.name %></strong></h1><p>ภาพรวมเนื้อหาเว็บไซต์อยู่เย็นเป็นสุข วิศวกรรม จัดการข้อมูลสำคัญและไปยังงานที่ต้องการได้จากที่เดียว</p><div class="dash-welcome-actions"><a class="dash-outline-btn" href="https://yuyenpensuk.com/" target="_blank" rel="noopener"><iconify-icon icon="mdi:open-in-new"></iconify-icon> ดูเว็บไซต์จริง</a><a class="dash-primary-btn" href="/admin/products"><iconify-icon icon="mdi:package-variant-plus"></iconify-icon> จัดการสินค้า <iconify-icon icon="mdi:arrow-up-right"></iconify-icon></a></div></div>
+ <div class="dash-welcome-art" aria-hidden="true"><span class="dash-art-ring"></span><iconify-icon icon="mdi:air-conditioner"></iconify-icon><span class="dash-art-chip"><iconify-icon icon="mdi:shield-check-outline"></iconify-icon> Website CMS</span></div>
+</section>
+<section class="dash-section-head"><div><span class="dash-section-kicker">CONTENT SUMMARY</span><h3>สรุปข้อมูลเว็บไซต์</h3><p>จำนวนรายการที่มีอยู่ในระบบปัจจุบัน</p></div><span class="dash-section-note"><iconify-icon icon="mdi:database-check-outline"></iconify-icon> ข้อมูลจากระบบ</span></section>
+<section class="dash-kpis">
+ <a class="dash-kpi dash-kpi-services" href="/admin/services"><span class="dash-kpi-top"><span class="dash-kpi-icon"><iconify-icon icon="mdi:tools"></iconify-icon></span><span class="dash-kpi-more"><iconify-icon icon="mdi:arrow-top-right"></iconify-icon></span></span><span class="dash-kpi-label">บริการทั้งหมด</span><strong class="dash-kpi-value"><%= stats.services %></strong><span class="dash-kpi-foot"><i></i> รายการบริการ <b>จัดการ <iconify-icon icon="mdi:arrow-right"></iconify-icon></b></span></a>
+ <a class="dash-kpi dash-kpi-products" href="/admin/products"><span class="dash-kpi-top"><span class="dash-kpi-icon"><iconify-icon icon="mdi:air-conditioner"></iconify-icon></span><span class="dash-kpi-more"><iconify-icon icon="mdi:arrow-top-right"></iconify-icon></span></span><span class="dash-kpi-label">สินค้าทั้งหมด</span><strong class="dash-kpi-value"><%= stats.products %></strong><span class="dash-kpi-foot"><i></i> รายการสินค้า <b>จัดการ <iconify-icon icon="mdi:arrow-right"></iconify-icon></b></span></a>
+ <a class="dash-kpi dash-kpi-projects" href="/admin/projects"><span class="dash-kpi-top"><span class="dash-kpi-icon"><iconify-icon icon="mdi:office-building-marker-outline"></iconify-icon></span><span class="dash-kpi-more"><iconify-icon icon="mdi:arrow-top-right"></iconify-icon></span></span><span class="dash-kpi-label">ผลงานติดตั้ง</span><strong class="dash-kpi-value"><%= stats.projects %></strong><span class="dash-kpi-foot"><i></i> รายการผลงาน <b>จัดการ <iconify-icon icon="mdi:arrow-right"></iconify-icon></b></span></a>
+ <a class="dash-kpi dash-kpi-news" href="/admin/news"><span class="dash-kpi-top"><span class="dash-kpi-icon"><iconify-icon icon="mdi:newspaper-variant-outline"></iconify-icon></span><span class="dash-kpi-more"><iconify-icon icon="mdi:arrow-top-right"></iconify-icon></span></span><span class="dash-kpi-label">ข่าวสารทั้งหมด</span><strong class="dash-kpi-value"><%= stats.news %></strong><span class="dash-kpi-foot"><i></i> รายการข่าวสาร <b>จัดการ <iconify-icon icon="mdi:arrow-right"></iconify-icon></b></span></a>
+</section>
+<div class="dash-main-grid">
+ <section class="panel dash-panel dash-news-panel"><div class="ph2 dash-panel-heading"><div><span class="dash-section-kicker">RECENT UPDATES</span><h3><iconify-icon icon="mdi:newspaper-clock-outline"></iconify-icon> ข่าวสารล่าสุด</h3><p>ตรวจสอบสถานะข่าวที่เพิ่มไว้ในเว็บไซต์</p></div><a class="dash-small-link" href="/admin/news">จัดการข่าว <iconify-icon icon="mdi:arrow-up-right"></iconify-icon></a></div>
+ <% if (latestNews && latestNews.length) { %><div class="tblwrap"><table class="tbl dash-news-table"><thead><tr><th>รูป / ข่าวสาร</th><th>วันที่</th><th>สถานะ</th></tr></thead><tbody><% latestNews.forEach(n=>{ %><tr><td><div class="dash-news-item"><span class="thumb"><% if(n.image){ %><img src="<%= n.image %>" alt=""><% } else { %><iconify-icon icon="mdi:newspaper-variant-outline"></iconify-icon><% } %></span><span class="dash-news-title"><strong><%= n.title %></strong><small>ข่าวสารของบริษัท</small></span></div></td><td class="dash-news-date"><%= n.published_at || '—' %></td><td><span class="tag <%= n.published?'gr':'gy' %>"><i class="dash-status-dot"></i><%= n.published?'เผยแพร่แล้ว':'ฉบับร่าง' %></span></td></tr><% }) %></tbody></table></div>
+ <% } else { %><div class="dash-empty"><span><iconify-icon icon="mdi:newspaper-variant-outline"></iconify-icon></span><strong>ยังไม่มีข่าวสาร</strong><p>เริ่มเพิ่มข่าวสารหรือประกาศของบริษัท เพื่อให้ลูกค้าเห็นข้อมูลอัปเดต</p><a class="dash-primary-btn" href="/admin/news"><iconify-icon icon="mdi:plus"></iconify-icon> เพิ่มข่าวสาร</a></div><% } %></section>
+ <section class="panel dash-panel dash-actions-panel"><div class="ph2 dash-panel-heading"><div><span class="dash-section-kicker">QUICK ACTIONS</span><h3><iconify-icon icon="mdi:lightning-bolt-outline"></iconify-icon> ทางลัดการทำงาน</h3><p>ไปยังส่วนที่ใช้บ่อยได้ทันที</p></div></div><div class="dash-action-list">
+ <a href="/admin/products"><span class="dash-action-icon action-gold"><iconify-icon icon="mdi:package-variant-plus"></iconify-icon></span><span><strong>จัดการสินค้า</strong><small>รายละเอียด ราคา และรูปสินค้า</small></span><iconify-icon class="dash-action-arrow" icon="mdi:chevron-right"></iconify-icon></a>
+ <a href="/admin/services"><span class="dash-action-icon action-green"><iconify-icon icon="mdi:tools"></iconify-icon></span><span><strong>จัดการบริการ</strong><small>รายการบริการและคำอธิบาย</small></span><iconify-icon class="dash-action-arrow" icon="mdi:chevron-right"></iconify-icon></a>
+ <a href="/admin/projects"><span class="dash-action-icon action-blue"><iconify-icon icon="mdi:office-building-outline"></iconify-icon></span><span><strong>เพิ่มผลงานติดตั้ง</strong><small>ภาพและรายละเอียดโครงการ</small></span><iconify-icon class="dash-action-arrow" icon="mdi:chevron-right"></iconify-icon></a>
+ <a href="/admin/banners"><span class="dash-action-icon action-sand"><iconify-icon icon="mdi:image-multiple-outline"></iconify-icon></span><span><strong>จัดการแบนเนอร์</strong><small>ข้อความประกาศบนหน้าแรก</small></span><iconify-icon class="dash-action-arrow" icon="mdi:chevron-right"></iconify-icon></a>
+ </div></section></div>
+<section class="dash-bottom-grid"><div class="dash-tip-card"><span class="dash-tip-icon"><iconify-icon icon="mdi:lightbulb-on-outline"></iconify-icon></span><div><strong>เคล็ดลับการดูแลเว็บไซต์</strong><p>ใช้ภาพที่คมชัดและมีสิทธิ์ใช้งานจริง ตั้งชื่อสินค้าให้ชัดเจน และตรวจดูหน้าเว็บไซต์หลังบันทึกทุกครั้ง</p></div></div><a class="dash-site-card" href="https://yuyenpensuk.com/" target="_blank" rel="noopener"><span class="dash-site-card-icon"><iconify-icon icon="mdi:web"></iconify-icon></span><span><strong>เปิดเว็บไซต์หลัก</strong><small>ตรวจสอบหน้าตาที่ลูกค้าเห็นจริง</small></span><iconify-icon class="dash-site-arrow" icon="mdi:arrow-up-right"></iconify-icon></a></section>
 <%- include('../partials/admin-shell-bottom') %>
-</div>
-</body>
-</html>
+</div></body></html>

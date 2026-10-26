@@ -26,7 +26,7 @@
     <form class="pb" method="post" action="/admin/profile/password"><input type="hidden" name="_csrf" value="<%= csrfToken %>">
       <div class="fgrid">
         <div class="fld"><label>รหัสผ่านปัจจุบัน</label><input type="password" name="current" required autocomplete="current-password"></div>
-        <div class="fld"><label>รหัสผ่านใหม่</label><input type="password" name="password" required minlength="8" placeholder="อย่างน้อย 8 ตัวอักษร" autocomplete="new-password"></div>
+        <div class="fld"><label>รหัสผ่านใหม่</label><input type="password" name="password" required minlength="12" placeholder="อย่างน้อย 12 ตัวอักษร" autocomplete="new-password"></div>
       </div>
       <button class="btn ln" style="margin-top:16px">เปลี่ยนรหัสผ่าน</button>
     </form>
@@ -41,7 +41,11 @@
       <% if (me.twofa_enabled) { %>
         <p style="color:var(--mut);margin-bottom:14px">ระบบจะขอรหัส OTP 6 หลักจากแอป Authenticator ทุกครั้งที่เข้าสู่ระบบ</p>
         <form method="post" action="/admin/profile/2fa/disable" onsubmit="return confirm('ปิดใช้ 2FA?')"><input type="hidden" name="_csrf" value="<%= csrfToken %>">
-          <button class="btn ln">ปิดใช้ 2FA</button>
+          <div class="fgrid">
+            <div class="fld"><label>รหัสผ่านปัจจุบัน</label><input type="password" name="current" required autocomplete="current-password"></div>
+            <div class="fld"><label>OTP ปัจจุบัน 6 หลัก</label><input type="text" name="token" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required autocomplete="one-time-code"></div>
+          </div>
+          <button class="btn ln" style="margin-top:16px">ยืนยันและปิดใช้ 2FA</button>
         </form>
       <% } else if (qr) { %>
         <div class="qr">

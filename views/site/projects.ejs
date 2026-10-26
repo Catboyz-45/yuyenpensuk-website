@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="th">
 <head><%- include('../partials/site-head',{title:'ผลงานของเรา', desc:'ผลงานติดตั้งและดูแลรักษาเครื่องปรับอากาศ อาคารสำนักงาน ร้านค้า โรงงาน และโรงแรม ในเขตกรุงเทพฯ และปริมณฑล'}) %></head>
-<body>
+<body class="ys-ref ys-projects ys-designed ys-projects">
 <%- include('../partials/site-header') %>
-<section class="page-hero">
-  <div class="sec" style="padding:0">
+<section class="page-hero balanced-hero">
+  <div class="sec balanced-hero-inner">
     <div class="crumb2"><a href="/">หน้าแรก</a> / <b>ผลงานของเรา</b></div>
     <span class="eyebrow-dot">Selected Works</span>
     <h1>ผลงานติดตั้งที่ผ่านมา</h1>
@@ -22,14 +22,22 @@
     <button class="btn nv">ค้นหา</button>
   </form>
 
-  <div class="g3">
+  <div class="project-gallery-grid">
     <% projects.forEach(p=>{ %>
-    <a class="card" href="/projects/<%= p.id %>">
-      <div class="ph nv h180"><% if(p.image){ %><img src="<%= p.image %>" alt="<%= p.title %>" onerror="this.style.display='none'"><% } else { %><iconify-icon class="phicon" icon="mdi:office-building-outline"></iconify-icon><% } %></div>
-      <div class="bd">
-        <span class="tag gy"><iconify-icon icon="mdi:map-marker-outline"></iconify-icon> <%= p.place || p.category %> · <%= p.year %></span>
-        <h3 style="margin-top:8px"><%= p.title %></h3>
-        <p><%= p.category %></p>
+    <a class="project-gallery-card" href="/projects/<%= p.id %>">
+      <div class="project-gallery-photo">
+        <% if(p.image){ %>
+          <img src="<%= p.image %>" alt="<%= p.title %>" loading="eager" onerror="this.style.display='none'">
+        <% } else { %>
+          <iconify-icon icon="mdi:office-building-outline"></iconify-icon>
+        <% } %>
+      </div>
+      <div class="project-gallery-info">
+        <h3><%= p.title %></h3>
+        <div class="project-gallery-meta">
+          <span><%= p.place || p.category %></span>
+          <span><%= p.year %></span>
+        </div>
       </div>
     </a>
     <% }) %>

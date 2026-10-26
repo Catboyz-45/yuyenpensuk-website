@@ -1,63 +1,68 @@
 <!DOCTYPE html>
 <html lang="th">
-<head><%- include('../partials/site-head',{title:'หน้าแรก', desc:'ติดตั้ง ล้าง ซ่อม และจำหน่ายเครื่องปรับอากาศทุกยี่ห้อ DAIKIN MITSUBISHI CARRIER พร้อมงานไฟฟ้าที่เกี่ยวข้อง เขตคลองสามวา กรุงเทพฯ ประเมินหน้างานฟรี โทร ' + company.phone}) %></head>
-<body>
+<head><%- include('../partials/site-head',{fullTitle:'ล้างแอร์ ติดตั้งแอร์ ซื้อแอร์พร้อมติดตั้ง กรุงเทพฯ | อยู่เย็นเป็นสุข', title:'หน้าแรก', desc:'บริการล้างแอร์ ติดตั้งแอร์ และจำหน่ายแอร์พร้อมติดตั้ง กรุงเทพฯ คลองสามวา มีนบุรี และพื้นที่รอบกรุงเทพฯ สอบถามราคาและนัดหมาย โทร ' + company.phone}) %></head>
+<body class="yp-home ys-hero-live">
 <%- include('../partials/site-header') %>
 
-<!-- ===== HERO v4: ไล่เฉดเย็น + ป้ายลอยรอบวงกลม ===== -->
-<section class="hero-v4">
-  <div class="sec" style="padding-top:0;padding-bottom:0">
-    <div class="hv4-grid">
-      <div>
-        <span class="hv4-badge"><span class="dot"></span> บริการแอร์ครบวงจร เขตกรุงเทพฯ และปริมณฑล</span>
-        <h1>ติดตั้ง ล้าง ซ่อม<br>และจำหน่าย<em>เครื่องปรับอากาศ</em></h1>
-        <p>ดูแลเครื่องปรับอากาศครบวงจร ตั้งแต่เลือกซื้อ ติดตั้ง ดูแลรักษา จนถึงงานไฟฟ้าที่เกี่ยวข้อง โดยทีมช่างผู้ชำนาญ</p>
-        <div class="hv4-cta">
-          <a class="btn am" href="/products"><iconify-icon icon="mdi:cart-outline"></iconify-icon> เลือกซื้อแอร์</a>
-          <a class="btn gh" href="/services">ดูบริการทั้งหมด</a>
-        </div>
-        <div class="hv4-stats">
-          <div class="s"><div class="n">6</div><div class="l">ยี่ห้อแอร์ที่จำหน่าย</div></div>
-          <div class="s"><div class="n">24 ชม.</div><div class="l">นัดหมายเข้าหน้างาน</div></div>
-          <div class="s"><div class="n">5 ปี</div><div class="l">รับประกันคอมเพรสเซอร์</div></div>
-        </div>
+<!-- YS Homepage Hero: native HTML/CSS, photo kept separate from buttons and text -->
+<section class="ys-hero" aria-labelledby="ys-hero-title">
+  <div class="ys-hero-photo" aria-hidden="true"></div>
+  <div class="ys-hero-slope" aria-hidden="true"></div>
+  <div class="ys-hero-slope-edge" aria-hidden="true"></div>
+  <div class="ys-hero-inner">
+    <div class="ys-hero-copy">
+      <div class="ys-hero-eyebrow"><iconify-icon icon="mdi:leaf-outline"></iconify-icon> บริการแอร์ครบวงจร เขตกรุงเทพฯ และปริมณฑล</div>
+      <h1 id="ys-hero-title"><span>ติดตั้ง ล้าง ซ่อม และ</span><strong>จำหน่ายเครื่องปรับอากาศ</strong></h1>
+      <p><%= homeContent.homepage_hero_description || "ดูแลเครื่องปรับอากาศครบวงจร ตั้งแต่เลือกซื้อ ติดตั้ง ดูแลรักษา จนถึงงานไฟฟ้าที่เกี่ยวข้อง โดยทีมช่างผู้ชำนาญ" %></p>
+      <div class="ys-hero-actions">
+        <a href="/products" class="ys-hero-button ys-hero-button-primary"><iconify-icon icon="mdi:cart-outline"></iconify-icon> เลือกซื้อแอร์ <iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+        <a href="/services" class="ys-hero-button ys-hero-button-secondary"><iconify-icon icon="mdi:wrench-outline"></iconify-icon> ดูบริการทั้งหมด <iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
       </div>
-      <div class="hv4-visual">
-        <div class="hv4-orb"></div>
-        <div class="hv4-ico" style="top:6%;left:38%;background:linear-gradient(135deg,#0E4D6B,#3DDBD9)"><iconify-icon icon="mdi:air-conditioner"></iconify-icon></div>
-        <div class="hv4-ico" style="top:42%;left:4%;background:linear-gradient(135deg,#8a6224,#D7BE8B)"><iconify-icon icon="mdi:snowflake"></iconify-icon></div>
-        <div class="hv4-ico" style="top:60%;left:70%;background:linear-gradient(135deg,#0B2340,#2C6B4C)"><iconify-icon icon="mdi:flash-outline"></iconify-icon></div>
-        <div class="hv4-ico" style="top:14%;left:78%;background:linear-gradient(135deg,var(--pine-d),var(--pine-l))"><iconify-icon icon="mdi:wrench-outline"></iconify-icon></div>
-        <div class="hv4-card" style="top:30%;left:52%"><iconify-icon icon="mdi:shield-check-outline"></iconify-icon> รับประกันงานติดตั้ง</div>
-        <div class="hv4-card" style="top:76%;left:20%"><iconify-icon icon="mdi:star-outline"></iconify-icon> ลูกค้าไว้วางใจกว่า 500+ งาน/ปี</div>
-      </div>
+    </div>
+    <div class="ys-hero-benefits" aria-label="จุดเด่นบริการ">
+      <div class="ys-hero-benefit"><span><iconify-icon icon="mdi:snowflake"></iconify-icon></span><b>เย็นสบาย</b><small>ทุกฤดูกาล</small></div>
+      <div class="ys-hero-benefit"><span><iconify-icon icon="mdi:shield-check-outline"></iconify-icon></span><b>ใส่ใจมาตรฐาน</b><small>งานติดตั้ง</small></div>
+      <div class="ys-hero-benefit"><span><iconify-icon icon="mdi:tools"></iconify-icon></span><b>ดูแลรักษา</b><small>เครื่องปรับอากาศ</small></div>
+      <div class="ys-hero-benefit"><span><iconify-icon icon="mdi:flash-outline"></iconify-icon></span><b>งานไฟฟ้า</b><small>ที่เกี่ยวข้อง</small></div>
     </div>
   </div>
   <% if (banners.length) { %>
-  <div class="sec" style="padding-top:28px;padding-bottom:0">
-    <div style="display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1">
-      <% banners.forEach(b=>{ %><span class="hv4-badge"><iconify-icon icon="mdi:bullhorn-outline" style="color:var(--cyan)"></iconify-icon> <%= b.title %></span><% }) %>
-    </div>
-  </div>
+    <div class="ys-hero-announcements"><% banners.forEach(b=>{ %><span><iconify-icon icon="mdi:bullhorn-outline"></iconify-icon> <%= b.title %></span><% }) %></div>
   <% } %>
 </section>
 
-<!-- ===== ทำไมต้องเลือกเรา: แถวสลับซ้าย-ขวา ===== -->
-<section class="sec alt">
-  <div class="shead"><div><span class="eyebrow-dot">Why Choose Us</span><h2>จุดเด่นของบริษัท</h2></div></div>
+<!-- ===== จุดเด่นของบริษัท: Real Photography ===== -->
+<section class="sec alt why-showcase why-photo-showcase">
+  <div class="shead why-showcase-head">
+    <div>
+      <span class="eyebrow-dot">Why Choose Us</span>
+      <h2>จุดเด่นของบริษัท</h2>
+      <p class="why-intro">
+        ดูแลทุกขั้นตอนด้วยความใส่ใจ ตั้งแต่เลือกสินค้า ติดตั้ง
+        ไปจนถึงบริการหลังการขาย
+      </p>
+    </div>
+  </div>
 
-  <div class="alt-row">
-    <div class="gfx"><div class="shape"><div class="c1"></div><div class="c2"></div></div></div>
-    <div class="txt"><span class="num">01</span><span class="eyebrow-dot">Professional Team</span><h3>ทีมช่างมืออาชีพ</h3><p>ชำนาญงานแอร์โดยเฉพาะ ผ่านการอบรมจริง ไม่ใช่ช่างรับเหมาทั่วไป</p></div>
-  </div>
-  <div class="alt-row rev">
-    <div class="gfx"><div class="shape"><div class="c1" style="background:radial-gradient(circle,var(--brass),transparent 70%)"></div><div class="c2" style="background:var(--brass)"></div></div></div>
-    <div class="txt"><span class="num" style="background:var(--brass)">02</span><span class="eyebrow-dot">Genuine Products</span><h3>แอร์ของแท้ 100%</h3><p>ตัวแทนจำหน่ายแบรนด์ชั้นนำ 6 ยี่ห้อ พร้อมใบรับประกันจากศูนย์</p></div>
-  </div>
-  <div class="alt-row">
-    <div class="gfx"><div class="shape"><div class="c1" style="background:radial-gradient(circle,var(--pine-l),transparent 70%)"></div><div class="c2" style="background:var(--pine-l)"></div></div></div>
-    <div class="txt"><span class="num" style="background:var(--pine-l)">03</span><span class="eyebrow-dot">Fast Response</span><h3>บริการรวดเร็ว</h3><p>นัดหมายเข้าหน้างานภายใน 24 ชั่วโมง แจ้งราคาก่อนเริ่มงานทุกครั้ง</p></div>
-  </div>
+  <% const featureRows = Array.isArray(homeFeatures) ? homeFeatures : [
+    {id:1,title:'ทีมช่างมืออาชีพ',subtitle:'PROFESSIONAL TEAM',description:'ชำนาญงานเครื่องปรับอากาศโดยเฉพาะ ให้ความสำคัญกับความเรียบร้อยและความปลอดภัยในทุกขั้นตอน',points:['ตรวจสอบหน้างานก่อนเริ่มงาน','อธิบายขั้นตอนให้เข้าใจก่อนดำเนินการ'],image:homeContent.homepage_team_image || 'https://images.pexels.com/photos/8065903/pexels-photo-8065903.jpeg?auto=compress&cs=tinysrgb&w=1200'},
+    {id:2,title:'แอร์ของแท้ 100%',subtitle:'GENUINE PRODUCTS',description:'คัดสรรเครื่องปรับอากาศจากแบรนด์ชั้นนำ พร้อมข้อมูลสินค้าและเงื่อนไขการรับประกันจากศูนย์',points:['แบรนด์ชั้นนำ 6 ยี่ห้อ','แจ้งรายละเอียดและการรับประกันชัดเจน'],image:homeContent.homepage_product_image || '/uploads/products/101-ftkf-yv2s-1.jpg'},
+    {id:3,title:'บริการรวดเร็ว',subtitle:'FAST RESPONSE',description:'ประสานงานนัดหมายเข้าหน้างานภายใน 24 ชั่วโมง พร้อมแจ้งรายละเอียดและราคาก่อนเริ่มงานทุกครั้ง',points:['นัดหมายและประสานงานชัดเจน','สอบถามรายละเอียดก่อนตัดสินใจได้'],image:homeContent.homepage_service_image || 'https://images.pexels.com/photos/30572791/pexels-photo-30572791.jpeg?auto=compress&cs=tinysrgb&w=1200'}
+  ]; %>
+  <% featureRows.forEach((f,i)=>{ const n=String(i+1).padStart(2,'0'); %>
+  <article class="why-row <%= i%2 ? 'why-row-reverse' : '' %>">
+    <div class="why-visual why-photo-frame <%= i%2 ? 'why-product-photo' : '' %>">
+      <% if(f.image){ %><img src="<%= f.image %>" alt="<%= f.title %>" loading="lazy"><% } %>
+      <span class="why-photo-label"><%= n %> / <%= f.subtitle || 'OUR STRENGTH' %></span>
+    </div>
+    <div class="why-copy">
+      <div class="why-kicker"><span><%= n %></span> <%= f.subtitle || 'OUR STRENGTH' %></div>
+      <h3><%= f.title %></h3>
+      <p><%= f.description %></p>
+      <% if(Array.isArray(f.points) && f.points.length){ %><ul class="why-points"><% f.points.forEach(point=>{ %><li><%= point %></li><% }) %></ul><% } %>
+    </div>
+  </article>
+  <% }) %>
 </section>
 
 <!-- ===== บริการ: การ์ดสีทึบ 4 บล็อก ===== -->
@@ -105,11 +110,23 @@
 
 <section class="sec">
   <div class="shead"><div><span class="eyebrow-dot">Selected Works</span><h2>ผลงานติดตั้งที่ผ่านมา</h2></div><a href="/projects">ดูทั้งหมด <iconify-icon icon="mdi:arrow-right"></iconify-icon></a></div>
-  <div class="g3">
+  <div class="project-gallery-grid home-project-gallery">
     <% projects.forEach(p=>{ %>
-    <a class="card" href="/projects/<%= p.id %>">
-      <div class="ph nv h150"><% if(p.image){ %><img src="<%= p.image %>" alt="<%= p.title %>" onerror="this.style.display='none'"><% } else { %><iconify-icon class="phicon" icon="mdi:office-building-outline"></iconify-icon><% } %></div>
-      <div class="bd"><h3><%= p.title %></h3><p><%= p.place %> · <%= p.year %></p></div>
+    <a class="project-gallery-card" href="/projects/<%= p.id %>">
+      <div class="project-gallery-photo">
+        <% if(p.image){ %>
+          <img src="<%= p.image %>" alt="<%= p.title %>" loading="eager" onerror="this.style.display='none'">
+        <% } else { %>
+          <iconify-icon icon="mdi:office-building-outline"></iconify-icon>
+        <% } %>
+      </div>
+      <div class="project-gallery-info">
+        <h3><%= p.title %></h3>
+        <div class="project-gallery-meta">
+          <span><%= p.place || p.category %></span>
+          <span><%= p.year %></span>
+        </div>
+      </div>
     </a>
     <% }) %>
   </div>

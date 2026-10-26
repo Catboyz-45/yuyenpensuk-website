@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="th">
-<head><%- include('../partials/site-head',{title:'ติดต่อเรา', desc:'ติดต่อ อยู่เย็นเป็นสุข วิศวกรรม โทร 02-000-0000 Line @yuyenpensuk ที่อยู่ 594/151 ถนนหทัยราษฎร์ เขตคลองสามวา กรุงเทพฯ 10510'}) %></head>
-<body>
+<head><%- include('../partials/site-head',{fullTitle:'ร้านแอร์ คลองสามวา กรุงเทพฯ ติดต่อและแผนที่ | อยู่เย็นเป็นสุข', title:'ติดต่อเรา', desc:'ติดต่ออยู่เย็นเป็นสุข วิศวกรรม ร้านแอร์และบริการติดตั้ง ล้างแอร์ กรุงเทพฯ ที่ตั้ง 594/151 ถนนหทัยราษฎร์ แขวงบางชัน เขตคลองสามวา กรุงเทพมหานคร 10510'}) %></head>
+<body class="ys-ref ys-contact ys-designed ys-contact">
 <%- include('../partials/site-header') %>
-<section class="page-hero">
-  <div class="sec" style="padding:0">
+<section class="page-hero balanced-hero">
+  <div class="sec balanced-hero-inner">
     <div class="crumb2"><a href="/">หน้าแรก</a> / <b>ติดต่อเรา</b></div>
     <span class="eyebrow-dot">Contact</span>
     <h1>ติดต่อและสั่งซื้อ</h1>
@@ -25,7 +25,7 @@
         <div class="ctc"><h3><iconify-icon icon="mdi:phone-outline"></iconify-icon> โทรศัพท์</h3><p><a href="tel:<%= company.phone %>" style="color:var(--pine-d);font-weight:600"><%= company.phone %></a></p></div>
         <div class="ctc"><h3><iconify-icon icon="mdi:email-outline"></iconify-icon> อีเมล</h3><p><a href="mailto:<%= company.email %>"><%= company.email %></a></p></div>
         <div class="ctc"><h3><iconify-icon icon="mdi:facebook"></iconify-icon> Facebook</h3><p><a href="<%= company.facebook %>" target="_blank" rel="noopener">อยู่เย็นเป็นสุข วิศวกรรม</a></p></div>
-        <div class="ctc"><h3><iconify-icon icon="mdi:chat-outline"></iconify-icon> Line OA</h3><p><%= company.line %></p></div>
+        <div class="ctc"><h3><iconify-icon icon="mdi:chat-outline"></iconify-icon> LINE</h3><p><a href="https://line.me/ti/p/~prk2345" target="_blank" rel="noopener"><%= company.line %> — เพิ่มเพื่อนผ่าน LINE</a></p></div>
       </div>
       <div class="ctc">
         <h3><iconify-icon icon="mdi:clock-outline"></iconify-icon> เวลาทำการ</h3>
@@ -35,6 +35,9 @@
 
     <div class="map">
       <iframe src="<%= mapEmbedUrl %>" loading="lazy" title="แผนที่บริษัท" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="map-cta" href="https://maps.app.goo.gl/ihq6FjUJYQUGhpNQ8" target="_blank" rel="noopener" style="margin-bottom:8px">
+        <iconify-icon icon="mdi:google-maps"></iconify-icon> ดูหมุดบริษัทบน Google Maps
+      </a>
       <a class="map-cta" href="<%= mapDirectionsUrl %>" target="_blank" rel="noopener">
         <iconify-icon icon="mdi:directions"></iconify-icon> นำทางไปที่นี่
       </a>

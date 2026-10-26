@@ -20,3 +20,30 @@ npm-debug.log*
 Thumbs.db
 .vscode/
 .idea/
+
+# Production backups and temporary files
+*backup*
+*before*
+*.bak
+*.old
+*.log
+ys-design-backups/
+ys-theme-backups/
+home-features-backup-*/
+homepage-design-v3-backup-*/
+
+# Private keys and certificates
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Server backups
+*.tar
+*.tar.gz
+*.zip
+
+# Dated backup files
+*.bak-*
+*.backup-*
+*.before-*

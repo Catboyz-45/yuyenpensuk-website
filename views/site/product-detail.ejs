@@ -1,90 +1,61 @@
 <!DOCTYPE html>
 <html lang="th">
-<head><%- include('../partials/site-head',{title:p.brand+' '+p.name, desc:(p.description||p.spec).slice(0,155), ogImage:p.image||''}) %></head>
-<body>
+<head><%- include('../partials/site-head',{title:p.brand+' '+p.model, desc:(p.description||p.spec).slice(0,155), ogImage:''}) %></head>
+<body class="ys-ref ys-product-detail ys-designed ys-product-detail">
 <%- include('../partials/site-header') %>
-<div class="crumb"><a href="/">หน้าแรก</a> / <a href="/products">สินค้า</a> / <a href="/brands/<%= encodeURIComponent(p.brand) %>"><%= p.brand %></a> / <b><%= p.name %></b></div>
+<div class="crumb"><a href="/">หน้าแรก</a> / <a href="/products">สินค้า</a> / <a href="/brands/<%= encodeURIComponent(p.brand) %>"><%= p.brand %></a> / <b><%= p.model %></b></div>
 
-<section class="sec">
-  <div class="g2" style="gap:clamp(24px,4vw,48px);align-items:start">
-
-    <!-- แกลเลอรีรูปภาพ: hover ซูม + คลิกดูพรีวิวเต็มจอ -->
-    <div>
-      <% const imgs = (p.gallery && p.gallery.length) ? p.gallery : (p.image ? [p.image] : []); %>
-      <% if (imgs.length) { %>
-        <div class="ph prod gal-main zoomable" data-lightbox="product" data-src="<%= imgs[0] %>">
-          <img src="<%= imgs[0] %>" alt="<%= p.name %>" onerror="this.style.display='none'">
-        </div>
-        <% if (imgs.length > 1) { %>
-        <div class="gal-thumbs">
-          <% imgs.slice(1).forEach((g,i)=>{ %>
-          <div class="ph prod zoomable" data-lightbox="product" data-src="<%= g %>">
-            <img src="<%= g %>" alt="<%= p.name %> รูปที่ <%= i+2 %>" onerror="this.style.display='none'">
-          </div>
-          <% }) %>
-        </div>
-        <% } %>
-        <p style="font-size:12px;color:var(--mut);margin-top:10px;display:flex;align-items:center;gap:6px">
-          <iconify-icon icon="mdi:magnify-plus-outline" style="color:var(--brass)"></iconify-icon>
-          คลิกที่รูปเพื่อดูภาพขนาดเต็ม
-        </p>
-      <% } else { %>
-        <div class="ph prod gal-main"><iconify-icon class="phicon" icon="mdi:air-conditioner"></iconify-icon></div>
-      <% } %>
+<section class="sec product-detail-page">
+  <div class="product-detail-grid">
+    <div class="product-gallery-wrap">
+      <div class="gallery-label"><span class="brand-logo-text"><%= p.brand %></span><span>รูปตัวเครื่องของรุ่นนี้</span></div>
+      <div class="ph prod gal-main zoomable product-gallery-main" data-lightbox="product" data-src="" data-product-id="<%= p.id %>">
+        <div class="photo-loading"><iconify-icon icon="mdi:air-conditioner"></iconify-icon><span>กำลังโหลดรูปสินค้า</span></div>
+        <img alt="<%= p.brand %> <%= p.model %>" style="display:none">
+      </div>
+      <div class="gal-thumbs"></div>
+      <div class="gallery-note"><iconify-icon icon="mdi:check-circle-outline"></iconify-icon> แสดงเฉพาะรูปสินค้าของรุ่นนี้ · สูงสุด 5 รูป</div>
     </div>
 
-    <!-- ข้อมูลสินค้า + ราคา -->
-    <div class="buybox">
-      <div class="brandtag">
-        <span class="tag bl"><%= p.brand %></span>
-        <% if (p.badge) { %><span class="tag" style="background:var(--pine);color:#fff;margin-left:6px"><%= p.badge %></span><% } %>
-      </div>
+    <div class="buybox product-buybox">
+      <div class="product-brand-line"><span class="brand-mini large"><%= p.brand %></span><span class="product-type"><%= p.type %></span></div>
       <h1><%= p.name %></h1>
-      <div class="model">รุ่น <%= p.model %><% if (p.type) { %> · <%= p.type %><% } %></div>
+      <div class="model">รุ่น <strong><%= p.model %></strong></div>
+      <div class="detail-price"><span>สอบถามราคา</span><small>ราคาขึ้นกับขนาด BTU และเงื่อนไขติดตั้งหน้างาน</small></div>
 
-      <div class="pricebox">
-        <div class="row">
-          <% if (p.price) { %>
-            <span class="now">฿<%= p.price.toLocaleString() %></span>
-            <% if (p.priceOld) { %><span class="was">฿<%= p.priceOld.toLocaleString() %></span><% } %>
-          <% } else { %>
-            <span class="now ask">ราคาตามขนาดหน้างาน</span>
-          <% } %>
-        </div>
-        <div class="note">
-          <% if (p.price) { %>ราคารวมค่าติดตั้งมาตรฐาน · ผ่อน 0% นาน 10 เดือน<% } else { %>ระบบรวมศูนย์ ประเมินราคาหลังสำรวจหน้างาน<% } %>
-        </div>
+      <div class="spec-highlight">
+        <div><span>BTU</span><b><%= p.spec.split(' · ')[0] %></b></div>
+        <div><span>ระบบ</span><b><%= (p.spec.split(' · ')[1] || '—') %></b></div>
+        <div><span>น้ำยา</span><b><%= (p.spec.match(/R32|R410A/) || ['—'])[0] %></b></div>
       </div>
 
-      <table class="spec">
+      <table class="spec product-spec-table">
         <tr><td>ยี่ห้อ</td><td><%= p.brand %></td></tr>
         <tr><td>รุ่น</td><td><%= p.model %></td></tr>
-        <% if (p.type) { %><tr><td>ประเภท</td><td><%= p.type %></td></tr><% } %>
-        <tr><td>สเปก</td><td><%= p.spec || '—' %></td></tr>
-        <tr><td>การรับประกัน</td><td>คอมเพรสเซอร์ 5 ปี · อะไหล่ 1 ปี</td></tr>
+        <tr><td>ประเภท</td><td><%= p.type %></td></tr>
+        <tr><td>ขนาดทำความเย็น</td><td><%= p.spec.split(' · ')[0] %></td></tr>
+        <tr><td>ระบบ / สารทำความเย็น</td><td><%= p.spec.split(' · ').slice(1).join(' · ') %></td></tr>
       </table>
 
-      <div class="buyrow">
-        <a class="btn nv" href="/contact"><iconify-icon icon="mdi:cart-check"></iconify-icon> สั่งซื้อและนัดติดตั้ง</a>
-        <a class="btn ln" href="tel:<%= company.phone %>"><iconify-icon icon="mdi:phone-outline"></iconify-icon> โทรสั่งซื้อ <%= company.phone %></a>
-      </div>
-      <% if (p.catalog) { %>
-      <div style="margin-top:12px"><a class="btn rd" href="<%= p.catalog %>" target="_blank" rel="noopener"><iconify-icon icon="mdi:file-pdf-box"></iconify-icon> ดาวน์โหลด Catalog PDF</a></div>
-      <% } %>
+      <div class="buyrow"><a class="btn nv" href="/contact"><iconify-icon icon="mdi:cart-check"></iconify-icon> สอบถามและสั่งซื้อ</a><a class="btn ln" href="tel:<%= company.phone %>"><iconify-icon icon="mdi:phone-outline"></iconify-icon> โทรหาเรา</a></div>
     </div>
   </div>
 
-  <div style="border-top:1px solid var(--line);margin-top:36px;padding-top:30px">
-    <span class="eyebrow-dot">Product Detail</span>
-    <h2 style="font-size:22px;margin:10px 0 14px">รายละเอียดสินค้า</h2>
-    <p style="color:var(--mut);line-height:1.9;max-width:900px;white-space:pre-line"><%= p.description %></p>
-    <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
-      <a class="btn ln" href="/brands/<%= encodeURIComponent(p.brand) %>"><iconify-icon icon="mdi:arrow-left"></iconify-icon> ดูสินค้า <%= p.brand %> ทั้งหมด</a>
-      <a class="btn ln" href="/products">กลับหน้าสินค้า</a>
+  <div class="product-info-section">
+    <div class="product-info-head"><span class="eyebrow-dot">PRODUCT INFORMATION</span><h2>ข้อมูลของ <%= p.brand %> <%= p.model %></h2><p>ข้อมูลสำคัญที่ช่วยให้ลูกค้าเปรียบเทียบรุ่นก่อนตัดสินใจซื้อ</p></div>
+    <div class="feature-grid">
+      <% (p.benefits || []).slice(0,5).forEach((b,i)=>{ %><div class="feature-card"><span><%= String(i+1).padStart(2,'0') %></span><div><b><%= b %></b><p>จุดเด่นของรุ่นนี้ที่ควรพิจารณาก่อนเลือกซื้อ</p></div></div><% }) %>
     </div>
   </div>
+
+  <div class="service-strip">
+    <div><iconify-icon icon="mdi:home-check-outline"></iconify-icon><b>ช่วยเลือก BTU</b><span>ประเมินจากขนาดและลักษณะห้อง</span></div>
+    <div><iconify-icon icon="mdi:tools"></iconify-icon><b>บริการติดตั้ง</b><span>นัดสำรวจและติดตั้งโดยช่าง</span></div>
+    <div><iconify-icon icon="mdi:shield-check-outline"></iconify-icon><b>ดูแลหลังการขาย</b><span>ติดต่อสอบถามและนัดบริการได้</span></div>
+  </div>
+
+  <div class="related-products"><div class="section-title"><div><span class="eyebrow-dot">MORE FROM <%= p.brand %></span><h2>รุ่นอื่นในยี่ห้อเดียวกัน</h2></div><a class="btn ln" href="/brands/<%= encodeURIComponent(p.brand) %>">ดูทั้งหมด</a></div><div class="g4"><% related.forEach(r=>{ %><a class="card" href="/products/<%= r.id %>"><div class="ph prod product-photo" data-product-id="<%= r.id %>"><div class="photo-loading"><iconify-icon icon="mdi:air-conditioner"></iconify-icon></div><img class="product-photo-img" alt="<%= r.brand %> <%= r.model %>" loading="lazy" style="display:none"></div><div class="bd"><span class="tag bl"><%= r.brand %></span><h3><%= r.name %></h3><p><%= r.model %> · <%= r.spec.split(' · ')[0] %></p></div></a><% }) %></div></div>
 </section>
-
 <%- include('../partials/site-footer') %>
 </body>
 </html>

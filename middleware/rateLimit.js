@@ -5,6 +5,7 @@
  */
 
 const attempts = new Map(); // key -> { count, firstAt, blockedUntil }
+const MAX_KEYS = 10000;
 
 const WINDOW_MS = 15 * 60 * 1000; // นับความถี่ใน 15 นาที
 const MAX_ATTEMPTS = 5; // ผิดได้ไม่เกิน 5 ครั้ง
@@ -48,6 +49,10 @@ function recordFailure(req, tag) {
   if (now - rec.firstAt > WINDOW_MS) { rec.count = 0; rec.firstAt = now; } // เริ่มนับใหม่ถ้าพ้นช่วงเวลาแล้ว
   rec.count += 1;
   if (rec.count >= MAX_ATTEMPTS) rec.blockedUntil = now + BLOCK_MS;
+  if (attempts.size >= MAX_KEYS && !attempts.has(key)) {
+    const oldest = attempts.keys().next().value;
+    if (oldest !== undefined) attempts.delete(oldest);
+  }
   attempts.set(key, rec);
 }
 

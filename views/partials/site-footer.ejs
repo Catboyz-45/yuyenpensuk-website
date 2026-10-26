@@ -4,6 +4,11 @@
       <% if (company.logo) { %><img src="<%= company.logo %>" style="height:40px;margin-bottom:10px" alt="<%= company.name %>"><% } %>
       <h4 style="color:#fff;font-family:var(--fd);font-size:17px;text-transform:none;letter-spacing:0"><%= company.name.replace(' (สำนักงานใหญ่)','') %></h4>
       <p style="font-size:12.5px;line-height:1.7;margin-top:8px">ติดตั้ง ล้าง ซ่อม และจำหน่ายเครื่องปรับอากาศทุกยี่ห้อ พร้อมงานไฟฟ้าที่เกี่ยวข้อง</p>
+      <p class="company-slogan" style="font-size:13px;line-height:1.8;margin-top:10px">
+        เชื่อมโยงวิสัยทัศน์ สรรค์สร้างความสำเร็จ
+        <span style="display:block;font-size:11px;opacity:.8">Bridging vision and achievement</span>
+      </p>
+
       <p style="font-size:12px;margin-top:8px;color:#7E9187"><iconify-icon icon="mdi:file-document-outline" style="margin-right:5px"></iconify-icon>เลขประจำตัวผู้เสียภาษี <%= company.tax_id %></p>
     </div>
     <div>
@@ -18,7 +23,7 @@
       <h4>ติดต่อ</h4>
       <a href="tel:<%= company.phone %>"><iconify-icon icon="mdi:phone-outline"></iconify-icon><%= company.phone %></a>
       <a href="mailto:<%= company.email %>"><iconify-icon icon="mdi:email-outline"></iconify-icon><%= company.email %></a>
-      <a><iconify-icon icon="mdi:chat-outline"></iconify-icon>Line: <%= company.line %></a>
+      <a href="https://line.me/ti/p/~prk2345" target="_blank" rel="noopener"><iconify-icon icon="mdi:chat-outline"></iconify-icon>LINE: <%= company.line %></a>
       <a><iconify-icon icon="mdi:clock-outline"></iconify-icon>จันทร์–เสาร์ 08:00–17:30</a>
     </div>
   </div>
@@ -26,5 +31,6 @@
     <span>© 2569 <%= company.name.replace(' (สำนักงานใหญ่)','') %></span>
     <span>สงวนลิขสิทธิ์</span>
   </div>
+<div class="sec" style="padding-top:12px;padding-bottom:22px;font-size:.9rem"><span>คู่มือสำหรับลูกค้า: </span><a href="/guides/choose-aircon">แนะนำการเลือกซื้อแอร์</a> · <a href="/guides/clean-aircon">ล้างแอร์บ่อยแค่ไหน</a></div>
 </footer>
 <script src="/js/main.js"></script>

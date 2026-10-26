@@ -9,67 +9,60 @@
     // จัดกลุ่มสินค้าตามยี่ห้อ — แต่ละยี่ห้อเป็นหมวดแยกกัน ไม่ปนกัน
     const groups = {};
     rows.forEach(p => { const b = p.brand || 'ไม่ระบุยี่ห้อ'; (groups[b] = groups[b] || []).push(p); });
-    const brandNames = Object.keys(groups).sort();
+    const brandNames = [...new Set([...(typeof brands !== "undefined" ? brands.map(b=>b.name) : []),...Object.keys(groups)])].sort();
+    const selectedBrand = typeof presetBrand !== "undefined" ? presetBrand : "";
     const brandColors = ['#0E4D6B','#2C6B4C','#8a6224','#12402B','#A0742A','#0E6E63'];
   %>
 
-  <div class="note"><iconify-icon icon="mdi:information-outline"></iconify-icon> กดชื่อยี่ห้อเพื่อดูเฉพาะหมวดนั้น ทั้งหมด <%= rows.length %> รายการ · <%= brandNames.length %> ยี่ห้อ</div>
-
-  <% if (brandNames.length) { %>
-  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">
-    <button type="button" class="tag brandchip" data-brand-target="all" style="background:var(--navy);color:#fff;padding:7px 14px">ทั้งหมด (<%= rows.length %>)</button>
-    <% brandNames.forEach((b,i)=>{ %>
-    <button type="button" class="tag brandchip" data-brand-target="brand-<%= i %>" style="background:<%= brandColors[i%6] %>;color:#fff;padding:7px 14px"><%= b %> (<%= groups[b].length %>)</button>
-    <% }) %>
-  </div>
-  <% } %>
-
-  <% brandNames.forEach((b,gi)=>{ %>
-  <div class="panel" id="brand-<%= gi %>" data-brand-panel="brand-<%= gi %>">
-    <div class="ph2" style="background:<%= brandColors[gi%6] %>;border-bottom:none">
-      <h3 style="color:#fff;display:flex;align-items:center;gap:8px"><iconify-icon icon="mdi:tag-outline"></iconify-icon> <%= b %> <span style="opacity:.8;font-weight:400">(<%= groups[b].length %> รายการ)</span></h3>
-      <a class="btn ln" href="/admin/products?brand=<%= encodeURIComponent(b) %>#add-form" style="background:rgba(255,255,255,.15);color:#fff;border-color:transparent"><iconify-icon icon="mdi:plus"></iconify-icon> เพิ่มสินค้าในหมวดนี้</a>
+  <% const editorMode = !!editing || String(typeof presetBrand !== 'undefined' ? presetBrand : '') !== '' || (typeof queryAdd !== 'undefined' && queryAdd) ; %>
+  <div class="banana-product-page" data-editor-mode="<%= editing ? 'edit' : 'list' %>">
+    <div class="banana-toolbar">
+      <div><p class="banana-eyebrow">PRODUCT WORKSPACE</p><h2><%= editing ? 'แก้ไขสินค้า' : 'คลังสินค้า' %></h2><p class="banana-subtitle"><%= editing ? 'แก้ไขข้อมูลและรูปภาพโดยไม่ต้องเลื่อนผ่านรายการสินค้า' : 'ค้นหาและจัดการสินค้าทั้งหมด '+rows.length+' รายการ ได้อย่างรวดเร็ว' %></p></div>
+      <a class="banana-primary" href="/admin/products?add=1<%= selectedBrand ? "&brand="+encodeURIComponent(selectedBrand) : "" %>"><iconify-icon icon="mdi:plus"></iconify-icon> เพิ่มสินค้า</a>
     </div>
-    <div class="tblwrap"><table class="tbl">
-      <tr><th>รูป</th><th>ชื่อสินค้า</th><th>ราคา</th><th>ไฟล์แนบ</th><th>จัดการ</th></tr>
-      <% groups[b].forEach(p=>{ %>
-      <tr>
-        <td><span class="thumb"><% if(p.image){ %><img src="<%= p.image %>"><% } else { %><iconify-icon icon="mdi:air-conditioner"></iconify-icon><% } %></span></td>
-        <td style="font-weight:600"><%= p.name %><% if(p.bestseller){ %> <iconify-icon icon="mdi:star" style="color:var(--amber);font-size:14px" title="ขายดี"></iconify-icon><% } %></td>
-        <td style="color:var(--mut)"><%= p.price ? '฿'+p.price.toLocaleString() : 'สอบถามราคา' %></td>
-        <td><% if(p.catalog){ %><a class="tag rd" href="<%= p.catalog %>" target="_blank">PDF <iconify-icon icon="mdi:check"></iconify-icon></a><% } else { %><span class="tag gy">ไม่มี</span><% } %></td>
-        <td><div class="act2">
-          <a class="mini ed" href="/admin/products?edit=<%= p.id %>#add-form">แก้ไข</a>
-          <form method="post" action="/admin/products/delete/<%= p.id %>" onsubmit="return confirm('ลบสินค้านี้?')" style="display:inline"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="mini dl">ลบ</button></form>
-        </div></td>
-      </tr>
-      <% }) %>
-    </table></div>
-  </div>
-  <% }) %>
-  <% if (!brandNames.length) { %><div class="panel"><div class="pb" style="color:var(--mut)">ยังไม่มีสินค้าในระบบ เพิ่มสินค้าแรกได้ที่ฟอร์มด้านล่าง</div></div><% } %>
-
-  <div class="panel" id="add-form">
-    <div class="ph2"><h3><%- editing ? '<iconify-icon icon="mdi:pencil-outline"></iconify-icon> แก้ไขสินค้า' : '<iconify-icon icon="mdi:plus"></iconify-icon> เพิ่มสินค้าใหม่' %><% if(!editing && presetBrand){ %> — หมวด <%= presetBrand %><% } %></h3><% if(editing){ %><a class="btn ln" href="/admin/products">ยกเลิกการแก้ไข</a><% } %></div>
-    <form class="pb" method="post" action="/admin/products/save" enctype="multipart/form-data"><input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <div class="banana-list-view" id="banana-list-view">
+      <div class="banana-brand-head"><div><h3>เลือกแบรนด์สินค้า</h3><p>เลือกหมวดหมู่เพื่อดูรุ่นสินค้าในแบรนด์นั้น</p></div><a class="banana-manage-brands" href="/admin/product-brands">จัดการแบรนด์และโลโก้ →</a></div>
+      <div class="banana-brand-grid" id="banana-brand-grid">
+        <% brandNames.forEach(b=>{const meta=(typeof brands!=="undefined"?brands:[]).find(x=>x.name===b);const n=(groups[b]||[]).length; %>
+          <a class="banana-brand-card" href="/admin/products?brand=<%= encodeURIComponent(b) %>" data-brand-link="<%= b %>">
+            <span class="banana-brand-logo"><% if(meta&&meta.logo){ %><img src="<%= meta.logo %>" alt="โลโก้ <%= b %>" loading="lazy"><% }else{ %><span class="banana-brand-wordmark"><%= b %></span><% } %></span>
+            <span class="banana-brand-info"><strong><%= b %></strong><small><%= n %> รุ่นสินค้า</small></span><span class="banana-brand-arrow">→</span>
+          </a>
+        <% }) %>
+      </div>
+      <div id="banana-brand-products" hidden><div class="banana-brand-products-heading"><a href="/admin/products" class="banana-back">← เลือกแบรนด์อื่น</a><h3 id="banana-selected-title"></h3><a class="banana-primary" id="banana-brand-add" href="/admin/products?add=1">+ เพิ่มสินค้าในแบรนด์นี้</a></div>
+      <% if(!selectedBrand){ %><div class="banana-brands-redirect"><h3>เลือกแบรนด์เพื่อจัดการสินค้า</h3><p>จัดหมวดหมู่สินค้าเป็นแบรนด์ เพื่อค้นหาและแก้ไขได้ง่ายขึ้น</p><a class="banana-primary" href="/admin/product-brands">ดูหมวดหมู่และโลโก้แบรนด์ →</a></div><% }else{ %><div class="banana-selected-brand"><a href="/admin/product-brands">← กลับไปเลือกแบรนด์</a><h3>สินค้าแบรนด์ <%= selectedBrand %></h3></div><% } %>
+      <div class="banana-filterbar" <%= !selectedBrand ? "hidden" : "" %>><label class="banana-search"><iconify-icon icon="mdi:magnify"></iconify-icon><input id="banana-search" type="search" placeholder="ค้นหาชื่อสินค้า รุ่น หรือยี่ห้อ…" autocomplete="off"></label><select id="banana-brand-filter" aria-label="กรองยี่ห้อ"><option value="">ทุกยี่ห้อ</option><% brandNames.forEach(b=>{ %><option value="<%= b %>" <%= b === selectedBrand ? "selected" : "" %>><%= b %></option><% }) %></select><span class="banana-count" id="banana-count"><%= rows.length %> รายการ</span></div>
+      <div class="banana-table-card" <%= !selectedBrand ? "hidden" : "" %>><div class="tblwrap"><table class="tbl banana-table"><thead><tr><th>สินค้า</th><th>รุ่น / ยี่ห้อ</th><th>ราคา</th><th>ไฟล์แนบ</th><th>จัดการ</th></tr></thead><tbody>
+      <% rows.forEach(p=>{ %><tr data-banana-product data-brand="<%= p.brand || '' %>" data-search="<%= [p.name,p.brand,p.model].filter(Boolean).join(' ').toLowerCase() %>">
+      <td><div class="banana-product-cell"><span class="thumb admin-prod-thumb" data-product-id="<%= p.id %>"><% if(p.image){ %><img src="<%= p.image %>" loading="lazy"><% }else{ %><iconify-icon icon="mdi:air-conditioner"></iconify-icon><% } %></span><strong><%= p.name %></strong></div></td>
+      <td><span class="banana-brand"><%= p.brand || 'ไม่ระบุ' %></span><div class="banana-model"><%= p.model || '—' %></div></td>
+      <td><%= p.price ? '฿'+Number(p.price).toLocaleString() : 'สอบถามราคา' %></td>
+      <td><% if(p.catalog){ %><a href="<%= p.catalog %>" target="_blank" rel="noopener">PDF</a><% }else{ %>—<% } %></td>
+      <td><div class="act2"><a class="banana-edit" href="/admin/products?edit=<%= p.id %>&brand=<%= encodeURIComponent(p.brand||'') %>"><iconify-icon icon="mdi:pencil-outline"></iconify-icon> แก้ไข</a><form method="post" action="/admin/products/delete/<%= p.id %>" onsubmit="return confirm('ยืนยันลบสินค้านี้?')"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="banana-delete" type="submit" title="ลบสินค้า"><iconify-icon icon="mdi:trash-can-outline"></iconify-icon></button></form></div></td></tr><% }) %>
+      </tbody></table></div><p class="banana-empty" id="banana-empty" hidden>ไม่พบสินค้าที่ค้นหา</p></div></div>
+    </div>
+  <div class="panel banana-editor" id="add-form" data-editing="<%= editing ? "1" : "0" %>">
+    <div class="ph2"><h3><%- editing ? '<iconify-icon icon="mdi:pencil-outline"></iconify-icon> แก้ไขสินค้า' : '<iconify-icon icon="mdi:plus"></iconify-icon> เพิ่มสินค้าใหม่' %><% if(!editing && presetBrand){ %> — หมวด <%= presetBrand %><% } %></h3><% if(editing){ %><a class="btn ln" href="/admin/product-brands">กลับไปรายการสินค้า</a><% } %></div>
+    <div class="banana-editor-intro"><a href="/admin/product-brands" class="banana-back"><iconify-icon icon="mdi:arrow-left"></iconify-icon> กลับรายการสินค้า</a><p>กรอกข้อมูลตามหมวด แล้วกดบันทึกเมื่อพร้อม</p></div><nav class="banana-tabs" aria-label="หมวดข้อมูลสินค้า"><button type="button" class="banana-tab is-active" data-tab="basic">ข้อมูลทั่วไป</button><button type="button" class="banana-tab" data-tab="price">ราคา</button><button type="button" class="banana-tab" data-tab="desc">รายละเอียด</button><button type="button" class="banana-tab" data-tab="img">รูปภาพ</button></nav><form class="pb banana-edit-form" method="post" action="/admin/products/save" enctype="multipart/form-data"><input type="hidden" name="_csrf" value="<%= csrfToken %>">
       <input type="hidden" name="id" value="<%= editing ? editing.id : '' %>">
 
-      <div class="fsection">
+      <div class="fsection" data-section="basic">
         <h4><iconify-icon icon="mdi:information-outline"></iconify-icon> ข้อมูลพื้นฐาน</h4>
         <div class="fgrid">
           <div class="fld"><label>ชื่อสินค้า</label><input name="name" value="<%= editing ? editing.name : '' %>" required></div>
           <div class="fld">
             <label>ยี่ห้อ (หมวดหมู่)</label>
-            <input name="brand" list="brandlist" value="<%= editing ? editing.brand : presetBrand %>" placeholder="เลือกยี่ห้อเดิม หรือพิมพ์ยี่ห้อใหม่" required>
-            <datalist id="brandlist"><% brandNames.forEach(b=>{ %><option value="<%= b %>"><% }) %></datalist>
-            <p class="hint">เลือกจากยี่ห้อที่มีอยู่แล้ว หรือพิมพ์ชื่อยี่ห้อใหม่เพื่อสร้างหมวดใหม่</p>
+            <select name="brand" required><option value="">เลือกแบรนด์</option><% brandNames.forEach(b=>{ %><option value="<%= b %>" <%= (editing ? editing.brand : presetBrand)===b ? "selected" : "" %>><%= b %></option><% }) %></select>
+            <datalist id="brandlist"><% (typeof brandList !== "undefined" ? brandList.map(b=>b.name) : brandNames).forEach(b=>{ %><option value="<%= b %>"><% }) %></datalist>
+            <p class="hint">เพิ่มหรือแก้ไขแบรนด์และโลโก้ได้ที่ <a href="/admin/product-brands">จัดการแบรนด์</a></p>
           </div>
           <div class="fld"><label>รุ่น</label><input name="model" value="<%= editing ? editing.model : '' %>"></div>
           <div class="fld"><label>ประเภท</label><input name="type" value="<%= editing ? editing.type : '' %>" placeholder="เช่น ติดผนัง / ฝังฝ้า 4 ทิศทาง"></div>
         </div>
       </div>
 
-      <div class="fsection price">
+      <div class="fsection price" data-section="price">
         <h4><iconify-icon icon="mdi:currency-usd"></iconify-icon> ราคา</h4>
         <div class="fgrid">
           <div class="fld"><label>ราคา (บาท) — เว้นว่างหรือ 0 = สอบถามราคา</label><input name="price" type="number" value="<%= editing ? editing.price : '' %>"></div>
@@ -85,7 +78,7 @@
         </div>
       </div>
 
-      <div class="fsection desc">
+      <div class="fsection desc" data-section="desc">
         <h4><iconify-icon icon="mdi:text-box-outline"></iconify-icon> รายละเอียดสินค้า</h4>
         <div class="fgrid">
           <div class="fld full"><label>สเปกโดยย่อ (แสดงในการ์ดสินค้า)</label><input name="spec" value="<%= editing ? editing.spec : '' %>" placeholder="เช่น 12,300 BTU · SEER 18.5 · R32"></div>
@@ -93,45 +86,94 @@
         </div>
       </div>
 
-      <div class="fsection img">
+      <div class="fsection img" data-section="img">
         <h4><iconify-icon icon="mdi:image-multiple-outline"></iconify-icon> รูปภาพ</h4>
 
-        <div class="imgguide">
-          <div class="mockup">
-            <div class="big" style="aspect-ratio:1/1">รูปหลัก<br>อัตราส่วน 1:1</div>
-            <div class="thumbs"><div></div><div></div><div></div><div></div></div>
-          </div>
-          <div class="info">
-            <div class="row"><span class="sw" style="background:var(--teal)"></span><b>รูปหลัก</b> — แสดงเป็นรูปใหญ่ด้านซ้ายบนของหน้ารายละเอียดสินค้า อัตราส่วน 1:1 แนะนำขนาด <b>2048×2048px</b></div>
-            <div class="row"><span class="sw" style="background:var(--amber)"></span><b>แกลเลอรี (สูงสุด 4 รูป)</b> — แสดงเป็นรูปย่อย 4 ช่องด้านล่างรูปหลัก คลิกดูขยายได้ อัตราส่วน 1:1 แนะนำขนาด <b>1200×1200px</b></div>
-            <div class="row"><span class="sw" style="background:var(--pine)"></span><b>รูปในการ์ดสินค้า/หน้ารายการ</b> — อัตราส่วน 1:1 แนะนำขนาด <b>800×800px</b> หรือ <b>1200×1200px</b></div>
-          </div>
-        </div>
-
+        <p class="banana-image-hint">เลือกรูปหลักและแกลเลอรี ระบบจะแสดงภาพตัวอย่างแบบย่อเพื่อไม่ให้หน้ายาว และสามารถกด Crop ก่อนบันทึกได้</p>
         <div class="fgrid">
-          <div class="fld"><label>รูปภาพสินค้า (รูปหลัก)</label><input type="file" name="image" accept="image/*"></div>
+          <div class="fld"><label>รูปภาพสินค้า (รูปหลัก)</label><input type="file" name="image" accept="image/*"<% if (editing && editing.image) { %> data-saved-image="<%= editing.image %>"<% } %>></div>
           <div class="fld"><label>ไฟล์แนบ (PDF)</label><input type="file" name="catalog" accept="application/pdf"></div>
           <div class="fld full">
-            <label>แกลเลอรีรูปภาพ (เลือกได้สูงสุด 4 รูปพร้อมกัน)</label>
+            <label>แกลเลอรีรูปภาพ (เลือกได้สูงสุด 5 รูปพร้อมกัน)</label>
             <input type="file" name="gallery" accept="image/*" multiple>
-            <p class="hint">เลือกไฟล์ใหม่จะแทนที่ชุดเดิมทั้งหมด ถ้าไม่เลือกไฟล์ใหม่ รูปเดิมจะยังอยู่</p>
-            <% if (editing && editing.gallery && editing.gallery.length) { %>
-            <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
-              <% editing.gallery.forEach(g=>{ %><span class="thumb" style="width:60px;height:60px"><img src="<%= g %>"></span><% }) %>
+            <input type="hidden" name="galleryOrder" value="">
+            <% if (editing && Array.isArray(editing.gallery) && editing.gallery.length) { %>
+            <div class="admin-cover-picker">
+              <label for="admin-cover-select">รูปหน้าปกสินค้า (เลือกจากรูปที่บันทึกไว้)</label>
+              <select id="admin-cover-select" name="coverFromGallery">
+                <option value="">ใช้รูปหน้าปกปัจจุบัน</option>
+                <% editing.gallery.forEach((g, i) => { %><option value="<%= g %>">ใช้รูปแกลเลอรีเดิมลำดับ <%= i + 1 %> เป็นหน้าปก</option><% }) %>
+              </select>
+              <p class="hint">เมื่อเลือกหน้าปกใหม่ รูปหน้าปกเดิมจะย้ายไปอยู่ในแกลเลอรี ไม่ลบไฟล์เดิม · ใช้ได้เมื่อไม่ได้อัปโหลดรูปใหม่หรือสั่งล้างแกลเลอรี</p>
             </div>
+            <% } %>
+            <p class="hint">เมื่อเลือกรูปใหม่ จะสามารถจัดลำดับก่อนบันทึกได้ รูปแรกในชุดแกลเลอรีจะแสดงก่อน (รูปหลักแยกต่างหาก)</p>
+            <p class="hint">เลือกไฟล์ใหม่จะแทนที่ชุดเดิมทั้งหมด ถ้าไม่เลือกไฟล์ใหม่ รูปเดิมจะยังอยู่</p>
+            <% if (editing) { %>
+            <div class="admin-remote-gallery" data-product-id="<%= editing.id %>" style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+              <span class="hint">กำลังโหลดรูปสินค้าจริง…</span>
+            </div>
+            <% if (editing.gallery && editing.gallery.length) { %>
+            <div style="margin-top:8px;color:var(--mut);font-size:12px">รูปที่อัปโหลดไว้ในระบบ</div>
+            <div class="admin-saved-gallery" style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap">
+              <% editing.gallery.forEach(g=>{ %><span class="thumb" style="width:60px;height:60px"><img src="<%= g %>" loading="lazy"></span><% }) %>
+            </div>
+            <% } %>
             <label style="display:flex;align-items:center;gap:8px;margin-top:10px;font-weight:400">
-              <input type="checkbox" name="clearGallery" style="width:auto"> ล้างแกลเลอรีเดิมทั้งหมด (ไม่อัปโหลดรูปใหม่)
+              <input type="checkbox" name="clearGallery" style="width:auto"> ล้างแกลเลอรีที่อัปโหลดเดิมทั้งหมด (ไม่อัปโหลดรูปใหม่)
             </label>
             <% } %>
           </div>
         </div>
       </div>
 
-      <button class="btn nv" style="margin-top:4px"><%= editing ? 'บันทึกการแก้ไข' : 'เพิ่มสินค้า' %></button>
+      <div class="banana-savebar"><a href="/admin/product-brands" class="banana-cancel">ยกเลิก</a><button class="btn nv" type="submit"><%= editing ? 'บันทึกการแก้ไข' : 'เพิ่มสินค้า' %></button></div>
     </form>
   </div>
+  </div><!-- banana product page -->
 
 <%- include('../partials/admin-shell-bottom') %>
 </div>
+<script>
+(function(){
+  function setThumb(el, urls){
+    el.innerHTML = '';
+    var img = document.createElement('img');
+    var i = 0;
+    img.loading = 'lazy'; img.alt = 'รูปสินค้า';
+    img.onerror = function(){
+      i += 1;
+      if (i < urls.length) img.src = urls[i];
+      else el.innerHTML = '<iconify-icon icon="mdi:air-conditioner"></iconify-icon>';
+    };
+    el.appendChild(img);
+    img.src = urls[0];
+  }
+  document.querySelectorAll('.admin-prod-thumb[data-product-id]').forEach(function(el){
+    fetch('/admin/api/product-gallery/' + encodeURIComponent(el.dataset.productId))
+      .then(function(r){ return r.json(); })
+      .then(function(d){ if(d.images && d.images.length) setThumb(el, d.images.slice(0,5)); })
+      .catch(function(){});
+  });
+  var box = document.querySelector('.admin-remote-gallery[data-product-id]');
+  if(box){
+    fetch('/admin/api/product-gallery/' + encodeURIComponent(box.dataset.productId))
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        box.innerHTML = '';
+        (d.images || []).forEach(function(url, i){
+          var span=document.createElement('span'); span.className='thumb'; span.style.cssText='width:90px;height:70px;background:#fff';
+          var img=document.createElement('img'); img.src=url; img.loading='lazy'; img.alt='รูปสินค้าจริง '+(i+1);
+          img.onerror=function(){span.remove();}; span.appendChild(img); box.appendChild(span);
+        });
+        if(!d.images || !d.images.length) box.innerHTML='<span class="hint">ไม่พบรูปจากหน้าสินค้าของรุ่นนี้</span>';
+      })
+      .catch(function(){ box.innerHTML='<span class="hint">โหลดรูปไม่สำเร็จ</span>'; });
+  }
+})();
+</script>
+<script src="/js/admin-banana-products.js" defer></script>
+<script src="/js/admin-gallery-v2.js" defer></script>
+<script src="/js/admin-image-crop-v2.js" defer></script>
 </body>
 </html>
