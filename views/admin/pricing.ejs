@@ -11,10 +11,11 @@
 
     <div class="panel">
       <div class="ph2"><h3><iconify-icon icon="mdi:air-conditioner"></iconify-icon> ค่าบริการติดตั้งแอร์</h3></div>
-      <div class="fgrid">
+      <div class="pb"><div class="fgrid">
         <div class="fld full">
-          <label>ตารางราคา — หนึ่งบรรทัดต่อหนึ่งแถว คั่นแต่ละคอลัมน์ด้วย " | " (3 คอลัมน์: ประเภทแอร์ | ขนาด | ราคา)</label>
-          <textarea name="installRows" rows="6" placeholder="ติดผนัง (Wall Type) | 9,000 – 12,000 BTU | ฿2,500"><%= installRowsText %></textarea>
+          <label for="price-installRows">ตารางราคา (เรียงตามลำดับที่แสดงบนเว็บไซต์)</label>
+          <p class="hint" data-raw-hint>หนึ่งบรรทัดต่อหนึ่งแถว คั่นแต่ละคอลัมน์ด้วย " | " (3 คอลัมน์: ประเภทแอร์ | ขนาด | ราคา)</p>
+          <textarea id="price-installRows" data-row-editor="{&quot;itemLabel&quot;: &quot;แถว&quot;, &quot;addLabel&quot;: &quot;เพิ่มแถวราคา&quot;, &quot;columns&quot;: [{&quot;label&quot;: &quot;ประเภทแอร์&quot;, &quot;placeholder&quot;: &quot;เช่น ติดผนัง (Wall Type)&quot;}, {&quot;label&quot;: &quot;ขนาด&quot;, &quot;placeholder&quot;: &quot;เช่น 9,000 – 12,000 BTU&quot;}, {&quot;label&quot;: &quot;ราคา&quot;, &quot;placeholder&quot;: &quot;เช่น ฿2,500&quot;}]}" name="installRows" rows="6" placeholder="ติดผนัง (Wall Type) | 9,000 – 12,000 BTU | ฿2,500"><%= installRowsText %></textarea>
         </div>
         <div class="fld">
           <label>สิ่งที่รวมในค่าติดตั้งมาตรฐาน (หนึ่งบรรทัดต่อหนึ่งรายการ)</label>
@@ -24,15 +25,16 @@
           <label>ค่าใช้จ่ายเพิ่มเติม (หนึ่งบรรทัดต่อหนึ่งรายการ)</label>
           <textarea name="installExtra" rows="5"><%= installExtraText %></textarea>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <div class="panel">
       <div class="ph2"><h3><iconify-icon icon="mdi:air-filter"></iconify-icon> ค่าบริการล้างแอร์</h3></div>
-      <div class="fgrid">
+      <div class="pb"><div class="fgrid">
         <div class="fld full">
-          <label>ตารางราคา — หนึ่งบรรทัดต่อหนึ่งแถว คั่นแต่ละคอลัมน์ด้วย " | " (3 คอลัมน์: ประเภทแอร์ | ขนาด | ราคา)</label>
-          <textarea name="cleanRows" rows="5" placeholder="ติดผนัง (Wall Type) | ไม่เกิน 18,000 BTU | ฿500"><%= cleanRowsText %></textarea>
+          <label for="price-cleanRows">ตารางราคา (เรียงตามลำดับที่แสดงบนเว็บไซต์)</label>
+          <p class="hint" data-raw-hint>หนึ่งบรรทัดต่อหนึ่งแถว คั่นแต่ละคอลัมน์ด้วย " | " (3 คอลัมน์: ประเภทแอร์ | ขนาด | ราคา)</p>
+          <textarea id="price-cleanRows" data-row-editor="{&quot;itemLabel&quot;: &quot;แถว&quot;, &quot;addLabel&quot;: &quot;เพิ่มแถวราคา&quot;, &quot;columns&quot;: [{&quot;label&quot;: &quot;ประเภทแอร์&quot;, &quot;placeholder&quot;: &quot;เช่น ติดผนัง (Wall Type)&quot;}, {&quot;label&quot;: &quot;ขนาด&quot;, &quot;placeholder&quot;: &quot;เช่น 9,000 – 12,000 BTU&quot;}, {&quot;label&quot;: &quot;ราคา&quot;, &quot;placeholder&quot;: &quot;เช่น ฿2,500&quot;}]}" name="cleanRows" rows="5" placeholder="ติดผนัง (Wall Type) | ไม่เกิน 18,000 BTU | ฿500"><%= cleanRowsText %></textarea>
         </div>
         <div class="fld">
           <label>ขั้นตอนการล้าง (หนึ่งบรรทัดต่อหนึ่งขั้นตอน)</label>
@@ -42,13 +44,14 @@
           <label>ส่วนลด/แพ็กเกจ (หนึ่งบรรทัดต่อหนึ่งรายการ)</label>
           <textarea name="cleanPromo" rows="5"><%= cleanPromoText %></textarea>
         </div>
-      </div>
+      </div></div>
     </div>
 
     <button class="btn nv" style="margin-top:4px">บันทึกค่าบริการทั้งหมด</button>
   </form>
 
 <%- include('../partials/admin-shell-bottom') %>
+<script src="/js/admin-row-editor.js" defer></script>
 </div>
 </body>
 </html>

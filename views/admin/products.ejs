@@ -9,7 +9,9 @@
     // จัดกลุ่มสินค้าตามยี่ห้อ — แต่ละยี่ห้อเป็นหมวดแยกกัน ไม่ปนกัน
     const groups = {};
     rows.forEach(p => { const b = p.brand || 'ไม่ระบุยี่ห้อ'; (groups[b] = groups[b] || []).push(p); });
-    const brandNames = [...new Set([...(typeof brands !== "undefined" ? brands.map(b=>b.name) : []),...Object.keys(groups)])].sort();
+    // route ส่งรายการแบรนด์มาในชื่อ brandList (แบรนด์ที่ยังไม่มีสินค้าก็ต้องเลือกได้)
+    const brandMeta = typeof brandList !== "undefined" ? brandList : [];
+    const brandNames = [...new Set([...brandMeta.map(b=>b.name),...Object.keys(groups)])].sort();
     const selectedBrand = typeof presetBrand !== "undefined" ? presetBrand : "";
     const brandColors = ['#0E4D6B','#2C6B4C','#8a6224','#12402B','#A0742A','#0E6E63'];
   %>
@@ -23,7 +25,7 @@
     <div class="banana-list-view" id="banana-list-view">
       <div class="banana-brand-head"><div><h3>เลือกแบรนด์สินค้า</h3><p>เลือกหมวดหมู่เพื่อดูรุ่นสินค้าในแบรนด์นั้น</p></div><a class="banana-manage-brands" href="/admin/product-brands">จัดการแบรนด์และโลโก้ →</a></div>
       <div class="banana-brand-grid" id="banana-brand-grid">
-        <% brandNames.forEach(b=>{const meta=(typeof brands!=="undefined"?brands:[]).find(x=>x.name===b);const n=(groups[b]||[]).length; %>
+        <% brandNames.forEach(b=>{const meta=brandMeta.find(x=>x.name===b);const n=(groups[b]||[]).length; %>
           <a class="banana-brand-card" href="/admin/products?brand=<%= encodeURIComponent(b) %>" data-brand-link="<%= b %>">
             <span class="banana-brand-logo"><% if(meta&&meta.logo){ %><img src="<%= meta.logo %>" alt="โลโก้ <%= b %>" loading="lazy"><% }else{ %><span class="banana-brand-wordmark"><%= b %></span><% } %></span>
             <span class="banana-brand-info"><strong><%= b %></strong><small><%= n %> รุ่นสินค้า</small></span><span class="banana-brand-arrow">→</span>
@@ -39,12 +41,12 @@
       <td><span class="banana-brand"><%= p.brand || 'ไม่ระบุ' %></span><div class="banana-model"><%= p.model || '—' %></div></td>
       <td><%= p.price ? '฿'+Number(p.price).toLocaleString() : 'สอบถามราคา' %></td>
       <td><% if(p.catalog){ %><a href="<%= p.catalog %>" target="_blank" rel="noopener">PDF</a><% }else{ %>—<% } %></td>
-      <td><div class="act2"><a class="banana-edit" href="/admin/products?edit=<%= p.id %>&brand=<%= encodeURIComponent(p.brand||'') %>"><iconify-icon icon="mdi:pencil-outline"></iconify-icon> แก้ไข</a><form method="post" action="/admin/products/delete/<%= p.id %>" onsubmit="return confirm('ยืนยันลบสินค้านี้?')"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="banana-delete" type="submit" title="ลบสินค้า"><iconify-icon icon="mdi:trash-can-outline"></iconify-icon></button></form></div></td></tr><% }) %>
+      <td><div class="act2"><a class="banana-edit" href="/admin/products?edit=<%= p.id %>&brand=<%= encodeURIComponent(p.brand||'') %>"><iconify-icon icon="mdi:pencil-outline"></iconify-icon> แก้ไข</a><form method="post" action="/admin/products/delete/<%= p.id %>" data-confirm="ยืนยันลบสินค้านี้?"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="banana-delete" type="submit" title="ลบสินค้า"><iconify-icon icon="mdi:trash-can-outline"></iconify-icon></button></form></div></td></tr><% }) %>
       </tbody></table></div><p class="banana-empty" id="banana-empty" hidden>ไม่พบสินค้าที่ค้นหา</p></div></div>
     </div>
   <div class="panel banana-editor" id="add-form" data-editing="<%= editing ? "1" : "0" %>">
-    <div class="ph2"><h3><%- editing ? '<iconify-icon icon="mdi:pencil-outline"></iconify-icon> แก้ไขสินค้า' : '<iconify-icon icon="mdi:plus"></iconify-icon> เพิ่มสินค้าใหม่' %><% if(!editing && presetBrand){ %> — หมวด <%= presetBrand %><% } %></h3><% if(editing){ %><a class="btn ln" href="/admin/product-brands">กลับไปรายการสินค้า</a><% } %></div>
-    <div class="banana-editor-intro"><a href="/admin/product-brands" class="banana-back"><iconify-icon icon="mdi:arrow-left"></iconify-icon> กลับรายการสินค้า</a><p>กรอกข้อมูลตามหมวด แล้วกดบันทึกเมื่อพร้อม</p></div><nav class="banana-tabs" aria-label="หมวดข้อมูลสินค้า"><button type="button" class="banana-tab is-active" data-tab="basic">ข้อมูลทั่วไป</button><button type="button" class="banana-tab" data-tab="price">ราคา</button><button type="button" class="banana-tab" data-tab="desc">รายละเอียด</button><button type="button" class="banana-tab" data-tab="img">รูปภาพ</button></nav><form class="pb banana-edit-form" method="post" action="/admin/products/save" enctype="multipart/form-data"><input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <div class="ph2"><h3><%- editing ? '<iconify-icon icon="mdi:pencil-outline"></iconify-icon> แก้ไขสินค้า' : '<iconify-icon icon="mdi:plus"></iconify-icon> เพิ่มสินค้าใหม่' %><% if(!editing && presetBrand){ %> — หมวด <%= presetBrand %><% } %></h3><% if(editing){ %><a class="btn ln" href="/admin/products?brand=<%= encodeURIComponent(editing.brand || '') %>">กลับไปรายการสินค้า</a><% } %></div>
+    <div class="banana-editor-intro"><% if(!editing){ %><a href="/admin/product-brands" class="banana-back"><iconify-icon icon="mdi:arrow-left"></iconify-icon> กลับไปเลือกแบรนด์</a><% } %><p>กรอกข้อมูลตามหมวด แล้วกดบันทึกเมื่อพร้อม</p></div><nav class="banana-tabs" aria-label="หมวดข้อมูลสินค้า"><button type="button" class="banana-tab is-active" data-tab="basic">ข้อมูลทั่วไป</button><button type="button" class="banana-tab" data-tab="price">ราคา</button><button type="button" class="banana-tab" data-tab="desc">รายละเอียด</button><button type="button" class="banana-tab" data-tab="img">รูปภาพ</button></nav><form class="pb banana-edit-form" method="post" action="/admin/products/save" enctype="multipart/form-data"><input type="hidden" name="_csrf" value="<%= csrfToken %>">
       <input type="hidden" name="id" value="<%= editing ? editing.id : '' %>">
 
       <div class="fsection" data-section="basic">
@@ -134,44 +136,7 @@
 
 <%- include('../partials/admin-shell-bottom') %>
 </div>
-<script>
-(function(){
-  function setThumb(el, urls){
-    el.innerHTML = '';
-    var img = document.createElement('img');
-    var i = 0;
-    img.loading = 'lazy'; img.alt = 'รูปสินค้า';
-    img.onerror = function(){
-      i += 1;
-      if (i < urls.length) img.src = urls[i];
-      else el.innerHTML = '<iconify-icon icon="mdi:air-conditioner"></iconify-icon>';
-    };
-    el.appendChild(img);
-    img.src = urls[0];
-  }
-  document.querySelectorAll('.admin-prod-thumb[data-product-id]').forEach(function(el){
-    fetch('/admin/api/product-gallery/' + encodeURIComponent(el.dataset.productId))
-      .then(function(r){ return r.json(); })
-      .then(function(d){ if(d.images && d.images.length) setThumb(el, d.images.slice(0,5)); })
-      .catch(function(){});
-  });
-  var box = document.querySelector('.admin-remote-gallery[data-product-id]');
-  if(box){
-    fetch('/admin/api/product-gallery/' + encodeURIComponent(box.dataset.productId))
-      .then(function(r){ return r.json(); })
-      .then(function(d){
-        box.innerHTML = '';
-        (d.images || []).forEach(function(url, i){
-          var span=document.createElement('span'); span.className='thumb'; span.style.cssText='width:90px;height:70px;background:#fff';
-          var img=document.createElement('img'); img.src=url; img.loading='lazy'; img.alt='รูปสินค้าจริง '+(i+1);
-          img.onerror=function(){span.remove();}; span.appendChild(img); box.appendChild(span);
-        });
-        if(!d.images || !d.images.length) box.innerHTML='<span class="hint">ไม่พบรูปจากหน้าสินค้าของรุ่นนี้</span>';
-      })
-      .catch(function(){ box.innerHTML='<span class="hint">โหลดรูปไม่สำเร็จ</span>'; });
-  }
-})();
-</script>
+<script src="/js/admin-product-thumbs.js" defer></script>
 <script src="/js/admin-banana-products.js" defer></script>
 <script src="/js/admin-gallery-v2.js" defer></script>
 <script src="/js/admin-image-crop-v2.js" defer></script>

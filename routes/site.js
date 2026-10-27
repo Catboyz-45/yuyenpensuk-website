@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
       main: true,
       title: "ติดตั้ง ล้าง ซ่อม และจำหน่ายเครื่องปรับอากาศ",
       desc: "ดูแลเครื่องปรับอากาศครบวงจร ตั้งแต่เลือกซื้อ ติดตั้ง ดูแลรักษา จนถึงงานไฟฟ้าที่เกี่ยวข้อง โดยทีมช่างผู้ชำนาญ",
-      image: (d.services[0] && d.services[0].image) || ""
+      image: d.services[0]?.image || ""
     },
     ...banners.map((b) => ({ main: false, title: b.title, image: b.image }))
   ];
@@ -28,6 +28,8 @@ router.get("/", (req, res) => {
     services: d.services,
     products: (d.products.filter((p) => p.bestseller).length ? d.products.filter((p) => p.bestseller) : d.products.slice(0, 4)).slice(0, 4),
     projects: d.projects.slice(0, 3),
+    productCount: d.products.length,
+    projectCount: d.projects.length,
     brands: [...new Set(db().products.map((p) => p.brand))]
   });
 });

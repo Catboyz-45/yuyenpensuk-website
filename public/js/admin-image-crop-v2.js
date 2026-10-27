@@ -12,7 +12,7 @@
   function launchButton(input, label) {
     const btn = document.createElement('button');
     btn.type = 'button'; btn.className = 'yy-crop-launch'; btn.textContent = label;
-    input.insertAdjacentElement('afterend', btn);
+    input.after(btn);
     btn.addEventListener('click', async () => {
       const files = Array.from(input.files || []);
       if (!files.length) { alert('กรุณาเลือกรูปภาพก่อน'); return; }
@@ -35,14 +35,14 @@
     });
   }
   async function editImage(file) {
-    if (!file.type.startsWith('image/')) throw Error('ไฟล์ที่เลือกไม่ใช่รูปภาพ');
+    if (!file.type.startsWith('image/')) throw new Error('ไฟล์ที่เลือกไม่ใช่รูปภาพ');
     const url = URL.createObjectURL(file);
     let image;
     try {
       image = new Image(); image.src = url;
       await image.decode();
-      if (!image.naturalWidth || !image.naturalHeight) throw Error('อ่านไฟล์ภาพไม่ได้');
-      if (image.naturalWidth * image.naturalHeight > 60000000) throw Error('รูปภาพมีขนาดใหญ่เกินไป');
+      if (!image.naturalWidth || !image.naturalHeight) throw new Error('อ่านไฟล์ภาพไม่ได้');
+      if (image.naturalWidth * image.naturalHeight > 60000000) throw new Error('รูปภาพมีขนาดใหญ่เกินไป');
       return await showEditor(image, file);
     } finally { URL.revokeObjectURL(url); }
   }
@@ -79,7 +79,14 @@
         dx=side/2-cx*newW; dy=side/2-cy*newH; update();
       });
       frame.addEventListener('pointerdown', e => { dragging = {id:e.pointerId,x:e.clientX,y:e.clientY}; frame.setPointerCapture(e.pointerId); });
-      frame.addEventListener('pointermove', e => { if (!dragging || dragging.id!==e.pointerId) return; dx+=e.clientX-dragging.x; dy+=e.clientY-dragging.y; dragging.x=e.clientX; dragging.y=e.clientY; update(); });
+      frame.addEventListener('pointermove', e => {
+        if (dragging?.id !== e.pointerId) return;
+        dx += e.clientX - dragging.x;
+        dy += e.clientY - dragging.y;
+        dragging.x = e.clientX;
+        dragging.y = e.clientY;
+        update();
+      });
       frame.addEventListener('pointerup', () => dragging=null);
       frame.addEventListener('pointercancel', () => dragging=null);
       // Keep the same image point at the frame centre when its dimensions change.
@@ -98,7 +105,7 @@
       function canvas() {
         const c=document.createElement('canvas'); c.width=1200;c.height=1200;
         const ctx=c.getContext('2d');
-        if (!frame.clientWidth) throw Error('กรอบภาพมีขนาดไม่ถูกต้อง');
+        if (!frame.clientWidth) throw new Error('กรอบภาพมีขนาดไม่ถูกต้อง');
         const ratio=c.width/frame.clientWidth;
         const currentBase = frame.clientWidth / Math.min(image.naturalWidth, image.naturalHeight);
         ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);
@@ -107,7 +114,14 @@
       }
       const escape = e => { if (e.key==='Escape') finish(null); };
       let finished=false;
-      function finish(value) { if (finished) return; finished=true; if(observer) observer.disconnect(); document.removeEventListener('keydown',escape); modal.remove(); resolve(value); }
+      function finish(value) {
+        if (finished) return;
+        finished = true;
+        if (observer) observer.disconnect();
+        document.removeEventListener('keydown', escape);
+        modal.remove();
+        resolve(value);
+      }
       document.addEventListener('keydown',escape);
       modal.addEventListener('click', e => {
         const action=e.target.closest('button[data-action]')?.dataset.action;
@@ -141,17 +155,17 @@
     savedButton.type = 'button';
     savedButton.className = 'yy-crop-launch';
     savedButton.textContent = 'Crop รูปหน้าปกที่บันทึกไว้';
-    main.insertAdjacentElement('afterend', savedButton);
+    main.after(savedButton);
     savedButton.addEventListener('click', async () => {
       savedButton.disabled = true;
       try {
         const parsed = new URL(savedUrl, location.origin);
         if (parsed.origin !== location.origin || !parsed.pathname.startsWith('/uploads/'))
-          throw Error('รูปเดิมไม่ใช่ไฟล์อัปโหลดของเว็บไซต์');
+          throw new Error('รูปเดิมไม่ใช่ไฟล์อัปโหลดของเว็บไซต์');
         const response = await fetch(parsed.href, {credentials:'same-origin'});
-        if (!response.ok) throw Error('โหลดรูปเดิมไม่ได้ (' + response.status + ')');
+        if (!response.ok) throw new Error('โหลดรูปเดิมไม่ได้ (' + response.status + ')');
         const blob = await response.blob();
-        if (!blob.type.startsWith('image/')) throw Error('ไฟล์เดิมไม่ใช่รูปภาพ');
+        if (!blob.type.startsWith('image/')) throw new Error('ไฟล์เดิมไม่ใช่รูปภาพ');
         const original = new File([blob], 'saved-cover.jpg', {type:blob.type});
         const result = await editImage(original);
         if (result) {

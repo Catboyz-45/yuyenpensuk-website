@@ -17,7 +17,7 @@
         <td><span class="tag <%= n.published?'gr':'gy' %>"><%= n.published?'เผยแพร่แล้ว':'ฉบับร่าง' %></span></td>
         <td><div class="act2">
           <a class="mini ed" href="/admin/news?edit=<%= n.id %>">แก้ไข</a>
-          <form method="post" action="/admin/news/delete/<%= n.id %>" onsubmit="return confirm('ลบข่าวนี้?')" style="display:inline"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="mini dl">ลบ</button></form>
+          <form method="post" action="/admin/news/delete/<%= n.id %>" data-confirm="ลบข่าวนี้?" style="display:inline"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="mini dl">ลบ</button></form>
         </div></td>
       </tr>
       <% }) %>
@@ -32,8 +32,8 @@
         <div class="fld"><label>หัวข้อข่าว</label><input name="title" value="<%= editing ? editing.title : '' %>" required></div>
         <div class="fld"><label>รูปหน้าปก</label><input type="file" name="image" accept="image/*"></div>
         <div class="fld"><label>วันที่เผยแพร่</label><input name="published_at" value="<%= editing ? editing.published_at : '' %>" placeholder="เช่น 2569-07-17"></div>
-        <div class="fld"><label class="chkrow" style="margin-top:26px"><input type="checkbox" name="published" <%= editing && !editing.published ? '' : 'checked' %>> เผยแพร่ทันที</label></div>
         <div class="fld full"><label>เนื้อหาข่าว</label><textarea name="body" style="min-height:140px" required><%= editing ? editing.body : '' %></textarea></div>
+        <div class="fld full"><label class="chkrow"><input type="checkbox" name="published" <%= editing && !editing.published ? '' : 'checked' %>> เผยแพร่ทันที</label></div>
       </div>
       <button class="btn nv" style="margin-top:16px"><%= editing ? 'บันทึกการแก้ไข' : 'เพิ่มข่าว' %></button>
     </form>

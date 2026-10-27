@@ -31,7 +31,7 @@ function checkLimit(tag) {
   return (req, res, next) => {
     const key = keyOf(req, tag);
     const rec = attempts.get(key);
-    if (rec && rec.blockedUntil && rec.blockedUntil > Date.now()) {
+    if (rec?.blockedUntil > Date.now()) {
       const minsLeft = Math.ceil((rec.blockedUntil - Date.now()) / 60000);
       return res.status(429).render(tag === "otp" ? "admin/otp" : "admin/login", {
         error: `พยายามเข้าสู่ระบบผิดหลายครั้งเกินไป กรุณารออีก ${minsLeft} นาทีแล้วลองใหม่`

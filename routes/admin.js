@@ -1,8 +1,8 @@
 /** routes/admin.js — ระบบจัดการเว็บไซต์ (CMS): Login → 2FA → Dashboard → CRUD */
 const express = require("express");
 const router = express.Router();
-const path = require("path");
-const crypto = require("crypto");
+const path = require("node:path");
+const crypto = require("node:crypto");
 const multer = require("multer");
 const bcrypt = require("bcryptjs");
 const { authenticator } = require("otplib");
@@ -12,7 +12,7 @@ const { requireAuth, requireSuperAdmin } = require("../middleware/auth");
 const rateLimit = require("../middleware/rateLimit");
 const { getProductImages, getProductImageBinary } = require('../utils/product-images');
 
-const fs = require("fs");
+const fs = require("node:fs");
 const UPLOAD_DIR = process.env.UPLOAD_DIR || path.join(__dirname, "..", "uploads");
 fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 
@@ -75,7 +75,7 @@ function validateUploadedFiles(req) {
     const ext = path.extname(file.originalname || "").toLowerCase();
     const declared = ALLOWED_UPLOADS.get(ext);
     const actual = detectUploadKind(file.path);
-    if (!declared || actual !== declared.kind) {
+    if (!actual || actual !== declared?.kind) {
       cleanupUploadedFiles(req);
       throw new Error("ชนิดไฟล์ไม่ตรงกับไฟล์จริง");
     }
@@ -100,7 +100,8 @@ function flashTempPassword(req, username, password) {
 // ตรวจ CSRF token สำหรับ route ที่อัปโหลดไฟล์ (multipart) — เช็คทีหลัง middleware กลาง
 // เพราะตอนนั้น req.body ยังไม่พร้อมจนกว่า multer จะ parse เสร็จก่อน
 function csrfOk(req) {
-  return !!(req.body && req.body._csrf && req.body._csrf === req.session.csrfToken);
+  const sent = req.body?._csrf;
+  return !!sent && sent === req.session?.csrfToken;
 }
 function csrfFail(res) {
   return res.status(403).render("admin/error", {
@@ -290,56 +291,58 @@ router.post("/home-features/delete/:id", requireAuth, (req, res) => {
 router.get("/company", requireAuth, (req, res) =>
   res.render("admin/company", { me: me(req), page: "company", c: db().company, saved: req.query.saved, err: req.query.err || null })
 );
+// ข้อความแจ้งเมื่ออัปโหลดไม่สำเร็จ (ใช้ร่วมกันทุกฟอร์มที่มีไฟล์)
+function uploadErrorMessage(uploadErr, sizeNote) {
+  if (uploadErr.code === "LIMIT_FILE_SIZE") return `ไฟล์มีขนาดใหญ่เกินไป (${sizeNote})`;
+  return uploadErr.message || "อัปโหลดไฟล์ไม่สำเร็จ กรุณาลองใหม่อีกครั้ง";
+}
+
+const HOMEPAGE_IMAGE_FIELDS = new Set(["homepage_team_image", "homepage_product_image", "homepage_service_image"]);
+
+// คัดลอกค่าจากฟอร์มข้อมูลบริษัทลงในอ็อบเจกต์ company พร้อมตรวจลิงก์ที่จะถูกนำไปแสดงบนเว็บ
+function applyCompanyForm(c, req) {
+  ["name", "tax_id", "address", "phone", "email", "facebook", "line", "history", "vision", "mission"].forEach(
+    (k) => (c[k] = req.body[k] || "")
+  );
+  // ตรวจสอบ maps_url ว่าเป็นลิงก์ https จริง ก่อนบันทึก (จะถูกฝังลง <iframe> ในหน้าเว็บสาธารณะ)
+  const mapsUrl = (req.body.maps_url || "").trim();
+  c.maps_url = mapsUrl && /^https:\/\//i.test(mapsUrl) ? mapsUrl : "";
+  const facebook = (req.body.facebook || "").trim();
+  c.facebook = facebook && /^https:\/\/(?:www\.)?facebook\.com\//i.test(facebook) ? facebook : "";
+  const logo = fileOf(req, "logo");
+  if (logo) { removeReplacedFile(c.logo); c.logo = logo; }
+  if (c.facebook && !/^https:\/\//i.test(c.facebook)) c.facebook = "";
+  const heroTitle = (req.body.homepage_hero_title || "").trim();
+  const heroDesc = (req.body.homepage_hero_description || "").trim();
+  c.homepage_hero_title = heroTitle.slice(0, 160);
+  c.homepage_hero_description = heroDesc.slice(0, 600);
+}
+
+// รูปจุดเด่นหน้าแรกต้องเป็นรูปภาพจริงเท่านั้น (ไม่รับ GIF/PDF)
+function homepageImagesValid(req) {
+  const homepageUploads = (req.files || []).filter((f) => HOMEPAGE_IMAGE_FIELDS.has(f.fieldname));
+  return homepageUploads.every((f) => ["jpeg", "png", "webp"].includes(detectUploadKind(f.path)));
+}
+
 router.post("/company", requireAuth, (req, res) => {
   upload.any()(req, res, (uploadErr) => {
     if (uploadErr) {
       cleanupUploadedFiles(req);
-      const msg =
-        uploadErr.code === "LIMIT_FILE_SIZE"
-          ? "ไฟล์มีขนาดใหญ่เกินไป (จำกัดไม่เกิน 10MB)"
-          : uploadErr.message || "อัปโหลดไฟล์ไม่สำเร็จ กรุณาลองใหม่อีกครั้ง";
-      return res.redirect("/admin/company?err=" + encodeURIComponent(msg));
+      return res.redirect("/admin/company?err=" + encodeURIComponent(uploadErrorMessage(uploadErr, "จำกัดไม่เกิน 10MB")));
     }
     if (!csrfOk(req)) { cleanupUploadedFiles(req); return csrfFail(res); }
     try { validateUploadedFiles(req); } catch (e) { cleanupUploadedFiles(req); return res.redirect("/admin/company?err=" + encodeURIComponent(e.message)); }
-    const c = db().company;
-    ["name", "tax_id", "address", "phone", "email", "facebook", "line", "history", "vision", "mission"].forEach(
-      (k) => (c[k] = req.body[k] || "")
-    );
-    // ตรวจสอบ maps_url ว่าเป็นลิงก์ https จริง ก่อนบันทึก (จะถูกฝังลง <iframe> ในหน้าเว็บสาธารณะ)
-    const mapsUrl = (req.body.maps_url || "").trim();
-    c.maps_url = mapsUrl && /^https:\/\//i.test(mapsUrl) ? mapsUrl : "";
-    const facebook = (req.body.facebook || "").trim();
-    c.facebook = facebook && /^https:\/\/(?:www\.)?facebook\.com\//i.test(facebook) ? facebook : "";
-    const logo = fileOf(req, "logo");
-    if (logo) { removeReplacedFile(c.logo); c.logo = logo; }
-    if (c.facebook && !/^https:\/\//i.test(c.facebook)) c.facebook = "";
-
-    const homepageFields = [
-      "homepage_team_image",
-      "homepage_product_image",
-      "homepage_service_image"
-    ];
-    const homepageUploads = (req.files || []).filter(
-      f => homepageFields.includes(f.fieldname)
-    );
-
-    if (homepageUploads.some(f => !["jpeg", "png", "webp"].includes(detectUploadKind(f.path)))) {
+    if (!homepageImagesValid(req)) {
       cleanupUploadedFiles(req);
       return res.redirect("/admin/company?err=" +
         encodeURIComponent("รูปหน้าแรกต้องเป็น JPG, PNG หรือ WebP เท่านั้น"));
     }
-
-    for (const field of homepageFields) {
+    const c = db().company;
+    applyCompanyForm(c, req);
+    for (const field of HOMEPAGE_IMAGE_FIELDS) {
       const newImage = fileOf(req, field);
       if (newImage) c[field] = newImage;
     }
-
-    const heroTitle = (req.body.homepage_hero_title || "").trim();
-    const heroDesc = (req.body.homepage_hero_description || "").trim();
-    c.homepage_hero_title = heroTitle.slice(0, 160);
-    c.homepage_hero_description = heroDesc.slice(0, 600);
-
     save();
     res.redirect("/admin/company?saved=1");
   });
@@ -348,6 +351,40 @@ router.post("/company", requireAuth, (req, res) => {
 /* ==================================================
  * โรงงาน CRUD ใช้ร่วมกัน (banner/service/product/project/news)
  * ================================================== */
+
+const galleryOf = (row) => (Array.isArray(row.gallery) ? row.gallery : []);
+const fileUrlsOf = (row) => [row.image, row.logo, row.catalog, ...galleryOf(row)];
+
+function snapshotRow(row) {
+  if (!row) return null;
+  return { ...row, gallery: Array.isArray(row.gallery) ? row.gallery.slice() : row.gallery };
+}
+
+// คืนค่าตารางให้เหมือนก่อนบันทึก (แถวที่แก้ไขกลับเป็นค่าเดิม หรือเอาแถวใหม่ออก)
+function rollbackRow(t, row, previous, next) {
+  if (row) {
+    for (const key of Object.keys(row)) delete row[key];
+    Object.assign(row, previous);
+    return;
+  }
+  const index = t.indexOf(next);
+  if (index !== -1) t.splice(index, 1);
+}
+
+// บันทึกแถวใหม่/แถวที่แก้ไขลงฐานข้อมูล ถ้าเขียนไฟล์ไม่สำเร็จให้คืนค่าเดิมก่อนโยนข้อผิดพลาดต่อ
+function commitRow(t, row, data) {
+  const previous = snapshotRow(row);
+  const next = row ? null : { id: database.nextId(t), ...data };
+  if (row) Object.assign(row, data);
+  else t.push(next);
+  try {
+    save();
+  } catch (persistErr) {
+    rollbackRow(t, row, previous, next);
+    throw persistErr;
+  }
+  return previous;
+}
 
 function crud(name, table, view, mapBody) {
   // รายการ + ฟอร์ม (แก้ไขผ่าน ?edit=id)
@@ -360,11 +397,7 @@ function crud(name, table, view, mapBody) {
     upload.any()(req, res, (uploadErr) => {
       if (uploadErr) {
         cleanupUploadedFiles(req);
-        const msg =
-          uploadErr.code === "LIMIT_FILE_SIZE"
-            ? "ไฟล์มีขนาดใหญ่เกินไป (จำกัดไม่เกิน 10MB ต่อไฟล์)"
-            : uploadErr.message || "อัปโหลดไฟล์ไม่สำเร็จ กรุณาลองใหม่อีกครั้ง";
-        return res.redirect("/admin/" + name + "?err=" + encodeURIComponent(msg));
+        return res.redirect("/admin/" + name + "?err=" + encodeURIComponent(uploadErrorMessage(uploadErr, "จำกัดไม่เกิน 10MB ต่อไฟล์")));
       }
       if (!csrfOk(req)) { cleanupUploadedFiles(req); return csrfFail(res); }
       try {
@@ -374,28 +407,11 @@ function crud(name, table, view, mapBody) {
         const row = id ? t.find((r) => r.id === id) : null;
         const data = mapBody(req, row);
         // Persist first. Never delete a referenced upload before the database commit.
-        const previous = row ? { ...row, gallery: Array.isArray(row.gallery) ? row.gallery.slice() : row.gallery } : null;
-        const created = !row;
-        const next = created ? { id: database.nextId(t), ...data } : null;
-        if (row) Object.assign(row, data);
-        else t.push(next);
-        try {
-          save();
-        } catch (persistErr) {
-          if (row) {
-            for (const key of Object.keys(row)) delete row[key];
-            Object.assign(row, previous);
-          } else {
-            const index = t.indexOf(next);
-            if (index !== -1) t.splice(index, 1);
-          }
-          throw persistErr;
-        }
+        const previous = commitRow(t, row, data);
         // Cleanup is best-effort and runs only AFTER a successful commit.
         // Avoid deleting shared files still referenced elsewhere in the CMS.
         if (previous) {
-          const before = [previous.image, previous.logo, previous.catalog, ...(Array.isArray(previous.gallery) ? previous.gallery : [])];
-          for (const url of new Set(before)) removeIfUnreferenced(url);
+          for (const url of new Set(fileUrlsOf(previous))) removeIfUnreferenced(url);
         }
         res.redirect("/admin/" + name);
       } catch (e) {
@@ -419,8 +435,7 @@ function crud(name, table, view, mapBody) {
       console.error("ลบข้อมูลไม่สำเร็จ:", err);
       return res.redirect("/admin/" + name + "?err=" + encodeURIComponent("บันทึกการลบไม่สำเร็จ กรุณาลองใหม่"));
     }
-    const oldUrls = [old.image, old.logo, old.catalog, ...(Array.isArray(old.gallery) ? old.gallery : [])];
-    for (const url of new Set(oldUrls)) removeIfUnreferenced(url);
+    for (const url of new Set(fileUrlsOf(old))) removeIfUnreferenced(url);
     res.redirect("/admin/" + name);
   });
 }
@@ -439,15 +454,20 @@ router.post("/banners/toggle/:id", requireAuth, (req, res) => {
 });
 
 /* บริการ */
-crud("services", "services", "services", (req, row) => ({
-  title: req.body.title || "",
-  icon: req.body.icon || "mdi:air-conditioner",
-  description: req.body.description || "",
-  long: req.body.long || req.body.description || "",
-  steps: parseList(req.body.steps).length ? parseList(req.body.steps) : row ? row.steps : [],
-  image: fileOf(req, "image") || (row ? row.image : ""),
-  updated_at: new Date().toISOString()
-}));
+crud("services", "services", "services", (req, row) => {
+  const steps = parseList(req.body.steps);
+  let keptSteps = [];
+  if (row) keptSteps = row.steps;
+  return {
+    title: req.body.title || "",
+    icon: req.body.icon || "mdi:air-conditioner",
+    description: req.body.description || "",
+    long: req.body.long || req.body.description || "",
+    steps: steps.length ? steps : keptSteps,
+    image: fileOf(req, "image") || (row ? row.image : ""),
+    updated_at: new Date().toISOString()
+  };
+});
 
 /* แกลเลอรีรูปสินค้า Local — ใช้ดูรูปในหลังบ้านจากพื้นที่ uploads ถาวร */
 router.get('/api/product-gallery/:id', requireAuth, async (req, res) => {
@@ -486,6 +506,45 @@ function brandCategories() {
 router.get('/product-brands', requireAuth, (req,res) => {
   res.render('admin/product-brands', {me:me(req),page:'products',brands:brandCategories(),products:db().products,csrfToken:req.session.csrfToken,err:req.query.err||'',ok:req.query.ok||''});
 });
+// ตรวจข้อมูลฟอร์มแบรนด์ คืนชื่อที่จัดรูปแล้วและแบรนด์เดิม (ถ้าเป็นการแก้ไข)
+function readBrandForm(req, list) {
+  if (req.file && !['jpeg','png','webp'].includes(detectUploadKind(req.file.path))) throw new Error('รองรับโลโก้ JPG PNG WEBP เท่านั้น');
+  const name = String(req.body.name || '').trim().replace(/\s+/g, ' ');
+  if (!name || name.length > 80) throw new Error('กรุณาระบุชื่อแบรนด์ไม่เกิน 80 ตัวอักษร');
+  const id = Number(req.body.id) || 0;
+  const existing = id ? list.find(b => b.id === id) : null;
+  if (id && !existing) throw new Error('ไม่พบแบรนด์ที่แก้ไข');
+  if (list.some(b => b !== existing && b.name.toUpperCase() === name.toUpperCase())) throw new Error('ชื่อแบรนด์ซ้ำ');
+  return { name, existing };
+}
+
+// บันทึกแบรนด์ และเปลี่ยนชื่อแบรนด์ในสินค้าที่ใช้ชื่อเดิม ถ้าบันทึกไม่สำเร็จให้คืนค่าทั้งหมด
+function commitBrand(list, existing, name, logo) {
+  const oldName = existing ? existing.name : null;
+  const oldLogo = existing ? existing.logo : '';
+  if (existing) {
+    existing.name = name;
+    if (logo) existing.logo = logo;
+  } else {
+    list.push({ id: database.nextId(list), name, logo });
+  }
+  const renamed = oldName && oldName !== name ? db().products.filter(p => p.brand === oldName) : [];
+  for (const p of renamed) p.brand = name;
+  try {
+    save();
+  } catch (e) {
+    if (existing) {
+      existing.name = oldName;
+      existing.logo = oldLogo;
+    } else {
+      list.pop();
+    }
+    for (const p of renamed) p.brand = oldName;
+    throw e;
+  }
+  return oldLogo;
+}
+
 router.post('/product-brands/save', requireAuth, (req,res) => {
   upload.single('logo')(req,res,(uploadErr) => {
     if (uploadErr) { cleanupUploadedFiles(req); return res.redirect('/admin/product-brands?err='+encodeURIComponent(uploadErr.message)); }
@@ -494,22 +553,12 @@ router.post('/product-brands/save', requireAuth, (req,res) => {
     if (!csrfOk(req)) { cleanupUploadedFiles(req); return csrfFail(res); }
     try {
       validateUploadedFiles(req);
-      if (req.file && !['jpeg','png','webp'].includes(detectUploadKind(req.file.path))) throw Error('รองรับโลโก้ JPG PNG WEBP เท่านั้น');
-      const name=String(req.body.name||'').trim().replace(/\s+/g,' ');
-      if (!name || name.length>80) throw Error('กรุณาระบุชื่อแบรนด์ไม่เกิน 80 ตัวอักษร');
-      const list=brandCategories(), id=Number(req.body.id)||0;
-      const existing=id?list.find(b=>b.id===id):null;
-      if (id&&!existing) throw Error('ไม่พบแบรนด์ที่แก้ไข');
-      if (list.some(b=>b!==existing && b.name.toUpperCase()===name.toUpperCase())) throw Error('ชื่อแบรนด์ซ้ำ');
-      const oldName=existing?existing.name:null,oldLogo=existing?existing.logo:'';
-      const logo=req.file?fileOf(req,'logo'):'';
+      const list = brandCategories();
+      const { name, existing } = readBrandForm(req, list);
       // fileOf reads req.files set above
-      if (existing) { existing.name=name; if (logo) existing.logo=logo; }
-      else list.push({id:database.nextId(list),name,logo});
-      const changed=[];
-      if (oldName && oldName!==name) for(const p of db().products) if(p.brand===oldName){changed.push(p);p.brand=name;}
-      try { save(); } catch(e) { if(existing){existing.name=oldName;existing.logo=oldLogo;}else list.pop();for(const p of changed)p.brand=oldName;throw e; }
-      if(oldLogo && logo) removeIfUnreferenced(oldLogo);
+      const logo = req.file ? fileOf(req, 'logo') : '';
+      const oldLogo = commitBrand(list, existing, name, logo);
+      if (oldLogo && logo) removeIfUnreferenced(oldLogo);
       res.redirect('/admin/product-brands?ok=1');
     } catch(e) { cleanupUploadedFiles(req); res.redirect('/admin/product-brands?err='+encodeURIComponent(e.message)); }
   });
@@ -527,27 +576,36 @@ router.post('/product-brands/delete/:id',requireAuth,(req,res)=>{
 });
 
 /* สินค้า (รูปหลัก + แกลเลอรีหลายรูป + PDF Catalog) */
+// ลำดับแกลเลอรีที่ผู้ดูแลจัดใหม่ ต้องเป็นรูปชุดเดิมครบทุกรูปและไม่ซ้ำกัน
+function parseGalleryOrder(orderRaw, oldGallery) {
+  let order;
+  try { order = JSON.parse(orderRaw); } catch { throw new Error("galleryOrder is not JSON"); }
+  if (!Array.isArray(order) || order.length !== oldGallery.length ||
+      order.some(x => typeof x !== "string") ||
+      new Set(order).size !== order.length ||
+      order.some(x => !oldGallery.includes(x))) {
+    throw new Error("Invalid saved gallery order");
+  }
+  return order;
+}
+
+function initialGallery(newGallery, clear, oldGallery) {
+  if (newGallery.length) return newGallery;
+  if (clear) return [];
+  return oldGallery.slice();
+}
+
 crud("products", "products", "products", (req, row) => {
   const newGallery = filesOf(req, "gallery");
   const uploadedCover = fileOf(req, "image");
-  const oldGallery = row && Array.isArray(row.gallery) ? row.gallery : [];
+  const oldGallery = row ? galleryOf(row) : [];
   const clear = req.body.clearGallery === "on";
   const requestedCover = String(req.body.coverFromGallery || "");
   const orderRaw = String(req.body.galleryOrder || "");
-  let gallery = newGallery.length ? newGallery : clear ? [] : oldGallery.slice();
+  let gallery = initialGallery(newGallery, clear, oldGallery);
   let image = uploadedCover || (row ? row.image : "");
 
-  if (orderRaw && !newGallery.length && !clear) {
-    let order;
-    try { order = JSON.parse(orderRaw); } catch { throw new Error("galleryOrder is not JSON"); }
-    if (!Array.isArray(order) || order.length !== oldGallery.length ||
-        order.some(x => typeof x !== "string") ||
-        new Set(order).size !== order.length ||
-        order.some(x => !oldGallery.includes(x))) {
-      throw new Error("Invalid saved gallery order");
-    }
-    gallery = order;
-  }
+  if (orderRaw && !newGallery.length && !clear) gallery = parseGalleryOrder(orderRaw, oldGallery);
 
   if (requestedCover) {
     if (!row || !oldGallery.includes(requestedCover) || newGallery.length || clear || uploadedCover) {

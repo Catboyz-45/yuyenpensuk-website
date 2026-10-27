@@ -2,7 +2,7 @@
 process.env.PRODUCT_IMAGE_LOCAL_ONLY = "1";
 /**
  * deploy-server.js — ไฟล์เริ่มต้นสำหรับ "deploy จริงขึ้น hosting" เท่านั้น
- * (ตอนพัฒนาที่เครื่องตัวเอง ให้ใช้ server.js + admin-server.js แยกกันตามปกติ ไม่ต้องยุ่งกับไฟล์นี้)
+ * (ตอนพัฒนาที่เครื่องตัวเอง ใช้ไฟล์นี้ได้เลยโดยกำหนด FORCE_APP=site หรือ FORCE_APP=admin ตามแอปที่ต้องการทดสอบ)
  *
  * ทำไมต้องมีไฟล์นี้:
  * เว็บโฮสติ้งส่วนใหญ่ (Render, Railway ฯลฯ) 1 เซอร์วิส = เปิดให้แค่ 1 พอร์ตออกอินเทอร์เน็ต
@@ -18,8 +18,8 @@ process.env.PRODUCT_IMAGE_LOCAL_ONLY = "1";
  */
 const express = require("express");
 const session = require("express-session");
-const path = require("path");
-const crypto = require("crypto");
+const path = require("node:path");
+const crypto = require("node:crypto");
 const database = require("./database");
 const securityHeaders = require("./middleware/securityHeaders");
 const BoundedSessionStore = require("./sessionStore");
@@ -39,8 +39,9 @@ catch { throw new Error("SITE_URL must be a valid URL."); }
 const allowedAdminHost = `${ADMIN_SUBDOMAIN}.${siteHostname}`;
 const allowedSiteHosts = new Set([siteHostname, `www.${siteHostname}`]);
 
-/* ========== แอปเว็บหลัก (เหมือน server.js ทุกประการ) ========== */
+/* ========== แอปเว็บหลัก ========== */
 const siteApp = express();
+siteApp.disable("x-powered-by");
 siteApp.set("view engine", "ejs");
 siteApp.set("views", path.join(__dirname, "views"));
 siteApp.use(securityHeaders);
@@ -60,8 +61,9 @@ siteApp.use((err, req, res, next) => {
   res.status(500).render("site/404");
 });
 
-/* ========== แอปแอดมิน (เหมือน admin-server.js ทุกประการ) ========== */
+/* ========== แอปแอดมิน ========== */
 const adminApp = express();
+adminApp.disable("x-powered-by");
 adminApp.set("view engine", "ejs");
 adminApp.set("views", path.join(__dirname, "views"));
 adminApp.use(securityHeaders);
@@ -104,6 +106,7 @@ adminApp.use((req, res, next) => {
   next();
 });
 adminApp.use((req, res, next) => {
+  if (!req.session) return next();
   if (!req.session.csrfToken) req.session.csrfToken = crypto.randomBytes(24).toString("hex");
   res.locals.csrfToken = req.session.csrfToken;
   next();
@@ -112,7 +115,7 @@ adminApp.use((req, res, next) => {
   if (req.method !== "POST") return next();
   const ct = req.headers["content-type"] || "";
   if (ct.startsWith("multipart/form-data")) return next();
-  const sent = req.body && req.body._csrf;
+  const sent = req.body?._csrf;
   if (sent && sent === req.session.csrfToken) return next();
   console.warn("CSRF token ไม่ถูกต้องหรือไม่มี — ปฏิเสธคำขอจาก", req.ip, req.originalUrl);
   return res.status(403).render("admin/error", {

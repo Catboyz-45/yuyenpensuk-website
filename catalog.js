@@ -4,7 +4,9 @@
  * The gallery filter only accepts clean product/indoor-unit images; it never
  * fills a model with an image from another model.
  */
-function p(id, brand, name, model, btu, benefits, source, extraSpec='Inverter · R32', gallery=[]) {
+// อาร์กิวเมนต์ตามลำดับ: id, brand, name, model, btu, benefits, source, extraSpec, gallery
+function p(...args) {
+  const [id, brand, name, model, btu, benefits, source, extraSpec = 'Inverter · R32', gallery = []] = args;
   return {
     id, name, brand, model, type: 'ติดผนัง', price: 0, priceOld: 0,
     spec: `${btu} BTU · ${extraSpec}`,

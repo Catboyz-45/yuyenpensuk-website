@@ -17,7 +17,7 @@
 </section>
 
 <section class="sec">
-  <div class="chips">
+  <div class="chips" data-brand-chips>
     <a class="chip" href="/products">ทุกยี่ห้อ</a>
     <% brands.forEach(b=>{ %><a class="chip <%= b===brandName?'on':'' %>" href="/brands/<%= encodeURIComponent(b) %>"><%= b %></a><% }) %>
   </div>

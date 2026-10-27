@@ -31,9 +31,9 @@
         <td><span class="tag <%= a.twofa_enabled?'gr':'gy' %>"><%= a.twofa_enabled?'เปิด':'ปิด' %></span></td>
         <td><div class="act2">
           <a class="mini ed" href="/admin/admins?edit=<%= a.id %>">แก้ไข</a>
-          <form method="post" action="/admin/admins/reset/<%= a.id %>" onsubmit="return confirm('รีเซ็ตรหัสผ่านของ <%= a.username %> เป็นรหัสสุ่มใหม่?')" style="display:inline"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="mini gy">รีเซ็ตรหัส</button></form>
+          <form method="post" action="/admin/admins/reset/<%= a.id %>" data-confirm="รีเซ็ตรหัสผ่านของ <%= a.username %> เป็นรหัสสุ่มใหม่?" style="display:inline"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="mini gy">รีเซ็ตรหัส</button></form>
           <% if (a.id !== me.id) { %>
-          <form method="post" action="/admin/admins/delete/<%= a.id %>" onsubmit="return confirm('ลบผู้ดูแลนี้?')" style="display:inline"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="mini dl">ลบ</button></form>
+          <form method="post" action="/admin/admins/delete/<%= a.id %>" data-confirm="ลบผู้ดูแลนี้?" style="display:inline"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="mini dl">ลบ</button></form>
           <% } %>
         </div></td>
       </tr>

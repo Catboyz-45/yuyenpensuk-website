@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
+const fs = require('node:fs');
+const path = require('node:path');
+const crypto = require('node:crypto');
 
 const binaryCache = new Map();
 const MAX_IMAGE_BYTES = 12 * 1024 * 1024;
@@ -20,7 +20,7 @@ function safeLocalPath(url) {
 }
 
 function looksLikeImage(body, contentType = '') {
-  if (!body || !body.length || body.length > MAX_IMAGE_BYTES) return false;
+  if (!body?.length || body.length > MAX_IMAGE_BYTES) return false;
   if (/^image\//i.test(contentType)) return true;
   if (body.slice(0, 3).toString('hex') === 'ffd8ff') return true;
   if (body.slice(0, 8).toString('hex') === '89504e470d0a1a0a') return true;
@@ -88,7 +88,7 @@ async function getProductImageBinary(product, index) {
   const stat = fs.statSync(file);
   if (!stat.isFile() || stat.size > MAX_IMAGE_BYTES) return null;
 
-  const key = crypto.createHash('sha1').update(`${file}:${stat.size}:${stat.mtimeMs}`).digest('hex');
+  const key = crypto.createHash('sha256').update(`${file}:${stat.size}:${stat.mtimeMs}`).digest('hex');
   if (binaryCache.has(key)) return binaryCache.get(key);
 
   const body = fs.readFileSync(file);

@@ -35,12 +35,14 @@
 
     <div class="map">
       <iframe src="<%= mapEmbedUrl %>" loading="lazy" title="แผนที่บริษัท" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <a class="map-cta" href="https://maps.app.goo.gl/ihq6FjUJYQUGhpNQ8" target="_blank" rel="noopener" style="margin-bottom:8px">
-        <iconify-icon icon="mdi:google-maps"></iconify-icon> ดูหมุดบริษัทบน Google Maps
-      </a>
-      <a class="map-cta" href="<%= mapDirectionsUrl %>" target="_blank" rel="noopener">
-        <iconify-icon icon="mdi:directions"></iconify-icon> นำทางไปที่นี่
-      </a>
+      <div class="map-actions">
+        <a class="map-cta" href="https://maps.app.goo.gl/ihq6FjUJYQUGhpNQ8" target="_blank" rel="noopener">
+          <iconify-icon icon="mdi:google-maps"></iconify-icon> ดูหมุดบริษัทบน Google Maps
+        </a>
+        <a class="map-cta" href="<%= mapDirectionsUrl %>" target="_blank" rel="noopener">
+          <iconify-icon icon="mdi:directions"></iconify-icon> นำทางไปที่นี่
+        </a>
+      </div>
     </div>
   </div>
 </section>

@@ -15,8 +15,9 @@
   <h1 style="font-size:clamp(22px,3.2vw,30px);margin:14px 0 20px"><%= p.title %></h1>
 
   <% if (p.image) { %>
-  <div class="ph nv h300 zoomable" style="border-radius:3px;margin-bottom:24px" data-lightbox="project" data-src="<%= p.image %>">
-    <img src="<%= p.image %>" alt="<%= p.title %>" onerror="this.style.display='none'">
+  <div class="ph nv h300 zoomable photo-fit" style="border-radius:3px;margin-bottom:24px" data-lightbox="project" data-src="<%= p.image %>">
+    <img class="photo-fit-bg" src="<%= p.image %>" alt="" aria-hidden="true">
+    <img class="photo-fit-main" src="<%= p.image %>" alt="<%= p.title %>" onerror="this.style.display='none'">
   </div>
   <% } %>
 

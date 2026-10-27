@@ -3,7 +3,7 @@
 body{background:#f8fbf9;color:#123c2b}
 .sh{background:#fff!important;box-shadow:0 6px 28px rgba(0,59,35,.075);border-bottom:1px solid #e3efe6}
 .sh nav a{font-weight:650}.sh nav a:hover,.sh nav a.act{color:#087c42}
-.sh .tel{background:linear-gradient(115deg,#158e4b,#00552f)!important;color:white!important;border-radius:100px}
+.sh .tel{background:linear-gradient(115deg,#148546,#004b29)!important;color:white!important;border-radius:100px}
 /* Hero: real visual asset rather than decorative orb. */
 body.yp-home .hero-v4{background:linear-gradient(112deg,#003e2b 0%,#006440 58%,#158f4a 100%)!important;position:relative;overflow:hidden}
 body.yp-home .hero-v4:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 62% 5%,rgba(188,255,123,.18),transparent 40%);pointer-events:none}

@@ -17,7 +17,7 @@
         <td style="color:var(--mut)"><%= p.category %></td>
         <td><div class="act2">
           <a class="mini ed" href="/admin/projects?edit=<%= p.id %>">แก้ไข</a>
-          <form method="post" action="/admin/projects/delete/<%= p.id %>" onsubmit="return confirm('ลบผลงานนี้?')" style="display:inline"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="mini dl">ลบ</button></form>
+          <form method="post" action="/admin/projects/delete/<%= p.id %>" data-confirm="ลบผลงานนี้?" style="display:inline"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="mini dl">ลบ</button></form>
         </div></td>
       </tr>
       <% }) %>

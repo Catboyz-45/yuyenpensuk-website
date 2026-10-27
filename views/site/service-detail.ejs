@@ -15,8 +15,9 @@
   </div>
 
   <% if (s.image) { %>
-  <div class="ph h300 zoomable" style="border-radius:3px;margin:22px 0" data-lightbox="service" data-src="<%= s.image %>">
-    <img src="<%= s.image %>" alt="<%= s.title %>" onerror="this.style.display='none'">
+  <div class="ph h300 zoomable photo-fit" style="border-radius:3px;margin:22px 0" data-lightbox="service" data-src="<%= s.image %>">
+    <img class="photo-fit-bg" src="<%= s.image %>" alt="" aria-hidden="true">
+    <img class="photo-fit-main" src="<%= s.image %>" alt="<%= s.title %>" onerror="this.style.display='none'">
   </div>
   <% } %>
 

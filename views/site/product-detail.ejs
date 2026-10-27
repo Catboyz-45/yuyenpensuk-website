@@ -44,7 +44,7 @@
   <div class="product-info-section">
     <div class="product-info-head"><span class="eyebrow-dot">PRODUCT INFORMATION</span><h2>ข้อมูลของ <%= p.brand %> <%= p.model %></h2><p>ข้อมูลสำคัญที่ช่วยให้ลูกค้าเปรียบเทียบรุ่นก่อนตัดสินใจซื้อ</p></div>
     <div class="feature-grid">
-      <% (p.benefits || []).slice(0,5).forEach((b,i)=>{ %><div class="feature-card"><span><%= String(i+1).padStart(2,'0') %></span><div><b><%= b %></b><p>จุดเด่นของรุ่นนี้ที่ควรพิจารณาก่อนเลือกซื้อ</p></div></div><% }) %>
+      <% (p.benefits || []).slice(0,5).forEach((b,i)=>{ %><div class="feature-card"><span><%= String(i+1).padStart(2,'0') %></span><div><b><%= b %></b></div></div><% }) %>
     </div>
   </div>
 

@@ -4,7 +4,7 @@ body.ys-ref{background:#f5faf6;color:#103f2b}
 body.ys-ref .sh{background:#fff!important;border-bottom:1px solid #e5eee6;box-shadow:0 4px 20px #002b1612;z-index:80}
 body.ys-ref .sh nav a{font-weight:750;color:#075b35}
 body.ys-ref .sh nav a.act{background:#e2f5df;border-radius:99px;color:#00492e}
-body.ys-ref .sh .tel{background:linear-gradient(120deg,#138b46,#00512f)!important;color:white!important;border-radius:999px;box-shadow:0 8px 20px #00512f25}
+body.ys-ref .sh .tel{background:linear-gradient(120deg,#128744,#004c2c)!important;color:white!important;border-radius:999px;box-shadow:0 8px 20px #00512f25}
 body.ys-ref .btn{border-radius:999px;font-weight:750;transition:transform .2s,box-shadow .2s}
 body.ys-ref .btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px #003d2a29}
 /* full-bleed photographic home hero, replacing inset thumbnail */

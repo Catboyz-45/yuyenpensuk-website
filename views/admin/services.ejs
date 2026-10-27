@@ -16,7 +16,7 @@
         <td style="color:var(--mut)"><%= s.updated_at.slice(0,10) %></td>
         <td><div class="act2">
           <a class="mini ed" href="/admin/services?edit=<%= s.id %>">แก้ไข</a>
-          <form method="post" action="/admin/services/delete/<%= s.id %>" onsubmit="return confirm('ลบบริการนี้?')" style="display:inline"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="mini dl">ลบ</button></form>
+          <form method="post" action="/admin/services/delete/<%= s.id %>" data-confirm="ลบบริการนี้?" style="display:inline"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="mini dl">ลบ</button></form>
         </div></td>
       </tr>
       <% }) %>

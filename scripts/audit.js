@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const { execFileSync } = require('child_process');
+const fs = require('node:fs');
+const path = require('node:path');
+const { execFileSync } = require('node:child_process');
 
 const root = path.resolve(__dirname, '..');
 const fail = [];
@@ -18,11 +18,8 @@ function walk(dir) {
   return out;
 }
 
-// Catalog integrity without requiring npm dependencies.
-const catalogSrc = read('catalog.js');
-const sandbox = { module: { exports: {} }, exports: {} };
-require('vm').runInNewContext(catalogSrc, sandbox, {filename:'catalog.js'});
-const catalog = sandbox.module.exports;
+// Catalog integrity without requiring npm dependencies (catalog.js is a plain data module).
+const catalog = require(path.join(root, 'catalog.js'));
 if (catalog.length !== 30) bad(`catalog has ${catalog.length} products; expected 30`); else ok('catalog has 30 products');
 const brands = [...new Set(catalog.map(x => x.brand))];
 if (brands.length !== 6) bad(`catalog has ${brands.length} brands; expected 6`); else ok('catalog has 6 brands');
@@ -134,10 +131,10 @@ if (String(pkg.dependencies.express || '') !== '4.22.2') bad('express must be pi
 if (String(pkg.dependencies['express-session'] || '') !== '1.19.0') bad('express-session must be pinned to 1.19.0'); else ok('express-session is pinned to 1.19.0');
 if (String(pkg.dependencies.qrcode || '') !== '1.5.4') bad('qrcode must be pinned to 1.5.4'); else ok('qrcode is pinned to 1.5.4');
 if (!pkg.overrides || String(pkg.overrides.yargs || '') !== '17.7.2') bad('qrcode/yargs transitive dependency must be overridden to yargs 17.7.2'); else ok('qrcode transitive yargs is overridden to 17.7.2');
-if (!adminSrc.includes('tempPasswordNotice') || /res\.redirect\(\"\/admin\/admins\?tempPw=/.test(adminSrc)) bad('temporary admin passwords must not be placed in query strings'); else ok('temporary admin passwords are flashed through the session, not URLs');
+if (!adminSrc.includes('tempPasswordNotice') || /res\.redirect\("\/admin\/admins\?tempPw=/.test(adminSrc)) bad('temporary admin passwords must not be placed in query strings'); else ok('temporary admin passwords are flashed through the session, not URLs');
 if (!deploy.includes('SITE_URL must use HTTPS in production')) bad('production SITE_URL must require HTTPS'); else ok('production SITE_URL requires HTTPS');
 if (!deploy.includes('TRUST_PROXY')) bad('proxy trust must be explicitly configured'); else ok('proxy trust is explicitly configured');
-if (!adminSrc.includes('facebook\\.com')) bad('company Facebook URL validation missing'); else ok('company Facebook URL is allowlisted');
+if (!adminSrc.includes(String.raw`facebook\.com`)) bad('company Facebook URL validation missing'); else ok('company Facebook URL is allowlisted');
 if (!adminSrc.includes('cleanupUploadedFiles(req);\n        console.error')) bad('orphan upload cleanup on save failure missing'); else ok('orphan uploads are cleaned on save failure');
 
 if (fail.length) {

@@ -19,15 +19,15 @@
     <button class="btn nv">ค้นหา</button>
   </form>
 
-  <div class="brand-filter">
+  <div class="brand-filter" data-brand-chips>
     <a class="chip <%= !brand?'on':'' %>" href="/products">ทุกยี่ห้อ</a>
     <% brands.forEach(b=>{ %><a class="chip <%= brand===b?'on':'' %>" href="/brands/<%= encodeURIComponent(b) %>"><%= b %></a><% }) %>
   </div>
 
   <div class="catalog-intro">
-    <div><strong>รูปสินค้าเน้นตัวเครื่อง</strong><span>พื้นขาว · เห็นตัวเครื่องเต็มชิ้น · ไม่เอารูปห้องหรือรีโมตมาปน</span></div>
-    <div><strong>ข้อมูลสำคัญ</strong><span>แบรนด์ · รุ่น · BTU · ระบบ · น้ำยา</span></div>
-    <div><strong>เลือกซื้อได้ง่าย</strong><span>กดรุ่นเพื่อดูแกลเลอรีและรายละเอียดเต็ม</span></div>
+    <div><strong>ไม่แน่ใจว่าควรใช้กี่ BTU?</strong><span>ดูวิธีเลือกขนาดแอร์ให้เหมาะกับห้องได้ที่ <a href="/guides/choose-aircon">คู่มือเลือกซื้อแอร์</a></span></div>
+    <div><strong>ซื้อพร้อมติดตั้ง</strong><span>ทีมช่างของบริษัทติดตั้งให้ ดู <a href="/pricing-install">ค่าบริการติดตั้งแอร์</a> ตามขนาดเครื่อง</span></div>
+    <div><strong>ปรึกษาฟรีก่อนตัดสินใจ</strong><span>บอกขนาดห้องและการใช้งาน ทีมงานช่วยแนะนำรุ่นให้ <a href="/contact">ติดต่อเรา</a></span></div>
   </div>
 
   <div class="brand-sections">
@@ -57,6 +57,13 @@
         </div>
       </section>
     <% }) %>
+    <% if(!products.length){ %>
+      <div class="search-empty" role="status">
+        <iconify-icon icon="mdi:magnify-close" aria-hidden="true"></iconify-icon>
+        <p><% if(q){ %>ไม่พบสินค้าที่ตรงกับ “<%= q %>”<% }else{ %>ไม่พบสินค้าในหมวดนี้<% } %></p>
+        <a class="btn ln" href="/products">ล้างคำค้นและดูสินค้าทั้งหมด</a>
+      </div>
+    <% } %>
   </div>
 
   <section class="buy-guide">

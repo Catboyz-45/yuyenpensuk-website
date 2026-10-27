@@ -21,7 +21,7 @@
         </td>
         <td><div class="act2">
           <a class="mini ed" href="/admin/banners?edit=<%= b.id %>">แก้ไข</a>
-          <form method="post" action="/admin/banners/delete/<%= b.id %>" onsubmit="return confirm('ลบแบนเนอร์นี้?')" style="display:inline"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="mini dl">ลบ</button></form>
+          <form method="post" action="/admin/banners/delete/<%= b.id %>" data-confirm="ลบแบนเนอร์นี้?" style="display:inline"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><button class="mini dl">ลบ</button></form>
         </div></td>
       </tr>
       <% }) %>
@@ -36,7 +36,7 @@
         <div class="fld"><label>ชื่อแบนเนอร์</label><input name="title" value="<%= editing ? editing.title : '' %>" required></div>
         <div class="fld"><label>ลำดับการแสดง</label><input type="number" name="sort" min="1" value="<%= editing ? editing.sort : rows.length+1 %>"></div>
         <div class="fld"><label>รูปภาพ</label><input type="file" name="image" accept="image/*"><div class="hint">อัตราส่วน 16:9 · แนะนำขนาด 1920×1080px หรือ 1920×800px (ใช้เป็นพื้นหลังสไลด์หน้าแรก)</div></div>
-        <div class="fld"><label class="chkrow" style="margin-top:26px"><input type="checkbox" name="active" <%= !editing || editing.active ? 'checked' : '' %>> เปิดการแสดงผล</label></div>
+        <div class="fld full"><label class="chkrow"><input type="checkbox" name="active" <%= !editing || editing.active ? 'checked' : '' %>> เปิดการแสดงผล</label></div>
       </div>
       <button class="btn nv" style="margin-top:16px"><%= editing ? 'บันทึกการแก้ไข' : 'เพิ่มแบนเนอร์' %></button>
     </form>

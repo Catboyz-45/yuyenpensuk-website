@@ -6,7 +6,7 @@ body:has(.cms){background:#f3f6f4;color:#233b31;font-size:14px}
 .cms .cside .lg{font-size:15px;min-height:65px;line-height:1.5;letter-spacing:-.02em;padding:6px 10px 22px;margin-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12)}
 .cms .cside a{min-height:44px;border-radius:11px;margin:2px 0;padding:11px 13px;font-size:13px;color:#c2d7ce;transition:background .18s,color .18s}
 .cms .cside a i{width:22px;font-size:18px;display:flex;align-items:center;justify-content:center}
-.cms .cside a:hover{background:rgba(255,255,255,.095);color:white}
+.cms .cside a:hover{background:rgba(255,255,255,.095);color:var(--on-dark)}
 .cms .cside a.act{background:#e6f3eb;color:#134735;border-left:0;padding-left:13px;box-shadow:0 5px 15px rgba(0,0,0,.1);font-weight:700}
 .cms .cside form{margin-top:auto;border-top:1px solid rgba(255,255,255,.12);padding-top:12px}
 .cms .cside form .out{display:flex;align-items:center;gap:10px;width:100%;border:0;background:transparent;color:#ffc8c4;padding:12px 13px;border-radius:10px;font-family:inherit;font-size:13px;cursor:pointer}
@@ -24,7 +24,7 @@ body:has(.cms){background:#f3f6f4;color:#233b31;font-size:14px}
 .cms .panel .pb{padding:24px}
 .cms .tblwrap{max-width:100%;overflow-x:auto}
 .cms .tbl{font-size:13px;line-height:1.55}
-.cms .tbl th{background:#f4f8f5;color:#627b6b;font-size:11px;padding:14px 18px;letter-spacing:.025em}
+.cms .tbl th{background:#f4f8f5;color:#5d7566;font-size:11px;padding:14px 18px;letter-spacing:.025em}
 .cms .tbl td{padding:14px 18px;border-color:#edf1ee}
 .cms .tbl tbody tr:hover{background:#f8fbf9}
 .cms .thumb{width:65px;height:48px;border-radius:9px;background:#edf3ef;border:1px solid #e4ece6}
@@ -43,7 +43,7 @@ body:has(.cms){background:#f3f6f4;color:#233b31;font-size:14px}
 .cms .dash-welcome{border-radius:22px}.cms .dash-kpi{border-radius:18px}
 .cms .v2-page-tools{display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap;margin-bottom:20px}
 .cms .v2-page-tools p{color:#708478;font-size:12px;margin:0}
-.cms .v2-quick-search{display:flex;align-items:center;gap:9px;min-width:240px;max-width:360px;width:100%;background:#fff;border:1px solid #dbe7df;border-radius:11px;padding:0 13px;color:#658476}
+.cms .v2-quick-search{display:flex;align-items:center;gap:9px;min-width:240px;max-width:360px;width:100%;background:#fff;border:1px solid #dbe7df;border-radius:11px;padding:0 13px;color:#5e7b6e}
 .cms .v2-quick-search input{width:100%;height:42px;border:0;outline:0;background:transparent;font-family:inherit;font-size:13px;color:#183d2f}
 .cms .v2-empty-search{display:none;text-align:center;padding:24px;color:#73897c;font-size:13px}
 .cms .v2-table-filtered .v2-empty-search{display:block}
@@ -52,3 +52,50 @@ body:has(.cms){background:#f3f6f4;color:#233b31;font-size:14px}
 @media(max-width:860px){.cms{display:block}.cms .cside{width:min(310px,86vw);position:fixed;top:0;bottom:0;height:100dvh;transform:translateX(-105%);flex-direction:column;overflow-y:auto;z-index:61}.admin-nav-open .cms .cside{transform:translateX(0)}.cms .ctop{min-height:65px;padding:13px 19px}.cms .ctop h2{font-size:17px}.cms .cbody{padding:20px 15px 35px}.cms .fgrid{grid-template-columns:1fr}.cms .stats{grid-template-columns:repeat(2,minmax(0,1fr))}.cms .cside a.act{padding-left:13px}}
 @media(max-width:550px){.cms .panel .pb{padding:16px}.cms .panel .ph2{padding:16px}.cms .cbody{padding:14px 11px 30px}.cms .ctop .me span{display:none}.cms .stats{gap:10px}.cms .v2-quick-search{max-width:none}.cms .v2-page-tools{align-items:stretch}.cms .cfoot{padding:14px}}
 @media(prefers-reduced-motion:reduce){.cms .cside a{transition:none}}
+/* checkbox ในฟอร์มไม่ต้องกว้างเต็มช่องเหมือนช่องกรอกข้อความ และให้ข้อความอยู่กึ่งกลางแนวเดียวกับช่องติ๊ก
+   (.cms .fld label ตั้ง display:block ไว้ จึงต้องระบุ .chkrow ให้เจาะจงกว่า) */
+.cms .fld label.chkrow{display:flex;align-items:center;gap:8px}
+.cms .fld input[type=checkbox],.cms .fld input[type=radio]{width:18px;height:18px;min-height:0;flex:none;margin:0;padding:0;accent-color:var(--steel)}
+/* ตัวแก้ไขทีละรายการ (admin-row-editor.js) สำหรับช่องทางชำระเงิน เงื่อนไข และตารางราคา */
+/* min-width:0 ให้ข้อความสรุปที่ยาวถูกตัดด้วย … แทนการดันการ์ดให้กว้างเกินแผง */
+.cms .fld:has(>.row-editor){min-width:0}
+.row-editor-list{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.row-editor-card{border:1px solid #dfe9e1;border-radius:13px;background:#fbfdfb;padding:10px 16px}
+.row-editor-toolbar{display:flex;justify-content:flex-end;gap:8px;margin-bottom:10px}
+.row-editor-expand{background:#eef5ef;color:#2c5a41}
+.row-editor-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.row-editor-toggle{display:flex;align-items:center;gap:10px;flex:1;min-width:0;padding:4px 0;border:0;background:none;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.row-editor-toggle strong{flex:none;font-size:13px;color:#2c5a41}
+.row-editor-caret{flex:none;width:12px;color:var(--steel)}
+.row-editor-summary{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12.5px;color:var(--mut)}
+.row-editor-actions{display:flex;gap:6px}
+.row-editor-move{background:#eef5ef;color:#2c5a41;min-width:34px}
+.row-editor-remove{background:#fdecea;color:#b33a32}
+.row-editor-actions button:disabled{opacity:.35;cursor:not-allowed}
+.row-editor-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 14px;margin-top:12px}
+.row-editor-fields[hidden],.row-editor-toolbar[hidden]{display:none}
+.cms .fld .row-editor-field{margin:0;font-weight:600}
+.cms .fld .row-editor-field>span{display:block;margin-bottom:6px}
+.row-editor-field.wide{grid-column:1/-1}
+.row-editor-iconpick{position:relative}
+.row-editor-iconbtn{display:flex;align-items:center;gap:10px;width:100%;min-height:45px;padding:8px 14px;border:1px solid #d7e3db;border-radius:11px;background:#fff;color:#243d2f;font:inherit;font-size:13.5px;text-align:left;cursor:pointer;transition:border-color .18s,box-shadow .18s}
+.row-editor-iconbtn:hover,.row-editor-iconbtn[aria-expanded=true]{border-color:var(--steel);box-shadow:0 0 0 3px rgba(38,118,93,.12)}
+.row-editor-iconname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row-editor-iconcaret{color:var(--mut);font-size:11px}
+.row-editor-iconpanel{position:absolute;top:calc(100% + 6px);left:0;z-index:30;width:max(100%,320px);padding:8px;background:#fff;border:1px solid #dfe9e1;border-radius:13px;box-shadow:0 14px 34px rgba(23,69,51,.16)}
+.cms .fld .row-editor-iconsearch{width:100%;min-height:40px;margin-bottom:6px;padding:8px 12px;font-size:13px}
+.row-editor-iconlist{max-height:300px;overflow-y:auto;margin:0;padding:0;list-style:none}
+.row-editor-iconpanel[hidden],.row-editor-iconlist [hidden]{display:none}
+.row-editor-option{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;font-size:13.5px;color:#243d2f;cursor:pointer;outline:none}
+.row-editor-option:hover,.row-editor-option:focus{background:#eef5ef}
+.row-editor-option[aria-selected=true]{background:#e2f0e6;font-weight:700;color:#1d5a3e}
+.row-editor-option[aria-selected=true]::after{content:"✓";margin-left:auto;color:var(--steel)}
+.row-editor-optgroup{margin:8px 4px 4px;font-size:11.5px;font-weight:700;color:var(--mut)}
+.row-editor-tiles{display:flex;flex-wrap:wrap;gap:4px;padding:0 2px}
+.row-editor-tile{justify-content:center;width:42px;height:42px;padding:0}
+.row-editor-tile[aria-selected=true]::after{content:none}
+.row-editor-tile[aria-selected=true]{box-shadow:inset 0 0 0 2px var(--steel)}
+.row-editor-status{padding:8px 6px;font-size:12px;line-height:1.6;color:var(--mut)}
+.row-editor-icon{flex:none;font-size:20px;color:var(--steel)}
+.row-editor-add{margin-top:12px}
+.v2-quick-search[hidden]{display:none}

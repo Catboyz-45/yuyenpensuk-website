@@ -4,8 +4,8 @@
 
   /* ---------- Accessible mobile navigation ---------- */
   var header = document.querySelector(".sh");
-  var burger = header && header.querySelector(".burger");
-  var siteNav = header && header.querySelector("#site-primary-nav");
+  var burger = header?.querySelector(".burger");
+  var siteNav = header?.querySelector("#site-primary-nav");
   if (burger && siteNav) {
     function setMobileMenu(open) {
       header.classList.toggle("open", open);
@@ -35,8 +35,9 @@
   // element ที่คลิกเปิด lightbox ต้องมี data-lightbox="กลุ่ม" และ data-src="url เต็ม"
   var groups = {};
   document.querySelectorAll("[data-lightbox]").forEach(function (el) {
-    var g = el.getAttribute("data-lightbox");
-    (groups[g] = groups[g] || []).push(el);
+    var g = el.dataset.lightbox;
+    if (!groups[g]) groups[g] = [];
+    groups[g].push(el);
   });
 
   if (Object.keys(groups).length) {
@@ -60,7 +61,7 @@
       curIndex = (i + curGroup.length) % curGroup.length;
       var srcEl = curGroup[curIndex];
       var img = srcEl.querySelector("img");
-      var src = srcEl.getAttribute("data-src") || (img ? img.src : "");
+      var src = srcEl.dataset.src || (img ? img.src : "");
       lbImg.src = src;
       lbCount.textContent = curGroup.length > 1 ? (curIndex + 1) + " / " + curGroup.length : "";
     }
@@ -125,7 +126,7 @@
           loading.setAttribute('role', 'status');
         }
       }
-      if (!imgs || !imgs.length) { showUnavailable(); return; }
+      if (!imgs?.length) { showUnavailable(); return; }
       var index = 0;
       function tryNext(){
         if (index >= imgs.length) { showUnavailable(); return; }
@@ -143,14 +144,14 @@
     }
 
     document.querySelectorAll('.product-photo[data-product-id]').forEach(function(card){
-      var id = card.getAttribute('data-product-id');
+      var id = card.dataset.productId;
       if (!id) return;
       fetchImages(id).then(function(imgs){ showCardImage(card, imgs); });
     });
 
     var main = document.querySelector('.product-gallery-main[data-product-id]');
     if (!main) return;
-    var id = main.getAttribute('data-product-id');
+    var id = main.dataset.productId;
     fetchImages(id).then(function(imgs){
       var img = main.querySelector('img');
       var loading = main.querySelector('.photo-loading');
@@ -173,7 +174,7 @@
           else showGalleryUnavailable();
         };
         img.src = src;
-        main.setAttribute('data-src', src);
+        main.dataset.src = src;
       }
       setMain(imgs[0]);
 
@@ -185,8 +186,8 @@
         if (i === 0) return;
         var d = document.createElement('div');
         d.className = 'ph prod zoomable';
-        d.setAttribute('data-lightbox','product');
-        d.setAttribute('data-src',src);
+        d.dataset.lightbox = 'product';
+        d.dataset.src = src;
         var im = document.createElement('img');
         im.src = src; im.alt = 'รูปตัวเครื่อง ' + (i+1);
         im.onerror = function(){ d.remove(); };
@@ -199,45 +200,61 @@
       });
 
       // Update the lightbox group after dynamic thumbnails are created.
-      if (groups && groups.product) {
+      if (groups?.product) {
         groups.product = [main].concat(Array.from(thumbs.querySelectorAll('[data-lightbox="product"]')));
       }
     });
   })();
 
-  /* ---------- Hero Carousel: เลื่อนรูปอัตโนมัติแบบสไลด์โปรโมต ---------- */
-  var carousel = document.getElementById("heroCarousel");
-  if (carousel) {
-    var slides = carousel.querySelectorAll(".slide");
-    var dots = carousel.querySelectorAll(".hc-dot");
-    var idx = 0;
-    var timer = null;
-    var AUTOPLAY_MS = 5000;
+  /* ---------- ปุ่มเลือกยี่ห้อ: แสดงไม่เกิน 2 บรรทัด ที่เหลือพับไว้หลังปุ่ม "ดูยี่ห้อทั้งหมด" ----------
+     ถ้ายี่ห้อพอดี 2 บรรทัดจะไม่มีปุ่มนี้ ยี่ห้อที่กำลังเลือกอยู่แสดงเสมอแม้อยู่ในส่วนที่พับ */
+  document.querySelectorAll("[data-brand-chips]").forEach(function (box) {
+    var MAX_ROWS = 2;
+    var chips = Array.from(box.querySelectorAll("a.chip"));
+    var expanded = false;
+    var more = document.createElement("button");
+    more.type = "button";
+    more.className = "chip chip-more";
+    more.hidden = true;
+    box.appendChild(more);
 
-    function goTo(i) {
-      idx = (i + slides.length) % slides.length;
-      slides.forEach(function (s, j) { s.classList.toggle("active", j === idx); });
-      dots.forEach(function (d, j) { d.classList.toggle("on", j === idx); });
-    }
-    function next() { goTo(idx + 1); }
-    function start() {
-      if (slides.length < 2) return;
-      stop();
-      timer = setInterval(next, AUTOPLAY_MS);
-    }
-    function stop() { if (timer) { clearInterval(timer); timer = null; } }
-
-    dots.forEach(function (d) {
-      d.addEventListener("click", function () {
-        goTo(+d.getAttribute("data-slide"));
-        start(); // รีเซ็ตนับเวลาใหม่เมื่อผู้ใช้กดเอง
+    function layout() {
+      chips.forEach(function (c) { c.hidden = false; });
+      more.hidden = true;
+      var tops = [];
+      chips.forEach(function (c) {
+        if (!tops.includes(c.offsetTop)) tops.push(c.offsetTop);
       });
+      if (tops.length <= MAX_ROWS) return;
+      more.hidden = false;
+      more.setAttribute("aria-expanded", String(expanded));
+      if (expanded) {
+        more.textContent = "ย่อรายการยี่ห้อ";
+        return;
+      }
+      tops.sort(function (a, b) { return a - b; });
+      var lastRowTop = tops[MAX_ROWS - 1];
+      var hiddenCount = 0;
+      for (var i = chips.length - 1; i > 0 && more.offsetTop > lastRowTop; i--) {
+        if (chips[i].classList.contains("on")) continue;
+        chips[i].hidden = true;
+        hiddenCount++;
+      }
+      more.textContent = "ดูยี่ห้อทั้งหมด (+" + hiddenCount + ")";
+    }
+
+    more.addEventListener("click", function () {
+      expanded = !expanded;
+      layout();
     });
-    // พักการเลื่อนอัตโนมัติเมื่อเมาส์ชี้อยู่ (ให้เวลาอ่าน) แล้วเล่นต่อเมื่อยกเมาส์ออก
-    carousel.addEventListener("mouseenter", stop);
-    carousel.addEventListener("mouseleave", start);
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) start();
-  }
+    var resizeTimer;
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(layout, 150);
+    });
+    if (document.fonts) document.fonts.ready.then(layout);
+    layout();
+  });
 
   /* ---------- ค่อย ๆ ปรากฏเมื่อเลื่อนถึง (เคารพ prefers-reduced-motion) ----------
      หมายเหตุด้านความปลอดภัย: ครอบเฉพาะการ์ด/feature ย่อย ไม่ครอบทั้ง section

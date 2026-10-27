@@ -3,8 +3,8 @@
  * ข้อมูลถูกเก็บที่ data/db.json — สำรองข้อมูลได้โดยก๊อปปี้ไฟล์นี้
  * หมายเหตุ: เหมาะกับเว็บบริษัทขนาดเล็ก ถ้าระบบโตขึ้นค่อยย้ายไป MySQL/PostgreSQL ได้
  */
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 const bcrypt = require("bcryptjs");
 const airconCatalog = require("./catalog");
 

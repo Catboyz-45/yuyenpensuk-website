@@ -12,7 +12,17 @@
   <div class="ys-hero-inner">
     <div class="ys-hero-copy">
       <div class="ys-hero-eyebrow"><iconify-icon icon="mdi:leaf-outline"></iconify-icon> บริการแอร์ครบวงจร เขตกรุงเทพฯ และปริมณฑล</div>
-      <h1 id="ys-hero-title"><span>ติดตั้ง ล้าง ซ่อม และ</span><strong>จำหน่ายเครื่องปรับอากาศ</strong></h1>
+      <%
+        // หัวข้อหลักแก้ได้จากหลังบ้าน (ข้อมูลบริษัท > หัวข้อหลักหน้าแรก) แสดงเป็น 2 บรรทัด: บรรทัดแรกสีขาว บรรทัดที่สองสีเขียว
+        // ตัดบรรทัดหลังคำว่า "และ" ถ้ามี ไม่อย่างนั้นตัดที่ช่องว่างสุดท้าย
+        const heroTitle = String(homeContent.homepage_hero_title || "").trim() || "ติดตั้ง ล้าง ซ่อม และจำหน่ายเครื่องปรับอากาศ";
+        const andAt = heroTitle.indexOf("และ", 1);
+        const cut = andAt > 0 ? andAt + 3 : heroTitle.lastIndexOf(" ") + 1;
+        let heroLines = [heroTitle.slice(0, cut).trim(), heroTitle.slice(cut).trim()];
+        if (!heroLines[1]) heroLines = ["", heroTitle];
+        const heroWrap = heroLines.some((l) => l.length > 28) ? ' style="white-space:normal"' : "";
+      %>
+      <h1 id="ys-hero-title"><% if (heroLines[0]) { %><span<%- heroWrap %>><%= heroLines[0] %></span><% } %><strong<%- heroWrap %>><%= heroLines[1] %></strong></h1>
       <p><%= homeContent.homepage_hero_description || "ดูแลเครื่องปรับอากาศครบวงจร ตั้งแต่เลือกซื้อ ติดตั้ง ดูแลรักษา จนถึงงานไฟฟ้าที่เกี่ยวข้อง โดยทีมช่างผู้ชำนาญ" %></p>
       <div class="ys-hero-actions">
         <a href="/products" class="ys-hero-button ys-hero-button-primary"><iconify-icon icon="mdi:cart-outline"></iconify-icon> เลือกซื้อแอร์ <iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
@@ -86,8 +96,9 @@
   <div class="g4">
     <% products.forEach(p=>{ %>
     <a class="card" href="/products/<%= p.id %>">
-      <div class="ph prod">
-        <% if(p.image){ %><img src="<%= p.image %>" alt="<%= p.name %>" onerror="this.style.display='none'"><% } else { %><iconify-icon class="phicon" icon="mdi:air-conditioner"></iconify-icon><% } %>
+      <div class="ph prod product-photo" data-product-id="<%= p.id %>">
+        <div class="photo-loading"><iconify-icon icon="mdi:air-conditioner"></iconify-icon><span>กำลังโหลดรูป</span></div>
+        <img class="product-photo-img" alt="<%= p.brand %> <%= p.model %>" loading="lazy" style="display:none">
         <% if(p.badge){ %><span class="tag" style="position:absolute;top:10px;left:10px;background:var(--pine);color:#fff"><%= p.badge %></span><% } %>
       </div>
       <div class="bd">
@@ -138,8 +149,8 @@
   <div class="brandrow" style="margin-bottom:32px"><% brands.forEach(b=>{ %><a class="brand" href="/brands/<%= encodeURIComponent(b) %>"><%= b %></a><% }) %></div>
   <div class="stat-colors">
     <div class="c"><div class="n"><%= brands.length %>+</div><div class="l">แบรนด์ชั้นนำ</div></div>
-    <div class="c"><div class="n"><%= products.length %>+</div><div class="l">รุ่นให้เลือก</div></div>
-    <div class="c"><div class="n"><%= projects.length %>+</div><div class="l">ผลงานติดตั้ง</div></div>
+    <div class="c"><div class="n"><%= productCount %>+</div><div class="l">รุ่นให้เลือก</div></div>
+    <div class="c"><div class="n"><%= projectCount %>+</div><div class="l">ผลงานติดตั้ง</div></div>
     <div class="c"><div class="n">9+</div><div class="l">ปีประสบการณ์</div></div>
   </div>
 </section>
