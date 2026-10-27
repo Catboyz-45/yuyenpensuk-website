@@ -40,6 +40,14 @@ PROJECTS = [
     ("yuyenpensuk-website-fix", "fix", "โค้ดรุ่นแก้ไขหลังทดสอบ (commit 2a325c8 และรอบก่อนหน้า)"),
 ]
 OPEN_STATUSES = {"OPEN", "CONFIRMED", "REOPENED"}
+# ค่าวัดที่เก็บไว้ใน runs.json ต่อรอบ: ชื่อ metric ใน SonarQube -> ชื่อ field
+METRICS = {"violations": "sonarqubeViolationsMeasure", "alert_status": "qualityGate", "coverage": "coverage",
+           "line_coverage": "lineCoverage", "branch_coverage": "branchCoverage",
+           "duplicated_lines_density": "duplicatedLinesDensity", "ncloc": "linesOfCode",
+           "reliability_rating": "reliabilityRating", "security_rating": "securityRating",
+           "sqale_rating": "maintainabilityRating", "security_hotspots": "securityHotspots"}
+RULE_NAMES = {}
+RATING = {"1.0": "A", "2.0": "B", "3.0": "C", "4.0": "D", "5.0": "E"}
 # หมายเหตุของรอบที่มีเหตุการณ์สำคัญ (อ้างด้วย analysisKey ซึ่งไม่เปลี่ยนเมื่อสร้างใหม่)
 NOTES = {
     "bc107bbd-4569-4eb2-96d6-dc45441101db": "จุดตั้งต้น: โค้ดรุ่นแรก ยังไม่วัด coverage",
@@ -90,6 +98,8 @@ def all_issues(key):
         issues += d["issues"]
         for c in d["components"]:
             comps[c["key"]] = c
+        for rule in d.get("rules", []):
+            RULE_NAMES[rule["key"]] = rule["name"]
         if p * 500 >= d["paging"]["total"]:
             return issues, comps
         p += 1
@@ -176,14 +186,22 @@ def write_readme(runs, acc):
              "รูปแบบเหมือนผลของ `GET /api/issues/search?componentKeys=<project>&ps=200&p=N` ทุก field",
              "คือ issue ที่ยังเปิดอยู่ (ยังไม่แก้) ในรอบนั้น รอบที่ไม่มี issue จะมี `issues_page1.json` ที่ `total` เป็น 0", "",
              "`runs.json` คือสรุปทุกรอบในไฟล์เดียว สร้างใหม่ทั้งโฟลเดอร์ได้ด้วย `python3 scripts/sonar_history.py`", "",
+             "## รายงาน PDF", "",
+             "- `sonarqube-history-report.pdf` รายงานสรุปทุกรอบ: กราฟแนวโน้ม issue กับ Coverage, ตารางทุกรอบ และ issue ที่รับไว้",
+             "- `report.pdf` ในโฟลเดอร์ของแต่ละรอบ: ค่าวัด (Quality Gate, Coverage, rating), การเปลี่ยนแปลงจากรอบก่อน,",
+             "  จำนวน issue ตามประเภท/rule/ไฟล์ และรายการ issue ทั้งหมดของรอบนั้น (สร้างด้วย `scripts/sonar_history_report.py`)",
+             "- `rules.json` ชื่อเต็มของ rule ที่พบ · `accepted.json` issue ที่ตรวจทานแล้วรับไว้พร้อมเหตุผล", "",
              "## โปรเจกต์ใน SonarQube", "", "| ต่อท้ายชื่อโฟลเดอร์ | projectKey | โค้ดรุ่น |", "|---|---|---|"]
     lines += [f"| `_{tag}` | `{key}` | {desc} |" for key, tag, desc in PROJECTS]
     lines += ["", "## สรุปแต่ละรอบ", "",
-              "| รอบ | เวลา (ไทย) | issue ทั้งหมด | Bug | Vulnerability | Code smell | Coverage | หน้า | โฟลเดอร์ | หมายเหตุ |",
-              "|---|---|---:|---:|---:|---:|---:|---:|---|---|"]
+              "| รอบ | เวลา (ไทย) | Quality Gate | issue ทั้งหมด | Bug | Vulnerability | Code smell | Coverage | หน้า | โฟลเดอร์ | หมายเหตุ |",
+              "|---|---|---|---:|---:|---:|---:|---:|---:|---|---|"]
     for r in runs:
         cov = f'{float(r["coverage"]):.1f}%' if r["coverage"] is not None else "-"
-        lines.append(f'| {r["run"]} | {r["analysisDateBangkok"][:16]} | {r["total"]:,} | {r["bugs"]} | '
+        qg = {"OK": "ผ่าน", "ERROR": "ไม่ผ่าน"}.get(r["qualityGate"], "-")
+        if r["qualityGateFailedConditions"]:
+            qg += f' ({r["qualityGateFailedConditions"]})'
+        lines.append(f'| {r["run"]} | {r["analysisDateBangkok"][:16]} | {qg} | {r["total"]:,} | {r["bugs"]} | '
                      f'{r["vulnerabilities"]} | {r["codeSmells"]:,} | {cov} | {r["pages"]} | `{r["folder"]}` | {r["note"]} |')
     lines += ["", "## issue ที่ตรวจทานแล้วรับไว้ (ไม่นับเป็น issue ที่เปิดอยู่)", "",
               "| projectKey | rule | ไฟล์:บรรทัด | เหตุผล |", "|---|---|---|---|"]
@@ -210,10 +228,11 @@ def main():
     runs, n = [], 0
     for key, tag, desc in PROJECTS:
         analyses = api(f"/api/project_analyses/search?project={key}&ps=500")["analyses"][::-1]
-        hist_m = api(f"/api/measures/search_history?component={key}&metrics=violations,coverage&ps=500")["measures"]
+        hist_m = api(f"/api/measures/search_history?component={key}&metrics={','.join(METRICS)}&ps=500")["measures"]
         measure = {m["metric"]: {h["date"]: h.get("value") for h in m["history"]} for m in hist_m}
         issues, comps = all_issues(key)
         hist = changes(key)
+        qg_reason = ""
         # เวลาของรอบเป็นมิลลิวินาทีจากตาราง snapshots (API ปัดเหลือวินาที แต่ประวัติการเปลี่ยนสถานะบันทึกเวลาเดียวกับ snapshot)
         snap = dict(sql(f"select uuid, created_at from snapshots where uuid in ({','.join(repr(a['key']) for a in analyses)})"))
         for a in analyses:
@@ -244,24 +263,39 @@ def main():
                 with open(os.path.join(OUT, folder, f"issues_page{p}.json"), "w", encoding="utf-8") as f:
                     json.dump(page, f, ensure_ascii=False, indent=2)
             types = {t: sum(1 for i in opened if i["type"] == t) for t in ("BUG", "VULNERABILITY", "CODE_SMELL")}
-            violations = measure.get("violations", {}).get(a["date"])
-            runs.append({"run": n, "folder": folder, "project": key, "codeVersion": desc,
-                         "analysisKey": a["key"], "analysisDate": a["date"],
-                         "analysisDateBangkok": local.strftime("%Y-%m-%d %H:%M:%S"),
-                         "total": len(opened), "pages": pages, "bugs": types["BUG"],
-                         "vulnerabilities": types["VULNERABILITY"], "codeSmells": types["CODE_SMELL"],
-                         "effortTotalMinutes": effort,
-                         "sonarqubeViolationsMeasure": int(violations) if violations is not None else None,
-                         "coverage": measure.get("coverage", {}).get(a["date"]), "note": NOTES.get(a["key"], "")})
+            run = {"run": n, "folder": folder, "project": key, "codeVersion": desc,
+                   "analysisKey": a["key"], "analysisDate": a["date"],
+                   "analysisDateBangkok": local.strftime("%Y-%m-%d %H:%M:%S"),
+                   "total": len(opened), "pages": pages, "bugs": types["BUG"],
+                   "vulnerabilities": types["VULNERABILITY"], "codeSmells": types["CODE_SMELL"],
+                   "effortTotalMinutes": effort}
+            for metric, field in METRICS.items():
+                v = measure.get(metric, {}).get(a["date"])
+                if v is not None and metric in ("violations", "ncloc", "security_hotspots"):
+                    v = int(v)
+                run[field] = RATING.get(v, v) if metric.endswith("_rating") else v
+            qg_event = [e for e in a.get("events", []) if e["category"] == "QUALITY_GATE"]
+            if qg_event:
+                qg_reason = qg_event[0].get("description", "")
+            run["qualityGateFailedConditions"] = qg_reason if run.get("qualityGate") == "ERROR" else ""
+            run["note"] = NOTES.get(a["key"], "")
+            runs.append(run)
     with open(os.path.join(OUT, "runs.json"), "w", encoding="utf-8") as f:
         json.dump(runs, f, ensure_ascii=False, indent=2)
-    write_readme(runs, accepted())
+    acc = accepted()
+    write_readme(runs, acc)
+    with open(os.path.join(OUT, "rules.json"), "w", encoding="utf-8") as f:
+        json.dump(dict(sorted(RULE_NAMES.items())), f, ensure_ascii=False, indent=2)
+    with open(os.path.join(OUT, "accepted.json"), "w", encoding="utf-8") as f:
+        json.dump([{"project": k, "rule": rule, "file": path, "line": line, "reason": why}
+                   for k, rule, path, line, why in acc], f, ensure_ascii=False, indent=2)
     bad = [r["run"] for r in runs if r["total"] != r["sonarqubeViolationsMeasure"]]
     for r in runs:
         print(f'{r["folder"]:36} {r["total"]:4} (violations {r["sonarqubeViolationsMeasure"]}) '
               f'B{r["bugs"]} V{r["vulnerabilities"]} S{r["codeSmells"]} cov {r["coverage"]}')
     if bad:
         sys.exit(f"จำนวนไม่ตรงกับ violations ในรอบ {bad}")
+    subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "sonar_history_report.py"), OUT], check=True)
 
 
 if __name__ == "__main__":

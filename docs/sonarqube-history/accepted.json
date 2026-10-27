@@ -1,0 +1,93 @@
+[
+  {
+    "project": "yuyenpensuk-website-fix",
+    "rule": "css:S4666",
+    "file": "public/css/admin.css",
+    "line": 130,
+    "reason": "ตรวจทานแล้ว: รวม selector นี้ไม่ได้ เพราะมีกฎอื่นที่ใช้กับ element เดียวกันคั่นอยู่ระหว่าง 2 ตำแหน่ง ถ้ารวมลำดับ cascade จะเปลี่ยนและหน้าจอเปลี่ยน (ตรวจด้วยเครื่องมือเทียบลำดับ cascade และ computed style ทุกหน้า)"
+  },
+  {
+    "project": "yuyenpensuk-website-fix",
+    "rule": "css:S4666",
+    "file": "public/css/admin.css",
+    "line": 145,
+    "reason": "ตรวจทานแล้ว: รวม selector นี้ไม่ได้ เพราะมีกฎอื่นที่ใช้กับ element เดียวกันคั่นอยู่ระหว่าง 2 ตำแหน่ง ถ้ารวมลำดับ cascade จะเปลี่ยนและหน้าจอเปลี่ยน (ตรวจด้วยเครื่องมือเทียบลำดับ cascade และ computed style ทุกหน้า)"
+  },
+  {
+    "project": "yuyenpensuk-website-fix",
+    "rule": "css:S4666",
+    "file": "public/css/admin.css",
+    "line": 151,
+    "reason": "ตรวจทานแล้ว: รวม selector นี้ไม่ได้ เพราะมีกฎอื่นที่ใช้กับ element เดียวกันคั่นอยู่ระหว่าง 2 ตำแหน่ง ถ้ารวมลำดับ cascade จะเปลี่ยนและหน้าจอเปลี่ยน (ตรวจด้วยเครื่องมือเทียบลำดับ cascade และ computed style ทุกหน้า)"
+  },
+  {
+    "project": "yuyenpensuk-website-fix",
+    "rule": "css:S4666",
+    "file": "public/css/admin.css",
+    "line": 158,
+    "reason": "ตรวจทานแล้ว: รวม selector นี้ไม่ได้ เพราะมีกฎอื่นที่ใช้กับ element เดียวกันคั่นอยู่ระหว่าง 2 ตำแหน่ง ถ้ารวมลำดับ cascade จะเปลี่ยนและหน้าจอเปลี่ยน (ตรวจด้วยเครื่องมือเทียบลำดับ cascade และ computed style ทุกหน้า)"
+  },
+  {
+    "project": "yuyenpensuk-website-fix",
+    "rule": "css:S4666",
+    "file": "public/css/admin.css",
+    "line": 158,
+    "reason": "ตรวจทานแล้ว: รวม selector นี้ไม่ได้ เพราะมีกฎอื่นที่ใช้กับ element เดียวกันคั่นอยู่ระหว่าง 2 ตำแหน่ง ถ้ารวมลำดับ cascade จะเปลี่ยนและหน้าจอเปลี่ยน (ตรวจด้วยเครื่องมือเทียบลำดับ cascade และ computed style ทุกหน้า)"
+  },
+  {
+    "project": "yuyenpensuk-website-fix",
+    "rule": "css:S4666",
+    "file": "public/css/site.css",
+    "line": 403,
+    "reason": "ตรวจทานแล้ว: รวม selector นี้ไม่ได้ เพราะมีกฎอื่นที่ใช้กับ element เดียวกันคั่นอยู่ระหว่าง 2 ตำแหน่ง ถ้ารวมลำดับ cascade จะเปลี่ยนและหน้าจอเปลี่ยน (ตรวจด้วยเครื่องมือเทียบลำดับ cascade และ computed style ทุกหน้า)"
+  },
+  {
+    "project": "yuyenpensuk-website-fix",
+    "rule": "css:S4666",
+    "file": "public/css/site.css",
+    "line": 462,
+    "reason": "ตรวจทานแล้ว: รวม selector นี้ไม่ได้ เพราะมีกฎอื่นที่ใช้กับ element เดียวกันคั่นอยู่ระหว่าง 2 ตำแหน่ง ถ้ารวมลำดับ cascade จะเปลี่ยนและหน้าจอเปลี่ยน (ตรวจด้วยเครื่องมือเทียบลำดับ cascade และ computed style ทุกหน้า)"
+  },
+  {
+    "project": "yuyenpensuk-website-fix",
+    "rule": "css:S4666",
+    "file": "public/css/site.css",
+    "line": 466,
+    "reason": "ตรวจทานแล้ว: รวม selector นี้ไม่ได้ เพราะมีกฎอื่นที่ใช้กับ element เดียวกันคั่นอยู่ระหว่าง 2 ตำแหน่ง ถ้ารวมลำดับ cascade จะเปลี่ยนและหน้าจอเปลี่ยน (ตรวจด้วยเครื่องมือเทียบลำดับ cascade และ computed style ทุกหน้า)"
+  },
+  {
+    "project": "yuyenpensuk-website-fix",
+    "rule": "css:S4666",
+    "file": "public/css/site.css",
+    "line": 471,
+    "reason": "ตรวจทานแล้ว: รวม selector นี้ไม่ได้ เพราะมีกฎอื่นที่ใช้กับ element เดียวกันคั่นอยู่ระหว่าง 2 ตำแหน่ง ถ้ารวมลำดับ cascade จะเปลี่ยนและหน้าจอเปลี่ยน (ตรวจด้วยเครื่องมือเทียบลำดับ cascade และ computed style ทุกหน้า)"
+  },
+  {
+    "project": "yuyenpensuk-website-fix",
+    "rule": "css:S4666",
+    "file": "public/css/site.css",
+    "line": 472,
+    "reason": "ตรวจทานแล้ว: รวม selector นี้ไม่ได้ เพราะมีกฎอื่นที่ใช้กับ element เดียวกันคั่นอยู่ระหว่าง 2 ตำแหน่ง ถ้ารวมลำดับ cascade จะเปลี่ยนและหน้าจอเปลี่ยน (ตรวจด้วยเครื่องมือเทียบลำดับ cascade และ computed style ทุกหน้า)"
+  },
+  {
+    "project": "yuyenpensuk-website-fix",
+    "rule": "css:S4666",
+    "file": "public/css/site.css",
+    "line": 919,
+    "reason": "ตรวจทานแล้ว: รวม selector นี้ไม่ได้ เพราะมีกฎอื่นที่ใช้กับ element เดียวกันคั่นอยู่ระหว่าง 2 ตำแหน่ง ถ้ารวมลำดับ cascade จะเปลี่ยนและหน้าจอเปลี่ยน (ตรวจด้วยเครื่องมือเทียบลำดับ cascade และ computed style ทุกหน้า)"
+  },
+  {
+    "project": "yuyenpensuk-website-fix",
+    "rule": "css:S4666",
+    "file": "public/css/site.css",
+    "line": 1158,
+    "reason": "ตรวจทานแล้ว: รวม selector นี้ไม่ได้ เพราะมีกฎอื่นที่ใช้กับ element เดียวกันคั่นอยู่ระหว่าง 2 ตำแหน่ง ถ้ารวมลำดับ cascade จะเปลี่ยนและหน้าจอเปลี่ยน (ตรวจด้วยเครื่องมือเทียบลำดับ cascade และ computed style ทุกหน้า)"
+  },
+  {
+    "project": "yuyenpensuk-website-fix",
+    "rule": "javascript:S5693",
+    "file": "routes/admin.js",
+    "line": 42,
+    "reason": "ตรวจทานแล้ว: จำกัดไฟล์ละ 10 MB โดยตั้งใจ เพื่อรองรับรูปถ่ายความละเอียดสูงจากโทรศัพท์ ระบบยังจำกัดไม่เกิน 10 ไฟล์และ 80 ฟิลด์ต่อคำขอ ตรวจชนิดไฟล์จาก Magic Bytes และหลังบ้านเข้าได้เฉพาะผู้ดูแลที่ล็อกอินแล้ว"
+  }
+]
