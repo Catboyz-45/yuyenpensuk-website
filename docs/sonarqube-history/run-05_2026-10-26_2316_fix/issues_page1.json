@@ -1,0 +1,77 @@
+{
+  "total": 1,
+  "p": 1,
+  "ps": 200,
+  "paging": {
+    "pageIndex": 1,
+    "pageSize": 200,
+    "total": 1
+  },
+  "effortTotal": 5,
+  "issues": [
+    {
+      "key": "6426f00c-4d4b-41ea-bf93-88ba8b26a54a",
+      "rule": "javascript:S5693",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:routes/admin.js",
+      "project": "yuyenpensuk-website-fix",
+      "line": 42,
+      "hash": "e5a1030c83bac0054a0e22d269c7a3af",
+      "textRange": {
+        "startLine": 42,
+        "endLine": 42,
+        "startOffset": 4,
+        "endOffset": 30
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make sure the content length limit is safe here.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "express.js",
+        "former-hotspot"
+      ],
+      "creationDate": "2026-10-26T15:52:18+0000",
+      "updateDate": "2026-10-26T15:52:18+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "TRUSTWORTHY",
+      "cleanCodeAttributeCategory": "RESPONSIBLE",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "components": [
+    {
+      "key": "yuyenpensuk-website-fix",
+      "enabled": true,
+      "qualifier": "TRK",
+      "name": "yuyenpensuk-website (fixed)",
+      "longName": "yuyenpensuk-website (fixed)"
+    },
+    {
+      "key": "yuyenpensuk-website-fix:routes/admin.js",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "admin.js",
+      "longName": "routes/admin.js",
+      "path": "routes/admin.js"
+    }
+  ],
+  "facets": []
+}

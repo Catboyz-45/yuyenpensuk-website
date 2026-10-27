@@ -1,0 +1,122 @@
+{
+  "total": 2,
+  "p": 1,
+  "ps": 200,
+  "paging": {
+    "pageIndex": 1,
+    "pageSize": 200,
+    "total": 2
+  },
+  "effortTotal": 10,
+  "issues": [
+    {
+      "key": "9279e2e6-b4ec-46ac-89b0-4d41a5b6ee1d",
+      "rule": "javascript:S7765",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-fix:public/js/main.js",
+      "project": "yuyenpensuk-website-fix",
+      "line": 226,
+      "hash": "be714645a598ee485a75d8aa59d0e38e",
+      "textRange": {
+        "startLine": 226,
+        "endLine": 226,
+        "startOffset": 17,
+        "endOffset": 24
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Use `.includes()`, rather than `.indexOf()`, when checking for existence.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "readability",
+        "es2016",
+        "editable-source"
+      ],
+      "creationDate": "2026-10-27T03:53:43+0000",
+      "updateDate": "2026-10-27T03:53:43+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "a9ccab08-2664-4b13-a3c8-e55b44159097",
+      "rule": "javascript:S4043",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/js/main.js",
+      "project": "yuyenpensuk-website-fix",
+      "line": 235,
+      "hash": "ffdf69a9b61490c0cb69cd32b158658d",
+      "textRange": {
+        "startLine": 235,
+        "endLine": 235,
+        "startOffset": 23,
+        "endOffset": 67
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Move this array \"sort\" operation to a separate statement or replace it with \"toSorted\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "editable-source",
+        "type-dependent"
+      ],
+      "creationDate": "2026-10-27T03:53:43+0000",
+      "updateDate": "2026-10-27T03:53:43+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "components": [
+    {
+      "key": "yuyenpensuk-website-fix",
+      "enabled": true,
+      "qualifier": "TRK",
+      "name": "yuyenpensuk-website (fixed)",
+      "longName": "yuyenpensuk-website (fixed)"
+    },
+    {
+      "key": "yuyenpensuk-website-fix:public/js/main.js",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "main.js",
+      "longName": "public/js/main.js",
+      "path": "public/js/main.js"
+    }
+  ],
+  "facets": []
+}

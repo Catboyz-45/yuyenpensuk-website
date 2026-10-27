@@ -1,0 +1,462 @@
+{
+  "total": 409,
+  "p": 3,
+  "ps": 200,
+  "paging": {
+    "pageIndex": 3,
+    "pageSize": 200,
+    "total": 409
+  },
+  "effortTotal": 969,
+  "issues": [
+    {
+      "key": "c6a9949b-06f7-45d8-9ebb-4b28398ef93a",
+      "rule": "javascript:S6535",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-prod:scripts/audit.js",
+      "project": "yuyenpensuk-website-prod",
+      "line": 137,
+      "hash": "981049eb9e577c0b31ff0b1e6ea69e36",
+      "textRange": {
+        "startLine": 137,
+        "endLine": 137,
+        "startOffset": 64,
+        "endOffset": 65
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Unnecessary escape character: \\\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "editable-source"
+      ],
+      "creationDate": "2026-10-26T15:25:54+0000",
+      "updateDate": "2026-10-26T15:25:54+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "53446984-3134-41f1-9466-1e33903d8dbf",
+      "rule": "javascript:S7780",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-prod:scripts/audit.js",
+      "project": "yuyenpensuk-website-prod",
+      "line": 140,
+      "hash": "dd50905e03e36d5844ed3568fe9d757d",
+      "textRange": {
+        "startLine": 140,
+        "endLine": 140,
+        "startOffset": 23,
+        "endOffset": 39
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "`String.raw` should be used to avoid escaping `\\`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "readability",
+        "es2015",
+        "editable-source"
+      ],
+      "creationDate": "2026-10-26T15:25:54+0000",
+      "updateDate": "2026-10-26T15:25:54+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "28cdaba3-3789-4077-bb6e-a8a082c34fb8",
+      "rule": "javascript:S7772",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-prod:server.js",
+      "project": "yuyenpensuk-website-prod",
+      "line": 9,
+      "hash": "2414d0eaca09c782237010899a7ad01c",
+      "textRange": {
+        "startLine": 9,
+        "endLine": 9,
+        "startOffset": 21,
+        "endOffset": 27
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `node:path` over `path`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention",
+        "import",
+        "editable-source",
+        "nodejs"
+      ],
+      "creationDate": "2026-10-26T15:25:54+0000",
+      "updateDate": "2026-10-26T15:25:54+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "17903c44-1334-48ae-8b20-c188adc7efb4",
+      "rule": "javascript:S5689",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-prod:server.js",
+      "project": "yuyenpensuk-website-prod",
+      "line": 15,
+      "hash": "4af77bcf43147b78489dd9c4043bfe01",
+      "textRange": {
+        "startLine": 15,
+        "endLine": 15,
+        "startOffset": 6,
+        "endOffset": 9
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "This framework implicitly discloses version information by default. Make sure it is safe here.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "express.js",
+        "former-hotspot"
+      ],
+      "creationDate": "2026-10-26T15:25:54+0000",
+      "updateDate": "2026-10-26T15:25:54+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "TRUSTWORTHY",
+      "cleanCodeAttributeCategory": "RESPONSIBLE",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "2ea4143e-887f-44d9-b676-a69a54bf3619",
+      "rule": "javascript:S7772",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-prod:utils/product-images.js",
+      "project": "yuyenpensuk-website-prod",
+      "line": 1,
+      "hash": "44f9b15d3b1641faca5561b190d8261a",
+      "textRange": {
+        "startLine": 1,
+        "endLine": 1,
+        "startOffset": 19,
+        "endOffset": 23
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `node:fs` over `fs`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention",
+        "import",
+        "editable-source",
+        "nodejs"
+      ],
+      "creationDate": "2026-10-26T15:25:54+0000",
+      "updateDate": "2026-10-26T15:25:54+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e6f6d39b-072a-43cc-a37b-63b35a69fa39",
+      "rule": "javascript:S7772",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-prod:utils/product-images.js",
+      "project": "yuyenpensuk-website-prod",
+      "line": 2,
+      "hash": "85968f5b9f570a82c65709eacc211a09",
+      "textRange": {
+        "startLine": 2,
+        "endLine": 2,
+        "startOffset": 21,
+        "endOffset": 27
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `node:path` over `path`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention",
+        "import",
+        "editable-source",
+        "nodejs"
+      ],
+      "creationDate": "2026-10-26T15:25:54+0000",
+      "updateDate": "2026-10-26T15:25:54+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d2c7af94-4253-4fdf-8123-328a63d2d31e",
+      "rule": "javascript:S7772",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-prod:utils/product-images.js",
+      "project": "yuyenpensuk-website-prod",
+      "line": 3,
+      "hash": "c830f6c4155a5cbeef0f28771e61ed4d",
+      "textRange": {
+        "startLine": 3,
+        "endLine": 3,
+        "startOffset": 23,
+        "endOffset": 31
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `node:crypto` over `crypto`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention",
+        "import",
+        "editable-source",
+        "nodejs"
+      ],
+      "creationDate": "2026-10-26T15:25:54+0000",
+      "updateDate": "2026-10-26T15:25:54+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "2174da72-3ea4-48ec-8f2c-429efa7d788b",
+      "rule": "javascript:S6582",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-prod:utils/product-images.js",
+      "project": "yuyenpensuk-website-prod",
+      "line": 23,
+      "hash": "5e04750e57773111e7e826c10125def9",
+      "textRange": {
+        "startLine": 23,
+        "endLine": 23,
+        "startOffset": 6,
+        "endOffset": 27
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer using an optional chain expression instead, as it's more concise and easier to read.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "editable-source",
+        "type-dependent",
+        "es2020"
+      ],
+      "creationDate": "2026-10-26T15:25:54+0000",
+      "updateDate": "2026-10-26T15:25:54+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6bd47d76-c9f4-4919-9a57-e4f8bf54f2ac",
+      "rule": "javascript:S4790",
+      "severity": "CRITICAL",
+      "component": "yuyenpensuk-website-prod:utils/product-images.js",
+      "project": "yuyenpensuk-website-prod",
+      "line": 91,
+      "hash": "430f1cebe21a43e7859accd7acb3765f",
+      "textRange": {
+        "startLine": 91,
+        "endLine": 91,
+        "startOffset": 14,
+        "endOffset": 31
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make sure this weak hash algorithm is not used in a sensitive context here.",
+      "effort": "30min",
+      "debt": "30min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "former-hotspot"
+      ],
+      "creationDate": "2026-10-26T15:25:54+0000",
+      "updateDate": "2026-10-26T15:25:54+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "TRUSTWORTHY",
+      "cleanCodeAttributeCategory": "RESPONSIBLE",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "components": [
+    {
+      "key": "yuyenpensuk-website-prod",
+      "enabled": true,
+      "qualifier": "TRK",
+      "name": "yuyenpensuk-website (production 26 Oct 2026)",
+      "longName": "yuyenpensuk-website (production 26 Oct 2026)"
+    },
+    {
+      "key": "yuyenpensuk-website-prod:server.js",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "server.js",
+      "longName": "server.js",
+      "path": "server.js"
+    },
+    {
+      "key": "yuyenpensuk-website-prod:scripts/audit.js",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "audit.js",
+      "longName": "scripts/audit.js",
+      "path": "scripts/audit.js"
+    },
+    {
+      "key": "yuyenpensuk-website-prod:utils/product-images.js",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "product-images.js",
+      "longName": "utils/product-images.js",
+      "path": "utils/product-images.js"
+    }
+  ],
+  "facets": []
+}

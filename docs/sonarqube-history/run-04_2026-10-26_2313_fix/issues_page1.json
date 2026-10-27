@@ -1,0 +1,1564 @@
+{
+  "total": 32,
+  "p": 1,
+  "ps": 200,
+  "paging": {
+    "pageIndex": 1,
+    "pageSize": 200,
+    "total": 32
+  },
+  "effortTotal": 156,
+  "issues": [
+    {
+      "key": "2feea67b-ab04-4253-abf4-0925caf44e73",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin-v2-complete.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 9,
+      "hash": "7470b097ec65eb045e26e439e9a962f6",
+      "textRange": {
+        "startLine": 9,
+        "endLine": 9,
+        "startOffset": 54,
+        "endOffset": 65
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T15:52:18+0000",
+      "updateDate": "2026-10-26T15:52:18+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "bb1196e4-1981-400d-9487-2b3ce5844a6a",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin-v2-complete.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 27,
+      "hash": "5877c7dfcfa26cfaee6096d8dbf42102",
+      "textRange": {
+        "startLine": 27,
+        "endLine": 27,
+        "startOffset": 32,
+        "endOffset": 46
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T15:52:18+0000",
+      "updateDate": "2026-10-26T15:52:18+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d8b132b1-4ed3-4839-8d36-63121e480702",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin-v2-complete.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 46,
+      "hash": "dca45043c4609bd24b7b27bbba6983cd",
+      "textRange": {
+        "startLine": 46,
+        "endLine": 46,
+        "startOffset": 180,
+        "endOffset": 193
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T15:52:18+0000",
+      "updateDate": "2026-10-26T15:52:18+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "58787d2f-fb06-4ff2-8c31-0434a854572d",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 101,
+      "hash": "1b44da42d18eb0989b1992bb25e62909",
+      "textRange": {
+        "startLine": 101,
+        "endLine": 101,
+        "startOffset": 1187,
+        "endOffset": 1206
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d1c8bd02-796c-41c4-a352-6d69342ff626",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 102,
+      "hash": "28389b686b5bf5082ffd4f1fcead0dd9",
+      "textRange": {
+        "startLine": 102,
+        "endLine": 102,
+        "startOffset": 1096,
+        "endOffset": 1110
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7669cdf6-a65e-4f00-902c-789184c6f94a",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 103,
+      "hash": "0e1b4776a97e590590bfdbc0bcb65ac1",
+      "textRange": {
+        "startLine": 103,
+        "endLine": 103,
+        "startOffset": 279,
+        "endOffset": 292
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "96bcf714-32b7-4d42-b597-cff61a6de114",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 103,
+      "hash": "0e1b4776a97e590590bfdbc0bcb65ac1",
+      "textRange": {
+        "startLine": 103,
+        "endLine": 103,
+        "startOffset": 372,
+        "endOffset": 385
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "bfffa8bc-b7ac-4c60-b7c6-95c67d8b3a77",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 103,
+      "hash": "0e1b4776a97e590590bfdbc0bcb65ac1",
+      "textRange": {
+        "startLine": 103,
+        "endLine": 103,
+        "startOffset": 418,
+        "endOffset": 431
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "ee90f1c9-0981-4e6d-b4ef-e5897a53b233",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 103,
+      "hash": "0e1b4776a97e590590bfdbc0bcb65ac1",
+      "textRange": {
+        "startLine": 103,
+        "endLine": 103,
+        "startOffset": 1438,
+        "endOffset": 1452
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "3681f2e2-f6a3-47b3-a1ee-29288be32844",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 120,
+      "hash": "7f302577834e34a34a27f73fbd055ff4",
+      "textRange": {
+        "startLine": 120,
+        "endLine": 120,
+        "startOffset": 83,
+        "endOffset": 94
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T15:52:18+0000",
+      "updateDate": "2026-10-26T15:52:18+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d6f72c88-c48f-4c42-ab63-10ff43537d71",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 125,
+      "hash": "83890a5385c647daafffc8defb9692ee",
+      "textRange": {
+        "startLine": 125,
+        "endLine": 125,
+        "startOffset": 91,
+        "endOffset": 101
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T15:52:18+0000",
+      "updateDate": "2026-10-26T15:52:18+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "70c36b7e-5e6e-4c6b-83ee-f0c416b265f0",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 132,
+      "hash": "8cd5a6a3d2a7590f6b87af2262da2b8f",
+      "textRange": {
+        "startLine": 132,
+        "endLine": 132,
+        "startOffset": 188,
+        "endOffset": 202
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "69242538-880a-4633-90a7-7e8bdfc8db0d",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 139,
+      "hash": "914bb9785b3e6b23831f626d7be00a79",
+      "textRange": {
+        "startLine": 139,
+        "endLine": 139,
+        "startOffset": 243,
+        "endOffset": 257
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7f1ba18a-f142-4a0d-8f7b-934ab5f82832",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 139,
+      "hash": "914bb9785b3e6b23831f626d7be00a79",
+      "textRange": {
+        "startLine": 139,
+        "endLine": 139,
+        "startOffset": 639,
+        "endOffset": 653
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "dfb68cb5-2d8b-483c-8fcf-91e5c19bfa07",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 148,
+      "hash": "4f46862051ceeec116120c88a6a045fe",
+      "textRange": {
+        "startLine": 148,
+        "endLine": 148,
+        "startOffset": 516,
+        "endOffset": 535
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "16a4beaf-73c7-491d-91e1-f5b42624cabd",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/admin.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 151,
+      "hash": "669cb51840c25f7c21070a5db3a5a50a",
+      "textRange": {
+        "startLine": 151,
+        "endLine": 151,
+        "startOffset": 1122,
+        "endOffset": 1140
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "445dce61-5e73-4e4a-8655-a9f467499bd0",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/site.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 17,
+      "hash": "45e2d4a8a78cf03819dfcdc5b6ee672d",
+      "textRange": {
+        "startLine": 17,
+        "endLine": 17,
+        "startOffset": 217,
+        "endOffset": 236
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e0ea3618-8ef7-4b39-8c2c-67026ec08f90",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/site.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 40,
+      "hash": "7dd988e430ccf85027eafb7bf8349dc5",
+      "textRange": {
+        "startLine": 40,
+        "endLine": 40,
+        "startOffset": 41,
+        "endOffset": 52
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T15:52:18+0000",
+      "updateDate": "2026-10-26T15:52:18+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "ca7f43bd-2e88-4a04-9403-55b9e7d79477",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/site.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 84,
+      "hash": "69a471b042859a03cc5f5637a02e5587",
+      "textRange": {
+        "startLine": 84,
+        "endLine": 84,
+        "startOffset": 195,
+        "endOffset": 211
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T15:52:18+0000",
+      "updateDate": "2026-10-26T15:52:18+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "f0bf2825-6770-4767-a89d-4866e8f34f3b",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/site.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 181,
+      "hash": "b3f9b4a70cd6155ad7e95f5437b8b244",
+      "textRange": {
+        "startLine": 181,
+        "endLine": 181,
+        "startOffset": 109,
+        "endOffset": 120
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "069c1643-8312-497f-b6f3-54d7296ab21a",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/site.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 182,
+      "hash": "606b049fc779e8de78ac0b81a78d70fd",
+      "textRange": {
+        "startLine": 182,
+        "endLine": 182,
+        "startOffset": 108,
+        "endOffset": 119
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "3368cfd4-d461-4491-970c-72cbfb2e7419",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/site.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 183,
+      "hash": "5145374060cd67b19bbbfd0519ab58f8",
+      "textRange": {
+        "startLine": 183,
+        "endLine": 183,
+        "startOffset": 108,
+        "endOffset": 119
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "728d1788-315e-4192-be30-0912559e4285",
+      "rule": "css:S4658",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/site.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 381,
+      "hash": "6054fa4f30349285b1b9320d0b50b30a",
+      "textRange": {
+        "startLine": 381,
+        "endLine": 381,
+        "startOffset": 37,
+        "endOffset": 39
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Empty block",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "c9f1b594-64ee-42bf-8ddc-208ddbe0379d",
+      "rule": "css:S4657",
+      "severity": "CRITICAL",
+      "component": "yuyenpensuk-website-fix:public/css/site.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 385,
+      "hash": "7429c9a3a5250637023d7e0ace1a25a1",
+      "textRange": {
+        "startLine": 385,
+        "endLine": 385,
+        "startOffset": 209,
+        "endOffset": 215
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Overridden property \"margin-bottom\" by shorthand \"margin\"",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "BUG",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "RELIABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e8e415c3-6c24-4340-bbb5-3b3027ccf15b",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/site.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 447,
+      "hash": "1c2c5a23a1b82eb5f76230a53327a1ee",
+      "textRange": {
+        "startLine": 447,
+        "endLine": 447,
+        "startOffset": 146,
+        "endOffset": 159
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4a7eec3d-b1df-42d7-824b-34fd57f4d87a",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/site.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 484,
+      "hash": "57c17ff60965173d11ad810a51551494",
+      "textRange": {
+        "startLine": 484,
+        "endLine": 484,
+        "startOffset": 224,
+        "endOffset": 238
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7b5e49fc-2851-453f-bfac-c354193d6b9d",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/site.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 947,
+      "hash": "c99ef7cb6d8a8535515f6468ccf9fd98",
+      "textRange": {
+        "startLine": 947,
+        "endLine": 947,
+        "startOffset": 66,
+        "endOffset": 77
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "72f8ba82-76b6-4ade-872a-b9f4c355c374",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/site.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 948,
+      "hash": "8fad6a97c42e6243ae30b26343e11270",
+      "textRange": {
+        "startLine": 948,
+        "endLine": 948,
+        "startOffset": 90,
+        "endOffset": 100
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9d55c427-e5af-4771-b906-5db312744809",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/site.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 950,
+      "hash": "55c15f10cbdb6fc10c640cc00e19d2fd",
+      "textRange": {
+        "startLine": 950,
+        "endLine": 950,
+        "startOffset": 91,
+        "endOffset": 101
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T16:13:12+0000",
+      "updateDate": "2026-10-26T16:13:12+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "f0d367ad-64bc-4a22-bb30-5057f0119ddd",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/ys-fullsite.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 6,
+      "hash": "8b70d5cd8cdd8eda42091b8ec665f2fa",
+      "textRange": {
+        "startLine": 6,
+        "endLine": 6,
+        "startOffset": 70,
+        "endOffset": 92
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T15:52:18+0000",
+      "updateDate": "2026-10-26T15:52:18+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "089a5716-64f0-4bfa-bfae-d4edee4e9825",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:public/css/ys-reference.css",
+      "project": "yuyenpensuk-website-fix",
+      "line": 7,
+      "hash": "582d5f5c5792c948d9afe87348ccf4e0",
+      "textRange": {
+        "startLine": 7,
+        "endLine": 7,
+        "startOffset": 82,
+        "endOffset": 104
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-26T15:52:18+0000",
+      "updateDate": "2026-10-26T15:52:18+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6426f00c-4d4b-41ea-bf93-88ba8b26a54a",
+      "rule": "javascript:S5693",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-fix:routes/admin.js",
+      "project": "yuyenpensuk-website-fix",
+      "line": 42,
+      "hash": "e5a1030c83bac0054a0e22d269c7a3af",
+      "textRange": {
+        "startLine": 42,
+        "endLine": 42,
+        "startOffset": 4,
+        "endOffset": 30
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make sure the content length limit is safe here.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "express.js",
+        "former-hotspot"
+      ],
+      "creationDate": "2026-10-26T15:52:18+0000",
+      "updateDate": "2026-10-26T15:52:18+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "TRUSTWORTHY",
+      "cleanCodeAttributeCategory": "RESPONSIBLE",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "components": [
+    {
+      "key": "yuyenpensuk-website-fix:public/css/ys-reference.css",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "ys-reference.css",
+      "longName": "public/css/ys-reference.css",
+      "path": "public/css/ys-reference.css"
+    },
+    {
+      "key": "yuyenpensuk-website-fix:public/css/admin.css",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "admin.css",
+      "longName": "public/css/admin.css",
+      "path": "public/css/admin.css"
+    },
+    {
+      "key": "yuyenpensuk-website-fix:public/css/admin-v2-complete.css",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "admin-v2-complete.css",
+      "longName": "public/css/admin-v2-complete.css",
+      "path": "public/css/admin-v2-complete.css"
+    },
+    {
+      "key": "yuyenpensuk-website-fix",
+      "enabled": true,
+      "qualifier": "TRK",
+      "name": "yuyenpensuk-website (fixed)",
+      "longName": "yuyenpensuk-website (fixed)"
+    },
+    {
+      "key": "yuyenpensuk-website-fix:public/css/site.css",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "site.css",
+      "longName": "public/css/site.css",
+      "path": "public/css/site.css"
+    },
+    {
+      "key": "yuyenpensuk-website-fix:routes/admin.js",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "admin.js",
+      "longName": "routes/admin.js",
+      "path": "routes/admin.js"
+    },
+    {
+      "key": "yuyenpensuk-website-fix:public/css/ys-fullsite.css",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "ys-fullsite.css",
+      "longName": "public/css/ys-fullsite.css",
+      "path": "public/css/ys-fullsite.css"
+    }
+  ],
+  "facets": []
+}

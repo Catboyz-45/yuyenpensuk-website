@@ -1,0 +1,4916 @@
+{
+  "total": 306,
+  "p": 2,
+  "ps": 200,
+  "paging": {
+    "pageIndex": 2,
+    "pageSize": 200,
+    "total": 306
+  },
+  "effortTotal": 671,
+  "issues": [
+    {
+      "key": "069a866e-8734-4e13-851c-95374681a6ff",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 622,
+      "hash": "133ef4ca06a4fc3177dc26350713d64c",
+      "textRange": {
+        "startLine": 622,
+        "endLine": 622,
+        "startOffset": 0,
+        "endOffset": 13
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".btn.nv:hover\", first used at line 76",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6349f5d8-1165-4e08-92e4-580d0b25dfe9",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 623,
+      "hash": "9156dad420a7d4a6f07650df73dd393d",
+      "textRange": {
+        "startLine": 623,
+        "endLine": 623,
+        "startOffset": 0,
+        "endOffset": 7
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".btn.ln\", first used at line 77",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6c992f93-f7a9-426a-aff9-cc9ae2124866",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 624,
+      "hash": "16273cdedd6305126419f4213e89f2f6",
+      "textRange": {
+        "startLine": 624,
+        "endLine": 624,
+        "startOffset": 0,
+        "endOffset": 5
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".card\", first used at line 97",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "54409417-19b6-4635-852f-1034d2a65ef2",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 625,
+      "hash": "2877458026e2a21d9ae84b7d698941c7",
+      "textRange": {
+        "startLine": 625,
+        "endLine": 625,
+        "startOffset": 0,
+        "endOffset": 11
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".card:hover\", first used at line 98",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "176fdedb-79c1-484a-8f3a-b414e09dd24b",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 626,
+      "hash": "712008d700e286b62486f93f78c532cf",
+      "textRange": {
+        "startLine": 626,
+        "endLine": 626,
+        "startOffset": 0,
+        "endOffset": 9
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".card .bd\", first used at line 99",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b29a0e19-a9c2-4f3b-8f9a-2d09a57c49bb",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 627,
+      "hash": "4041207d2dd5060032794bb3860a6bdf",
+      "textRange": {
+        "startLine": 627,
+        "endLine": 627,
+        "startOffset": 0,
+        "endOffset": 8
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".card h3\", first used at line 100",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "20284efa-c554-4abb-aee7-ca043ed8ed20",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 628,
+      "hash": "dedf4f1d055f778dd66cf9620e5ba053",
+      "textRange": {
+        "startLine": 628,
+        "endLine": 628,
+        "startOffset": 0,
+        "endOffset": 7
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".card p\", first used at line 101",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e2545b77-d410-422c-8859-84ae04fb139d",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 629,
+      "hash": "3220865463588e0c257d88b357a82897",
+      "textRange": {
+        "startLine": 629,
+        "endLine": 629,
+        "startOffset": 0,
+        "endOffset": 16
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".card .price-row\", first used at line 102",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "42e139c4-2566-46ee-bd10-2e311c86f4bc",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 630,
+      "hash": "52a62f9f60f905c728e149dec6fc39bd",
+      "textRange": {
+        "startLine": 630,
+        "endLine": 630,
+        "startOffset": 0,
+        "endOffset": 12
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".card .price\", first used at line 103",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b32a7903-7a56-49b2-8839-13b27aaf157b",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 631,
+      "hash": "a42e9f4a5474332b1449fd4e70e8c817",
+      "textRange": {
+        "startLine": 631,
+        "endLine": 631,
+        "startOffset": 0,
+        "endOffset": 3
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".ph\", first used at line 107",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "130ced76-dced-47b8-932f-6be9b3361cfb",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 631,
+      "hash": "a42e9f4a5474332b1449fd4e70e8c817",
+      "textRange": {
+        "startLine": 631,
+        "endLine": 631,
+        "startOffset": 55,
+        "endOffset": 68
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "5bc42bda-4c55-4dc3-9b30-72f35e63a5f5",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 632,
+      "hash": "948f2c3c1229adfbef33b90db30ebb42",
+      "textRange": {
+        "startLine": 632,
+        "endLine": 632,
+        "startOffset": 0,
+        "endOffset": 9
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".card .ph\", first used at line 114",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7598e1b6-d901-4dd4-8f86-6d1298f0a72e",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 633,
+      "hash": "c74111f6853adb32a3a7eb1b722638f2",
+      "textRange": {
+        "startLine": 633,
+        "endLine": 633,
+        "startOffset": 0,
+        "endOffset": 10
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".page-hero\", first used at line 373",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "ce3dccde-2810-48c8-a38a-033051751046",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 634,
+      "hash": "18200b5aef2b0dadf4aa756d2171c22f",
+      "textRange": {
+        "startLine": 634,
+        "endLine": 634,
+        "startOffset": 0,
+        "endOffset": 18
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".page-hero::before\", first used at line 374",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4a701fe3-0cba-4aa0-8a09-b3339db10e03",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 636,
+      "hash": "5e14bb6843506b4c2e6eaf912b950adf",
+      "textRange": {
+        "startLine": 636,
+        "endLine": 636,
+        "startOffset": 0,
+        "endOffset": 18
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".page-hero .crumb2\", first used at line 375",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "8140647e-9006-49cd-b016-1d3d01be5fc5",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 637,
+      "hash": "0450a1984a9555270d378e67a238e14c",
+      "textRange": {
+        "startLine": 637,
+        "endLine": 637,
+        "startOffset": 0,
+        "endOffset": 20
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".page-hero .crumb2 a\", first used at line 376",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "16b9e3a4-bf5a-462a-a66b-9d8ab8573aa2",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 638,
+      "hash": "10c85da39728958e701b4f7f74f9cbce",
+      "textRange": {
+        "startLine": 638,
+        "endLine": 638,
+        "startOffset": 0,
+        "endOffset": 23
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".page-hero .eyebrow-dot\", first used at line 380",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "ada1f668-83ae-4e8d-a3f4-d592521446f1",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 639,
+      "hash": "699b5e1614700a838d81c90d112a4163",
+      "textRange": {
+        "startLine": 639,
+        "endLine": 639,
+        "startOffset": 0,
+        "endOffset": 31
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".page-hero .eyebrow-dot::before\", first used at line 381",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "667b89bc-84d3-416b-b90e-c13260523338",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 640,
+      "hash": "1960cf1a8924acbb44be987c3ba231b4",
+      "textRange": {
+        "startLine": 640,
+        "endLine": 640,
+        "startOffset": 0,
+        "endOffset": 13
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".page-hero h1\", first used at line 378",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "5128d31f-e63d-408c-acd0-ffcb71a04bb4",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 641,
+      "hash": "21a6626955cdcad389fcf83c25e36648",
+      "textRange": {
+        "startLine": 641,
+        "endLine": 641,
+        "startOffset": 0,
+        "endOffset": 12
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".page-hero p\", first used at line 379",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "41a7ef26-87ad-4a62-b543-0a3dd56ede23",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 642,
+      "hash": "64a0988dbb45d474b9a90c22fa7b9d7e",
+      "textRange": {
+        "startLine": 642,
+        "endLine": 642,
+        "startOffset": 0,
+        "endOffset": 14
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".balanced-hero\", first used at line 470",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "250a8950-04bc-468e-a475-29bdf35c6d83",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 643,
+      "hash": "9f89b21e79b1d8b8df8394161b94cbcf",
+      "textRange": {
+        "startLine": 643,
+        "endLine": 643,
+        "startOffset": 0,
+        "endOffset": 35
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".balanced-hero .balanced-hero-inner\", first used at line 471",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e6513687-643a-4d7c-9cb5-4ebde0be82c2",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 644,
+      "hash": "226711df008b4d7add575a5d4c160505",
+      "textRange": {
+        "startLine": 644,
+        "endLine": 644,
+        "startOffset": 0,
+        "endOffset": 17
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".balanced-hero h1\", first used at line 474",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "82134d07-57b8-4dbf-8173-d19397c1e4c2",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 645,
+      "hash": "f36f3972675a2379f6e8cd2d7a54248f",
+      "textRange": {
+        "startLine": 645,
+        "endLine": 645,
+        "startOffset": 0,
+        "endOffset": 5
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".srch\", first used at line 126",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "979af1e2-bb91-4cdd-82a2-3ffe669c9e88",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 646,
+      "hash": "2fadfe83afe196f6927b1bda12e806b7",
+      "textRange": {
+        "startLine": 646,
+        "endLine": 646,
+        "startOffset": 0,
+        "endOffset": 11
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".srch .inpw\", first used at line 127",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e285a9eb-0fd1-4a68-8423-05fdc9db6e7f",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 647,
+      "hash": "5912d8423747c81469495195ae26aa9f",
+      "textRange": {
+        "startLine": 647,
+        "endLine": 647,
+        "startOffset": 0,
+        "endOffset": 11
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".srch input\", first used at line 129",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "74ecf5b7-8f4c-4ceb-b62c-27ba043b142b",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 648,
+      "hash": "ebbda38993c7be413458c5d5b534d6db",
+      "textRange": {
+        "startLine": 648,
+        "endLine": 648,
+        "startOffset": 0,
+        "endOffset": 17
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".srch input:focus\", first used at line 130",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "779bb5ac-7952-4b49-95cd-3d71479b632b",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 649,
+      "hash": "6884f7edaeacd7fbf07d247623f337f1",
+      "textRange": {
+        "startLine": 649,
+        "endLine": 649,
+        "startOffset": 0,
+        "endOffset": 13
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".brand-filter\", first used at line 435",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "1f649098-f400-4fc8-b084-de63e29db5b9",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 650,
+      "hash": "f6a72ab02c4156fe3f24b6f8482c79aa",
+      "textRange": {
+        "startLine": 650,
+        "endLine": 650,
+        "startOffset": 0,
+        "endOffset": 5
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".chip\", first used at line 132",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "63300284-5d25-4d44-872e-42cd4830abfc",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 651,
+      "hash": "1cf7c2608c454db866f5bc9d3285656d",
+      "textRange": {
+        "startLine": 651,
+        "endLine": 651,
+        "startOffset": 0,
+        "endOffset": 11
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".chip:hover\", first used at line 133",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "65af69ce-5d7c-4e24-a9e6-54907e144488",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 652,
+      "hash": "e7989818180c3d8edfc23a6c71fafe3f",
+      "textRange": {
+        "startLine": 652,
+        "endLine": 652,
+        "startOffset": 0,
+        "endOffset": 8
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".chip.on\", first used at line 134",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "2fe44ab6-5d33-46d4-afaa-a925bd632b80",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 653,
+      "hash": "6d7fefd9c10777db48da9a47eda2722f",
+      "textRange": {
+        "startLine": 653,
+        "endLine": 653,
+        "startOffset": 0,
+        "endOffset": 14
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".catalog-intro\", first used at line 436",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "bca62891-2b13-41a8-a783-5e0929fef9ff",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 654,
+      "hash": "b6eccf42adee784d34946a39bc37e66a",
+      "textRange": {
+        "startLine": 654,
+        "endLine": 654,
+        "startOffset": 0,
+        "endOffset": 18
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".catalog-intro>div\", first used at line 437",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "f7feb08f-89d9-4db8-bef4-7eecf7a3675c",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 655,
+      "hash": "9cb664e50b7974ec06a82f6489b7850e",
+      "textRange": {
+        "startLine": 655,
+        "endLine": 655,
+        "startOffset": 0,
+        "endOffset": 21
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".catalog-intro strong\", first used at line 438",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "ba56d40e-c9af-47ea-991e-4f95c8cfb3d3",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 656,
+      "hash": "89a8e2e6f018a81789b567e71cc5e6c5",
+      "textRange": {
+        "startLine": 656,
+        "endLine": 656,
+        "startOffset": 0,
+        "endOffset": 19
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".catalog-intro span\", first used at line 439",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "5bb99883-350f-43e8-abf5-5c1c801a489f",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 657,
+      "hash": "ec2572850b37a29556666baa904c3a3e",
+      "textRange": {
+        "startLine": 657,
+        "endLine": 657,
+        "startOffset": 0,
+        "endOffset": 12
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".brand-block\", first used at line 440",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "81874b3f-c5a8-44fd-80cc-750658595327",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 658,
+      "hash": "bfc2de9328d267889377446dc7ac4668",
+      "textRange": {
+        "startLine": 658,
+        "endLine": 658,
+        "startOffset": 0,
+        "endOffset": 14
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".brand-heading\", first used at line 441",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "34086a64-a462-432f-a0fb-705162081f55",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 659,
+      "hash": "301e605e365cd1dfeb11c12388972665",
+      "textRange": {
+        "startLine": 659,
+        "endLine": 659,
+        "startOffset": 0,
+        "endOffset": 19
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".brand-heading-main\", first used at line 442",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "96c3d160-9050-4e4c-b5a3-04d26de5863b",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 660,
+      "hash": "6503bd148d5a33a67b0eac173d1c096c",
+      "textRange": {
+        "startLine": 660,
+        "endLine": 660,
+        "startOffset": 0,
+        "endOffset": 16
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".brand-logo-text\", first used at line 444",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7aca9bef-4ee8-4f0d-894c-4edeb495c42b",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 661,
+      "hash": "fd57f3feede36c646359dd438ed90d6f",
+      "textRange": {
+        "startLine": 661,
+        "endLine": 661,
+        "startOffset": 0,
+        "endOffset": 35
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".brand-heading-main>span:last-child\", first used at line 442",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "5f6966f7-4df4-4e31-98b0-fd045d78dfe6",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 662,
+      "hash": "0cae58cb0d56e0a44701a343c2d08921",
+      "textRange": {
+        "startLine": 662,
+        "endLine": 662,
+        "startOffset": 0,
+        "endOffset": 16
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".brand-heading>a\", first used at line 443",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "cd28b6b8-5b0d-4f76-9067-bbd426bd1d34",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 663,
+      "hash": "11205758ca7b755b01b97799ef70032e",
+      "textRange": {
+        "startLine": 663,
+        "endLine": 663,
+        "startOffset": 0,
+        "endOffset": 22
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".brand-heading>a:hover\", first used at line 568",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "198b8d4b-7aa1-4f13-8557-4b29468d6563",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 668,
+      "hash": "ace2172aac1c0559adcd6c5761a847e2",
+      "textRange": {
+        "startLine": 668,
+        "endLine": 668,
+        "startOffset": 0,
+        "endOffset": 21
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".product-card-new .bd\", first used at line 446",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "f28ccb62-4ef2-4606-8ac5-2660641bf2fe",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 669,
+      "hash": "9a899c1273f3e2c7e3a83a10912eef1d",
+      "textRange": {
+        "startLine": 669,
+        "endLine": 669,
+        "startOffset": 0,
+        "endOffset": 19
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".product-brand-line\", first used at line 446",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "1dfa6bf1-8ed4-4129-a7f3-f48f5381a36c",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 670,
+      "hash": "6fca6bae040a8eb640641bb08a0260b5",
+      "textRange": {
+        "startLine": 670,
+        "endLine": 670,
+        "startOffset": 0,
+        "endOffset": 11
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".brand-mini\", first used at line 447",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "70f83e76-b95e-475e-91a1-3588b52eeb1e",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 671,
+      "hash": "31a9674ecf50de8f24df9fbea72d9ce9",
+      "textRange": {
+        "startLine": 671,
+        "endLine": 671,
+        "startOffset": 0,
+        "endOffset": 13
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".product-type\", first used at line 448",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "c51e1c4b-b6fa-4742-940d-8b225fb812a7",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 672,
+      "hash": "10de6e51dac21533b2b5010c75e643f2",
+      "textRange": {
+        "startLine": 672,
+        "endLine": 672,
+        "startOffset": 0,
+        "endOffset": 24
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".product-card-new .bd h3\", first used at line 560",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6e4fbda3-6b86-4e78-9bd0-836f8d164fe8",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 673,
+      "hash": "387a59f8dc80eb16936ab91d3056153b",
+      "textRange": {
+        "startLine": 673,
+        "endLine": 673,
+        "startOffset": 0,
+        "endOffset": 14
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".product-model\", first used at line 449",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7532a836-6c00-4391-9feb-b7a193801bea",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 674,
+      "hash": "155045c722305b2969a729720e325f80",
+      "textRange": {
+        "startLine": 674,
+        "endLine": 674,
+        "startOffset": 0,
+        "endOffset": 18
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".product-spec-line\", first used at line 450",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4bd83c9e-8b10-419a-af73-fe6fe72b0243",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 675,
+      "hash": "aefcdc61d26cacf9dafc1d9b5f6e48f6",
+      "textRange": {
+        "startLine": 675,
+        "endLine": 675,
+        "startOffset": 0,
+        "endOffset": 25
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".product-spec-line strong\", first used at line 450",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "0f8e1998-a589-48de-bb6f-31a282cf51a9",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 676,
+      "hash": "e5e5be87e9a662a9ff7b01177f15a4a6",
+      "textRange": {
+        "startLine": 676,
+        "endLine": 676,
+        "startOffset": 0,
+        "endOffset": 23
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".product-spec-line span\", first used at line 450",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "0ba91f5e-54d7-4659-b1a9-f2fc08b6796c",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 679,
+      "hash": "8186db1795b76820827d607c3acdfba5",
+      "textRange": {
+        "startLine": 679,
+        "endLine": 679,
+        "startOffset": 0,
+        "endOffset": 12
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".detail-link\", first used at line 451",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "97c0a80b-f75b-463c-b635-c8f6280e8aa1",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 680,
+      "hash": "d10feeeff14801f702583ccbf267dc62",
+      "textRange": {
+        "startLine": 680,
+        "endLine": 680,
+        "startOffset": 0,
+        "endOffset": 29
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".product-photo .photo-loading\", first used at line 554",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "bec7fb6b-6bfb-441e-9838-745a9239a9ac",
+      "rule": "css:S7924",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 680,
+      "hash": "d10feeeff14801f702583ccbf267dc62",
+      "textRange": {
+        "startLine": 680,
+        "endLine": 680,
+        "startOffset": 81,
+        "endOffset": 95
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Text does not meet the minimal contrast requirement with its background.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "css",
+        "accessibility",
+        "wcag",
+        "contrast"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "a1f6b42b-a773-4b5d-a3b4-a0ac826aea48",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 681,
+      "hash": "6bc7436621050b1126cb9ac2e11c3f73",
+      "textRange": {
+        "startLine": 681,
+        "endLine": 681,
+        "startOffset": 0,
+        "endOffset": 42
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".product-photo .photo-loading iconify-icon\", first used at line 555",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d652bbc4-58bb-43fc-be0b-757f50df6644",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 682,
+      "hash": "508db571a635c01ca8e7c3c31bd3eca0",
+      "textRange": {
+        "startLine": 682,
+        "endLine": 682,
+        "startOffset": 0,
+        "endOffset": 41
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".product-photo-unavailable .photo-loading\", first used at line 557",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "2ecd3390-4a72-4add-bf50-a2ba3788c28c",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 683,
+      "hash": "f16cb931357d309fb7d5b389319206bf",
+      "textRange": {
+        "startLine": 683,
+        "endLine": 683,
+        "startOffset": 0,
+        "endOffset": 10
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".buy-guide\", first used at line 455",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4ed40d70-698c-4438-aa5b-12bc01bb9a1b",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 684,
+      "hash": "8181d5d24d7e34bbe481249c792398b6",
+      "textRange": {
+        "startLine": 684,
+        "endLine": 684,
+        "startOffset": 0,
+        "endOffset": 13
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".buy-guide h2\", first used at line 456",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "611ef1e8-ef87-4e37-bd18-13d625a27403",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 685,
+      "hash": "16b5ae147a8b16ea00da8c3488c86691",
+      "textRange": {
+        "startLine": 685,
+        "endLine": 685,
+        "startOffset": 0,
+        "endOffset": 12
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".buy-guide p\", first used at line 456",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b570b45c-1f44-46b0-b498-94bca6d90b4a",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 686,
+      "hash": "4a1eb10af133f6015a9be2b882200b11",
+      "textRange": {
+        "startLine": 686,
+        "endLine": 686,
+        "startOffset": 0,
+        "endOffset": 11
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".guide-grid\", first used at line 456",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7efc7fad-113e-440a-9810-683e45c1a1b0",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 687,
+      "hash": "7e53ae98723e3830775cfcabe7b4d626",
+      "textRange": {
+        "startLine": 687,
+        "endLine": 687,
+        "startOffset": 0,
+        "endOffset": 15
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".guide-grid>div\", first used at line 456",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9a2838d2-d8e2-446e-bb16-6282d851e834",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 688,
+      "hash": "7286f880d0a504875989c7572ba38ded",
+      "textRange": {
+        "startLine": 688,
+        "endLine": 688,
+        "startOffset": 0,
+        "endOffset": 13
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".guide-grid b\", first used at line 456",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "115ab59d-b722-48c4-9e1b-d57e606f8585",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 689,
+      "hash": "59c42e9aa85e664e9391ab7899b96f88",
+      "textRange": {
+        "startLine": 689,
+        "endLine": 689,
+        "startOffset": 0,
+        "endOffset": 16
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".guide-grid span\", first used at line 456",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "86ab7cd2-54ce-4841-b9d7-ad2a8dec3cd9",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 690,
+      "hash": "cd37d54259b8e95831588dadfc53b930",
+      "textRange": {
+        "startLine": 690,
+        "endLine": 690,
+        "startOffset": 0,
+        "endOffset": 5
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".foot\", first used at line 172",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "adf8f8c7-f0e7-4861-a549-f399c74f51b0",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 691,
+      "hash": "0d23b0a95646b4d65820762fdce46f74",
+      "textRange": {
+        "startLine": 691,
+        "endLine": 691,
+        "startOffset": 0,
+        "endOffset": 11
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".foot .cols\", first used at line 173",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b3c720e6-ffd3-4dba-a29c-78aecd33baf1",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 692,
+      "hash": "f3104889f0ea2932a555d02a2d7b2878",
+      "textRange": {
+        "startLine": 692,
+        "endLine": 692,
+        "startOffset": 0,
+        "endOffset": 8
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".foot h4\", first used at line 174",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "11799c1b-2622-4bd2-86fe-afad41b90270",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 693,
+      "hash": "29d3fad10c4c952a5028ef9065e7102c",
+      "textRange": {
+        "startLine": 693,
+        "endLine": 693,
+        "startOffset": 0,
+        "endOffset": 7
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".foot a\", first used at line 175",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b7f77eaf-04f8-42b2-870b-a26d66209ce7",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 694,
+      "hash": "d43e382b3f0dfc398b78b1f295df392b",
+      "textRange": {
+        "startLine": 694,
+        "endLine": 694,
+        "startOffset": 0,
+        "endOffset": 13
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".foot a:hover\", first used at line 176",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "95333534-54c9-4d1b-aff9-c5ace8c2aa9d",
+      "rule": "css:S4666",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/css/site.css",
+      "project": "yuyenpensuk-website-v1",
+      "line": 695,
+      "hash": "fd7172e265b59ea80a052f51b76241ab",
+      "textRange": {
+        "startLine": 695,
+        "endLine": 695,
+        "startOffset": 0,
+        "endOffset": 9
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Duplicate selector \".foot .cp\", first used at line 178",
+      "effort": "1min",
+      "debt": "1min",
+      "author": "",
+      "tags": [],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "LOGICAL",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "42e96280-7c62-4fa4-9653-d59bf0edbe42",
+      "rule": "javascript:S7761",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/js/admin.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 12,
+      "hash": "7712e9f5b5455c6dbc522e917e05821b",
+      "textRange": {
+        "startLine": 12,
+        "endLine": 12,
+        "startOffset": 21,
+        "endOffset": 59
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `.dataset` over `getAttribute(…)`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "dom",
+        "editable-source",
+        "html",
+        "api"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "59ecbe6c-9a16-4dd5-9248-1a8067fdc188",
+      "rule": "javascript:S7761",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/js/admin.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 18,
+      "hash": "f9e8b5b25ecfb44833c09c2129dc500d",
+      "textRange": {
+        "startLine": 18,
+        "endLine": 18,
+        "startOffset": 30,
+        "endOffset": 65
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `.dataset` over `getAttribute(…)`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "dom",
+        "editable-source",
+        "html",
+        "api"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "db636654-39e5-411c-a7d8-9681a68dea57",
+      "rule": "javascript:S7761",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/js/admin.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 21,
+      "hash": "64a76a5730fa786b1398ada0efd99fc2",
+      "textRange": {
+        "startLine": 21,
+        "endLine": 21,
+        "startOffset": 30,
+        "endOffset": 64
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `.dataset` over `getAttribute(…)`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "dom",
+        "editable-source",
+        "html",
+        "api"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "48b10137-2575-4534-bce9-be5a007a6104",
+      "rule": "javascript:S7761",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/js/main.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 21,
+      "hash": "3394be2df0da668c3b2963b2703a497c",
+      "textRange": {
+        "startLine": 21,
+        "endLine": 21,
+        "startOffset": 12,
+        "endOffset": 44
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `.dataset` over `getAttribute(…)`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "dom",
+        "editable-source",
+        "html",
+        "api"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b9f0dc79-5fae-4f5f-977b-6a3ab4dda9a3",
+      "rule": "javascript:S1121",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/js/main.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 22,
+      "hash": "16f61d00239477f8c58a26e4fa82c507",
+      "textRange": {
+        "startLine": 22,
+        "endLine": 22,
+        "startOffset": 15,
+        "endOffset": 16
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Extract the assignment of \"groups[g]\" from this expression.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "suspicious"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "96bcf613-3b6e-40e2-9234-cbce658c6a80",
+      "rule": "javascript:S7761",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/js/main.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 46,
+      "hash": "6361937222ac97c5f2c46d077d442b5b",
+      "textRange": {
+        "startLine": 46,
+        "endLine": 46,
+        "startOffset": 16,
+        "endOffset": 46
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `.dataset` over `getAttribute(…)`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "dom",
+        "editable-source",
+        "html",
+        "api"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b3125ad4-53b2-4bed-b072-e733f025ef15",
+      "rule": "javascript:S6582",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:public/js/main.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 111,
+      "hash": "5361adc675e6c67ae36bf2691bf816da",
+      "textRange": {
+        "startLine": 111,
+        "endLine": 111,
+        "startOffset": 10,
+        "endOffset": 31
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer using an optional chain expression instead, as it's more concise and easier to read.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "editable-source",
+        "type-dependent",
+        "es2020"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "edc12ff3-4a67-458b-9a6c-e9800e1f5824",
+      "rule": "javascript:S7761",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/js/main.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 128,
+      "hash": "00744abd418122bcfae9c1a067bf4ba6",
+      "textRange": {
+        "startLine": 128,
+        "endLine": 128,
+        "startOffset": 15,
+        "endOffset": 51
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `.dataset` over `getAttribute(…)`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "dom",
+        "editable-source",
+        "html",
+        "api"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "40d10b88-d6af-47d0-aaf4-f11e9c94007f",
+      "rule": "javascript:S7761",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/js/main.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 135,
+      "hash": "9146cbcc0d4620ef193def84dd3ee541",
+      "textRange": {
+        "startLine": 135,
+        "endLine": 135,
+        "startOffset": 13,
+        "endOffset": 49
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `.dataset` over `getAttribute(…)`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "dom",
+        "editable-source",
+        "html",
+        "api"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "3b056751-91ff-4b56-99bf-21ee622e507a",
+      "rule": "javascript:S7761",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/js/main.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 158,
+      "hash": "d49c1b14143edbb37c799443d4a278ae",
+      "textRange": {
+        "startLine": 158,
+        "endLine": 158,
+        "startOffset": 8,
+        "endOffset": 42
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `.dataset` over `setAttribute(…)`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "dom",
+        "editable-source",
+        "html",
+        "api"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "4355cd50-e530-4648-8f18-9390dbbb90fc",
+      "rule": "javascript:S7761",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/js/main.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 170,
+      "hash": "8d6150c8a9a684d02bceb64a329d8058",
+      "textRange": {
+        "startLine": 170,
+        "endLine": 170,
+        "startOffset": 8,
+        "endOffset": 49
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `.dataset` over `setAttribute(…)`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "dom",
+        "editable-source",
+        "html",
+        "api"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d6691489-a148-4255-a6eb-9c31e4ccf1bf",
+      "rule": "javascript:S7761",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/js/main.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 171,
+      "hash": "3b1e61bbd5dda22e9a0e606faae6b300",
+      "textRange": {
+        "startLine": 171,
+        "endLine": 171,
+        "startOffset": 8,
+        "endOffset": 38
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `.dataset` over `setAttribute(…)`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "dom",
+        "editable-source",
+        "html",
+        "api"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9b54c785-d077-4cd3-b5f9-88faa95f5ac2",
+      "rule": "javascript:S6582",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:public/js/main.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 184,
+      "hash": "d50a6580b94ae338e6d8097e218f2454",
+      "textRange": {
+        "startLine": 184,
+        "endLine": 184,
+        "startOffset": 10,
+        "endOffset": 34
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer using an optional chain expression instead, as it's more concise and easier to read.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "editable-source",
+        "type-dependent",
+        "es2020"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "75de2499-59c5-473b-bf10-eb013d041162",
+      "rule": "javascript:S7761",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:public/js/main.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 214,
+      "hash": "9e28e3debb2300baca03b650b8d3d123",
+      "textRange": {
+        "startLine": 214,
+        "endLine": 214,
+        "startOffset": 14,
+        "endOffset": 42
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `.dataset` over `getAttribute(…)`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "dom",
+        "editable-source",
+        "html",
+        "api"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "9b7d1844-caf3-4804-b8f5-dbd6a9b2eb5e",
+      "rule": "javascript:S7772",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:routes/admin.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 4,
+      "hash": "2414d0eaca09c782237010899a7ad01c",
+      "textRange": {
+        "startLine": 4,
+        "endLine": 4,
+        "startOffset": 21,
+        "endOffset": 27
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `node:path` over `path`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention",
+        "import",
+        "editable-source",
+        "nodejs"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "7802dc59-a3f9-411b-9bed-2dc332b0d038",
+      "rule": "javascript:S7772",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:routes/admin.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 5,
+      "hash": "21a3cd5d7ada3044037a1a06f56e6916",
+      "textRange": {
+        "startLine": 5,
+        "endLine": 5,
+        "startOffset": 23,
+        "endOffset": 31
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `node:crypto` over `crypto`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention",
+        "import",
+        "editable-source",
+        "nodejs"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "497be974-9ed9-4712-846e-e73e7cf12a8a",
+      "rule": "javascript:S7772",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:routes/admin.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 15,
+      "hash": "c1b118febb07cc43f988e9eeae4676f8",
+      "textRange": {
+        "startLine": 15,
+        "endLine": 15,
+        "startOffset": 19,
+        "endOffset": 23
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `node:fs` over `fs`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention",
+        "import",
+        "editable-source",
+        "nodejs"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "32c7d491-65ad-4355-b5fb-285c33775808",
+      "rule": "javascript:S5693",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:routes/admin.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 42,
+      "hash": "e5a1030c83bac0054a0e22d269c7a3af",
+      "textRange": {
+        "startLine": 42,
+        "endLine": 42,
+        "startOffset": 4,
+        "endOffset": 30
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make sure the content length limit is safe here.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "express.js",
+        "former-hotspot"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "TRUSTWORTHY",
+      "cleanCodeAttributeCategory": "RESPONSIBLE",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "c1c48f3c-09fb-45f5-81af-112717d04c63",
+      "rule": "javascript:S6582",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:routes/admin.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 78,
+      "hash": "1e37ba46149645e7879e7f6fc84bb7a8",
+      "textRange": {
+        "startLine": 78,
+        "endLine": 78,
+        "startOffset": 8,
+        "endOffset": 45
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer using an optional chain expression instead, as it's more concise and easier to read.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "editable-source",
+        "type-dependent",
+        "es2020"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "029b8478-22c4-498f-94b7-91283d58fa3e",
+      "rule": "javascript:S6582",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:routes/admin.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 103,
+      "hash": "ff82d1f266aec119759f945df0216c29",
+      "textRange": {
+        "startLine": 103,
+        "endLine": 103,
+        "startOffset": 12,
+        "endOffset": 38
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer using an optional chain expression instead, as it's more concise and easier to read.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "editable-source",
+        "type-dependent",
+        "es2020"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "85b24717-b29e-47bf-b232-90d249926296",
+      "rule": "javascript:S3776",
+      "severity": "CRITICAL",
+      "component": "yuyenpensuk-website-v1:routes/admin.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 252,
+      "hash": "5b1929fbec4362bd6d492e93efd8f312",
+      "textRange": {
+        "startLine": 252,
+        "endLine": 252,
+        "startOffset": 39,
+        "endOffset": 41
+      },
+      "flows": [
+        {
+          "locations": [
+            {
+              "component": "yuyenpensuk-website-v1:routes/admin.js",
+              "textRange": {
+                "startLine": 253,
+                "endLine": 253,
+                "startOffset": 6,
+                "endOffset": 8
+              },
+              "msg": "+1",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "yuyenpensuk-website-v1:routes/admin.js",
+              "textRange": {
+                "startLine": 257,
+                "endLine": 257,
+                "startOffset": 12,
+                "endOffset": 13
+              },
+              "msg": "+2 (incl. 1 for nesting)",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "yuyenpensuk-website-v1:routes/admin.js",
+              "textRange": {
+                "startLine": 261,
+                "endLine": 261,
+                "startOffset": 6,
+                "endOffset": 8
+              },
+              "msg": "+1",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "yuyenpensuk-website-v1:routes/admin.js",
+              "textRange": {
+                "startLine": 266,
+                "endLine": 266,
+                "startOffset": 23,
+                "endOffset": 24
+              },
+              "msg": "+1",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "yuyenpensuk-website-v1:routes/admin.js",
+              "textRange": {
+                "startLine": 268,
+                "endLine": 268,
+                "startOffset": 8,
+                "endOffset": 10
+              },
+              "msg": "+1",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "yuyenpensuk-website-v1:routes/admin.js",
+              "textRange": {
+                "startLine": 278,
+                "endLine": 278,
+                "startOffset": 8,
+                "endOffset": 12
+              },
+              "msg": "+1",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "yuyenpensuk-website-v1:routes/admin.js",
+              "textRange": {
+                "startLine": 269,
+                "endLine": 269,
+                "startOffset": 10,
+                "endOffset": 13
+              },
+              "msg": "+2 (incl. 1 for nesting)",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "yuyenpensuk-website-v1:routes/admin.js",
+              "textRange": {
+                "startLine": 270,
+                "endLine": 270,
+                "startOffset": 12,
+                "endOffset": 14
+              },
+              "msg": "+3 (incl. 2 for nesting)",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "yuyenpensuk-website-v1:routes/admin.js",
+              "textRange": {
+                "startLine": 270,
+                "endLine": 270,
+                "startOffset": 26,
+                "endOffset": 28
+              },
+              "msg": "+1",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "yuyenpensuk-website-v1:routes/admin.js",
+              "textRange": {
+                "startLine": 272,
+                "endLine": 272,
+                "startOffset": 10,
+                "endOffset": 12
+              },
+              "msg": "+2 (incl. 1 for nesting)",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "yuyenpensuk-website-v1:routes/admin.js",
+              "textRange": {
+                "startLine": 272,
+                "endLine": 272,
+                "startOffset": 42,
+                "endOffset": 44
+              },
+              "msg": "+1",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "yuyenpensuk-website-v1:routes/admin.js",
+              "textRange": {
+                "startLine": 274,
+                "endLine": 274,
+                "startOffset": 12,
+                "endOffset": 15
+              },
+              "msg": "+3 (incl. 2 for nesting)",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "yuyenpensuk-website-v1:routes/admin.js",
+              "textRange": {
+                "startLine": 274,
+                "endLine": 274,
+                "startOffset": 46,
+                "endOffset": 48
+              },
+              "msg": "+4 (incl. 3 for nesting)",
+              "msgFormattings": []
+            }
+          ]
+        },
+        {
+          "locations": [
+            {
+              "component": "yuyenpensuk-website-v1:routes/admin.js",
+              "textRange": {
+                "startLine": 281,
+                "endLine": 281,
+                "startOffset": 8,
+                "endOffset": 13
+              },
+              "msg": "+1",
+              "msgFormattings": []
+            }
+          ]
+        }
+      ],
+      "status": "OPEN",
+      "message": "Refactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.",
+      "effort": "14min",
+      "debt": "14min",
+      "author": "",
+      "tags": [
+        "brain-overload",
+        "editable-source"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "FOCUSED",
+      "cleanCodeAttributeCategory": "ADAPTABLE",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "f3d7531f-0809-4277-bed9-a6d570ad5b95",
+      "rule": "javascript:S3358",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:routes/admin.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 321,
+      "hash": "c0a90af7bd5992aea20269d142575efb",
+      "textRange": {
+        "startLine": 321,
+        "endLine": 321,
+        "startOffset": 72,
+        "endOffset": 92
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Extract this nested ternary operation into an independent statement.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "editable-source",
+        "confusing"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "29741092-d36b-4a1b-b569-0e6a030d13df",
+      "rule": "javascript:S3358",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:routes/admin.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 348,
+      "hash": "8f57f6dfd5f5ce20bd520653ffd44419",
+      "textRange": {
+        "startLine": 348,
+        "endLine": 348,
+        "startOffset": 89,
+        "endOffset": 111
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Extract this nested ternary operation into an independent statement.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "editable-source",
+        "confusing"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "614b900b-67af-40f0-bda1-ab61dd1e3cc6",
+      "rule": "javascript:S3358",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:routes/admin.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 348,
+      "hash": "8f57f6dfd5f5ce20bd520653ffd44419",
+      "textRange": {
+        "startLine": 348,
+        "endLine": 348,
+        "startOffset": 51,
+        "endOffset": 111
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Extract this nested ternary operation into an independent statement.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "editable-source",
+        "confusing"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e3200c02-0553-4bc2-9134-a56026fe0f43",
+      "rule": "javascript:S6582",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:routes/site.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 18,
+      "hash": "2b3e2a3281522527e5f8b8309ec1f48e",
+      "textRange": {
+        "startLine": 18,
+        "endLine": 18,
+        "startOffset": 14,
+        "endOffset": 50
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer using an optional chain expression instead, as it's more concise and easier to read.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "editable-source",
+        "type-dependent",
+        "es2020"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "6ca987b4-019d-46b6-92cb-bbda0a921176",
+      "rule": "javascript:S7772",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:scripts/audit.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 1,
+      "hash": "44f9b15d3b1641faca5561b190d8261a",
+      "textRange": {
+        "startLine": 1,
+        "endLine": 1,
+        "startOffset": 19,
+        "endOffset": 23
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `node:fs` over `fs`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention",
+        "import",
+        "editable-source",
+        "nodejs"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "aba636e7-16d2-4831-9db7-2c1deeb1baf4",
+      "rule": "javascript:S7772",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:scripts/audit.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 2,
+      "hash": "85968f5b9f570a82c65709eacc211a09",
+      "textRange": {
+        "startLine": 2,
+        "endLine": 2,
+        "startOffset": 21,
+        "endOffset": 27
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `node:path` over `path`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention",
+        "import",
+        "editable-source",
+        "nodejs"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "495f9ef2-703c-4299-ace1-189dc7dc2142",
+      "rule": "javascript:S7772",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:scripts/audit.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 3,
+      "hash": "6ce289f59282d989601508948aa1d49c",
+      "textRange": {
+        "startLine": 3,
+        "endLine": 3,
+        "startOffset": 33,
+        "endOffset": 48
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `node:child_process` over `child_process`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention",
+        "import",
+        "editable-source",
+        "nodejs"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "8465620a-6fcd-43c6-9c91-c3ca895e0b7d",
+      "rule": "javascript:S1523",
+      "severity": "CRITICAL",
+      "component": "yuyenpensuk-website-v1:scripts/audit.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 24,
+      "hash": "ea9d7c1c441314a48676127992c76ed4",
+      "textRange": {
+        "startLine": 24,
+        "endLine": 24,
+        "startOffset": 0,
+        "endOffset": 29
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make sure that this dynamic injection or execution of code is safe.",
+      "effort": "30min",
+      "debt": "30min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "former-hotspot"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "TRUSTWORTHY",
+      "cleanCodeAttributeCategory": "RESPONSIBLE",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        },
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "143575e9-3d5c-43ab-8e7b-5bcf32662d9c",
+      "rule": "javascript:S7772",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:scripts/audit.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 24,
+      "hash": "ea9d7c1c441314a48676127992c76ed4",
+      "textRange": {
+        "startLine": 24,
+        "endLine": 24,
+        "startOffset": 8,
+        "endOffset": 12
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `node:vm` over `vm`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention",
+        "import",
+        "editable-source",
+        "nodejs"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "c5580e72-50a6-4876-aabe-edd8380ed8bc",
+      "rule": "javascript:S6535",
+      "severity": "MAJOR",
+      "component": "yuyenpensuk-website-v1:scripts/audit.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 137,
+      "hash": "981049eb9e577c0b31ff0b1e6ea69e36",
+      "textRange": {
+        "startLine": 137,
+        "endLine": 137,
+        "startOffset": 64,
+        "endOffset": 65
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Unnecessary escape character: \\\".",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "editable-source"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "e7425074-b073-4369-8f9d-bed15d87f892",
+      "rule": "javascript:S7780",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:scripts/audit.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 140,
+      "hash": "dd50905e03e36d5844ed3568fe9d757d",
+      "textRange": {
+        "startLine": 140,
+        "endLine": 140,
+        "startOffset": 23,
+        "endOffset": 39
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "`String.raw` should be used to avoid escaping `\\`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "readability",
+        "es2015",
+        "editable-source"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "39f83485-aae1-4750-8e15-bb43ad85aa15",
+      "rule": "javascript:S7772",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:utils/product-images.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 1,
+      "hash": "44f9b15d3b1641faca5561b190d8261a",
+      "textRange": {
+        "startLine": 1,
+        "endLine": 1,
+        "startOffset": 19,
+        "endOffset": 23
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `node:fs` over `fs`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention",
+        "import",
+        "editable-source",
+        "nodejs"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "d57bfacb-4650-4045-85b8-7affb9629101",
+      "rule": "javascript:S7772",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:utils/product-images.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 2,
+      "hash": "85968f5b9f570a82c65709eacc211a09",
+      "textRange": {
+        "startLine": 2,
+        "endLine": 2,
+        "startOffset": 21,
+        "endOffset": 27
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `node:path` over `path`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention",
+        "import",
+        "editable-source",
+        "nodejs"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "b34bba93-58e5-4627-939b-54ae11a62ab7",
+      "rule": "javascript:S7772",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:utils/product-images.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 3,
+      "hash": "c830f6c4155a5cbeef0f28771e61ed4d",
+      "textRange": {
+        "startLine": 3,
+        "endLine": 3,
+        "startOffset": 23,
+        "endOffset": 31
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer `node:crypto` over `crypto`.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "convention",
+        "import",
+        "editable-source",
+        "nodejs"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CONVENTIONAL",
+      "cleanCodeAttributeCategory": "CONSISTENT",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "MEDIUM"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "8dde7df0-67fc-4ce3-bd74-a9c7057f0e6a",
+      "rule": "javascript:S6582",
+      "severity": "MINOR",
+      "component": "yuyenpensuk-website-v1:utils/product-images.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 23,
+      "hash": "5e04750e57773111e7e826c10125def9",
+      "textRange": {
+        "startLine": 23,
+        "endLine": 23,
+        "startOffset": 6,
+        "endOffset": 27
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Prefer using an optional chain expression instead, as it's more concise and easier to read.",
+      "effort": "5min",
+      "debt": "5min",
+      "author": "",
+      "tags": [
+        "editable-source",
+        "type-dependent",
+        "es2020"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "CODE_SMELL",
+      "scope": "MAIN",
+      "quickFixAvailable": true,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "CLEAR",
+      "cleanCodeAttributeCategory": "INTENTIONAL",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    },
+    {
+      "key": "59f0a0d7-6d08-4c50-8ac7-554a46db4df6",
+      "rule": "javascript:S4790",
+      "severity": "CRITICAL",
+      "component": "yuyenpensuk-website-v1:utils/product-images.js",
+      "project": "yuyenpensuk-website-v1",
+      "line": 91,
+      "hash": "430f1cebe21a43e7859accd7acb3765f",
+      "textRange": {
+        "startLine": 91,
+        "endLine": 91,
+        "startOffset": 14,
+        "endOffset": 31
+      },
+      "flows": [],
+      "status": "OPEN",
+      "message": "Make sure this weak hash algorithm is not used in a sensitive context here.",
+      "effort": "30min",
+      "debt": "30min",
+      "author": "",
+      "tags": [
+        "cwe",
+        "former-hotspot"
+      ],
+      "creationDate": "2026-10-22T16:16:45+0000",
+      "updateDate": "2026-10-22T16:16:45+0000",
+      "type": "VULNERABILITY",
+      "scope": "MAIN",
+      "quickFixAvailable": false,
+      "messageFormattings": [],
+      "codeVariants": [],
+      "cleanCodeAttribute": "TRUSTWORTHY",
+      "cleanCodeAttributeCategory": "RESPONSIBLE",
+      "impacts": [
+        {
+          "softwareQuality": "SECURITY",
+          "severity": "HIGH"
+        }
+      ],
+      "issueStatus": "OPEN",
+      "prioritizedRule": false,
+      "fromSonarQubeUpdate": false,
+      "internalTags": [],
+      "linkedTicketStatus": "NOT_LINKED"
+    }
+  ],
+  "components": [
+    {
+      "key": "yuyenpensuk-website-v1:routes/site.js",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "site.js",
+      "longName": "routes/site.js",
+      "path": "routes/site.js"
+    },
+    {
+      "key": "yuyenpensuk-website-v1:public/css/site.css",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "site.css",
+      "longName": "public/css/site.css",
+      "path": "public/css/site.css"
+    },
+    {
+      "key": "yuyenpensuk-website-v1:public/js/main.js",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "main.js",
+      "longName": "public/js/main.js",
+      "path": "public/js/main.js"
+    },
+    {
+      "key": "yuyenpensuk-website-v1:scripts/audit.js",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "audit.js",
+      "longName": "scripts/audit.js",
+      "path": "scripts/audit.js"
+    },
+    {
+      "key": "yuyenpensuk-website-v1",
+      "enabled": true,
+      "qualifier": "TRK",
+      "name": "Yuyenpensuk Website V1 (website_YS)",
+      "longName": "Yuyenpensuk Website V1 (website_YS)"
+    },
+    {
+      "key": "yuyenpensuk-website-v1:public/js/admin.js",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "admin.js",
+      "longName": "public/js/admin.js",
+      "path": "public/js/admin.js"
+    },
+    {
+      "key": "yuyenpensuk-website-v1:utils/product-images.js",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "product-images.js",
+      "longName": "utils/product-images.js",
+      "path": "utils/product-images.js"
+    },
+    {
+      "key": "yuyenpensuk-website-v1:routes/admin.js",
+      "enabled": true,
+      "qualifier": "FIL",
+      "name": "admin.js",
+      "longName": "routes/admin.js",
+      "path": "routes/admin.js"
+    }
+  ],
+  "facets": []
+}
