@@ -63,7 +63,6 @@
   <article class="why-row <%= i%2 ? 'why-row-reverse' : '' %>">
     <div class="why-visual why-photo-frame <%= i%2 ? 'why-product-photo' : '' %>">
       <% if(f.image){ %><img src="<%= f.image %>" alt="<%= f.title %>" loading="lazy"><% } %>
-      <span class="why-photo-label"><%= n %> / <%= f.subtitle || 'OUR STRENGTH' %></span>
     </div>
     <div class="why-copy">
       <div class="why-kicker"><span><%= n %></span> <%= f.subtitle || 'OUR STRENGTH' %></div>
